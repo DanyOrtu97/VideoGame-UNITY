@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class LiamMovement : MonoBehaviour
+public class LiamMovement : NetworkBehaviour
 {
 
 	private Animator animator;
@@ -27,6 +28,9 @@ public class LiamMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (hasAuthority == false) {
+            return;
+        }
 		float y = Input.GetAxis("Vertical");
 		float x = Input.GetAxis("Horizontal");
 		velocity = y * speed;

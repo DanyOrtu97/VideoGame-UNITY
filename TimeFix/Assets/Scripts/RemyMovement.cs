@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class RemyMovement : MonoBehaviour
+public class RemyMovement : NetworkBehaviour
 {
 
 	private Animator animator;
@@ -27,7 +28,11 @@ public class RemyMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float y = Input.GetAxis("Vertical");
+        if (hasAuthority == false)
+        {
+            return;
+        }
+        float y = Input.GetAxis("Vertical");
 		float x = Input.GetAxis("Horizontal");
 		velocity = y * speed;
 
