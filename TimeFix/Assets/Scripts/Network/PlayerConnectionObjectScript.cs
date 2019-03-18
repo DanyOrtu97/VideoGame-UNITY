@@ -10,10 +10,18 @@ public class PlayerConnectionObjectScript : NetworkBehaviour {
     public GameObject playerUnitClient;
     private GameObject camHost;
     private GameObject camClient;
+    [SyncVar]
+    public bool ThisIsTheServerPlayer = false;
     // Use this for initialization
     void Start () {
-        camHost= playerUnitHost.transform.FindChild("MainCameraHost").gameObject;
-        camClient = playerUnitClient.transform.FindChild("MainCameraClient").gameObject;
+        if (isLocalPlayer && isServer)
+        {
+            ThisIsTheServerPlayer = true;
+        }
+
+
+        camHost = playerUnitHost.transform.Find("MainCameraHost").gameObject;
+        camClient = playerUnitClient.transform.Find("MainCameraClient").gameObject;
 
         if (isLocalPlayer == false)
         {
@@ -62,7 +70,22 @@ public class PlayerConnectionObjectScript : NetworkBehaviour {
 
     [Command]
      void CmdSpawnMyUnit() {
-        if (DataScript.playersObject.Count==0)
+
+        if (ThisIsTheServerPlayer)
+        {
+            GameObject go = Instantiate(playerUnitHost);
+            DataScript.AddToUserList(go);
+            go.transform.position = NetworkManager.singleton.GetStartPosition().position;//posizione iniziale
+            NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
+        }
+        else
+        {
+            GameObject go = Instantiate(playerUnitClient);
+            DataScript.AddToUserList(go);
+            go.transform.position = NetworkManager.singleton.GetStartPosition().position;//posizione iniziale
+            NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
+        }
+        /*if (DataScript.playersObject.Count==0)
         {
 
             GameObject go = Instantiate(playerUnitHost);
@@ -76,8 +99,8 @@ public class PlayerConnectionObjectScript : NetworkBehaviour {
             DataScript.AddToUserList(go);
             go.transform.position = NetworkManager.singleton.GetStartPosition().position;//posizione iniziale
             NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
-        }
-       
+        }*/
+
     }
     
     

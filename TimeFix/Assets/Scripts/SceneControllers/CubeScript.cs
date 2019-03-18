@@ -17,7 +17,7 @@ public class CubeScript : MonoBehaviour {
     {
         NetworkIdentity current= collision.gameObject.GetComponent<NetworkIdentity>();
         if (current != null) {
-            GameControllerScript.AddToUserList(current);
+            GameControllerScriptDefault.AddToUserList(current);
         }
         
     }
@@ -26,7 +26,7 @@ public class CubeScript : MonoBehaviour {
         NetworkIdentity current = collision.gameObject.GetComponent<NetworkIdentity>();
         if (current != null)
         {
-            GameControllerScript.RemoveFromUserList(current);
+            GameControllerScriptDefault.RemoveFromUserList(current);
         }
 
     }

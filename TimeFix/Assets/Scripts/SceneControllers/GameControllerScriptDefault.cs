@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 //Gestisce la traszione tra scene
-public class GameControllerScript : NetworkBehaviour {
+public class GameControllerScriptDefault : NetworkBehaviour {
 
     public static List<NetworkIdentity> listaUtenti;
     private int changeScene=0;
