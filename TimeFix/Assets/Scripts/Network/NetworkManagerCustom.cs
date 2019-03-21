@@ -50,14 +50,14 @@ public class NetworkManagerCustom : NetworkManager
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 
     }
-
+	/*
     public override void OnServerRemovePlayer(NetworkConnection conn, PlayerController player)
     {
 
         if (player.gameObject != null)
             NetworkServer.Destroy(player.gameObject);
 
-    }
+    }*/
 
     public override void OnServerError(NetworkConnection conn, int errorCode)
     {
