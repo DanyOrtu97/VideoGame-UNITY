@@ -1000,6 +1000,9 @@ GameObject:
   - component: {fileID: 4461816856737934706}
   - component: {fileID: 4461816856737934705}
   - component: {fileID: 4461816856737934704}
+  - component: {fileID: 2337038979120969331}
+  - component: {fileID: 2111178410351487868}
+  - component: {fileID: 1556655895021520734}
   m_Layer: 0
   m_Name: remy
   m_TagString: Untagged
@@ -1099,6 +1102,81 @@ MonoBehaviour:
   tmp: 0
   life: 100
   died: 0
+--- !u!114 &2337038979120969331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461816856737934719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &2111178410351487868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461816856737934719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 4461816856737934707}
+  m_ParameterSendBits: 511
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
+--- !u!114 &1556655895021520734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461816856737934719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &4461816856780649250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1680,7 @@ GameObject:
   - component: {fileID: 4461816857425199714}
   - component: {fileID: 4461816857425199713}
   m_Layer: 0
-  m_Name: CameraRemy
+  m_Name: MainCameraClient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

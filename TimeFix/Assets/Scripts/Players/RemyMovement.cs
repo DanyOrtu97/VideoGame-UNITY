@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class LiamMovement : MonoBehaviour
+public class RemyMovement : NetworkBehaviour
 {
 
 	private Animator animator;
@@ -13,21 +14,25 @@ public class LiamMovement : MonoBehaviour
 	public float turnVelocity = 0.1f;
 	public float time = 0f;
 	public bool tmp = false;
-    public int life = 100;
-    public bool died = false;
+	public int life = 100;
+	public bool died = false;
 
 	// Start is called before the first frame update
 	void Start()
-    {
+	{
 		animator = GetComponent<Animator>();
 		rb = this.gameObject.GetComponent<Rigidbody>();
-    }
+	}
 
 	// Update is called once per frame
 
-    void FixedUpdate()
-    {
-		float y = Input.GetAxis("Vertical");
+	void FixedUpdate()
+	{
+        if (hasAuthority == false)
+        {
+            return;
+        }
+        float y = Input.GetAxis("Vertical");
 		float x = Input.GetAxis("Horizontal");
 		velocity = y * speed;
 
@@ -37,14 +42,14 @@ public class LiamMovement : MonoBehaviour
 		animator.SetBool("Punch", false);
 
 
-		if (velocity != 0 && ( ((Time.time - time) > 4.7) || time == 0))
+		if (velocity != 0 && (((Time.time - time) > 4.7) || time == 0))
 		{
 			time = 0f;
 			animator.SetBool("Take", false);
 			animator.SetBool("IsMoving", true);
 			animator.SetFloat("Velocity", y);
 			animator.SetBool("Fight", false);
-			
+
 			tmp = true;
 			rb.velocity = transform.forward * velocity;
 		}
@@ -56,23 +61,23 @@ public class LiamMovement : MonoBehaviour
 		}
 
 
-		if (Input.GetKeyDown(KeyCode.F) && tmp==false)
+		if (Input.GetKeyDown(KeyCode.F) && tmp == false)
 		{
 			animator.SetBool("Take", true);
 			time = Time.time;
 		}
 
-        CapsuleCollider collider = this.gameObject.GetComponent<CapsuleCollider>();
+		CapsuleCollider collider = this.gameObject.GetComponent<CapsuleCollider>();
 
-		if (Input.GetKeyDown(KeyCode.Space) )
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			animator.SetBool("Jump", true);
 		}
 		else
 		{
-           animator.SetBool("Jump", false);
-        }
-		
+			animator.SetBool("Jump", false);
+		}
+
 
 		Vector3 rotationToApply = new Vector3(0, turnVelocity, 0);
 
@@ -80,13 +85,13 @@ public class LiamMovement : MonoBehaviour
 
 		animator.SetFloat("TurnRate", x);
 
-        if(life <= 0)
-        {
-            animator.SetBool("Died", true);
-            died = true;
-        }
+		if (life <= 0)
+		{
+			animator.SetBool("Died", true);
+			died = true;
+		}
 
-        /*
+		/*
         if (died)
         {
             Destroy(this.gameObject);
