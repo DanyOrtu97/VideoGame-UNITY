@@ -27,7 +27,8 @@ public class LV4_OpenUpAccess : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player")){
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
+		{
 			EnterCollision = true;
 		}
 
@@ -40,7 +41,7 @@ public class LV4_OpenUpAccess : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
 		{
 			EnterCollision = true;
 
@@ -57,6 +58,7 @@ public class LV4_OpenUpAccess : MonoBehaviour
 	}
 
 
+	/*
 	//digita password
 	void OnGUI()
 	{
@@ -94,12 +96,10 @@ public class LV4_OpenUpAccess : MonoBehaviour
 			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Aperto", centeredStyleLabel);
 			ControlTime++;
 		}
+		}
 
+		*/
 		
 		
 	}
 
-
-
-
-}

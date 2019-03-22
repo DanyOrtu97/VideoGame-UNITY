@@ -5,6 +5,7 @@ using UnityEngine;
 public class VerifyRotation : MonoBehaviour
 {
 
+	public GameObject infoA, infoB;
 	GameObject battery1, battery2, battery3;
 	private BoxCollider boxCollider;
 	private bool EnterCollision = false;
@@ -12,10 +13,12 @@ public class VerifyRotation : MonoBehaviour
 	private int verifyCount = 0;
 	private int controlOpen = 0;
 
+
 	// Start is called before the first frame update
 	void Start()
     {
 		boxCollider = gameObject.GetComponent<BoxCollider>();
+
 	}
 
     // Update is called once per frame
@@ -29,7 +32,6 @@ public class VerifyRotation : MonoBehaviour
 		battery3 = GameObject.FindGameObjectWithTag("battery3");
 
 
-		Debug.Log(battery1.transform.eulerAngles.y+" "+ battery2.transform.eulerAngles.y+" "+ battery3.transform.eulerAngles.y);
 		if(battery1.transform.eulerAngles.y == 0 
 			&& battery2.transform.eulerAngles.y == 90
 			&& battery3.transform.eulerAngles.y == 0)
@@ -43,36 +45,53 @@ public class VerifyRotation : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") )
 		{
+			infoA.gameObject.SetActive(true);
 			EnterCollision = true;
 		}
+
+		if (collision.gameObject.CompareTag("PlayerB"))
+		{
+			infoB.gameObject.SetActive(true);
+			EnterCollision = true;
+		}
+
+
 	}
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA"))
 		{
+			infoA.gameObject.SetActive(true);
 			EnterCollision = true;
 		}
+
+		if (collision.gameObject.CompareTag("PlayerB"))
+		{
+			infoB.gameObject.SetActive(true);
+			EnterCollision = true;
+		}
+
+
 	}
 
 	private void OnCollisionExit(Collision collision)
 	{
+		if (collision.gameObject.CompareTag("PlayerA"))
+		{
+			infoA.gameObject.SetActive(false);
+		}
+
+		if (collision.gameObject.CompareTag("PlayerB"))
+		{
+			infoB.gameObject.SetActive(false);
+		}
 		EnterCollision = false;
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		controlOpen++;
-	}
-
-	private void OnTriggerStay(Collider other)
-	{
-		controlOpen++;
-	}
-
-
+	/*
 	void OnGUI()
 	{
 		if (EnterCollision && !Pass)
@@ -90,7 +109,7 @@ public class VerifyRotation : MonoBehaviour
 		}
 
 	}
-
+	*/
 
 
 

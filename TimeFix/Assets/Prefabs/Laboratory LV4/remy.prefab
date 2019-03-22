@@ -2838,11 +2838,11 @@ GameObject:
   - component: {fileID: 8171639961906150560}
   - component: {fileID: 3974582825065328023}
   - component: {fileID: 4251024954921318292}
-  - component: {fileID: 1109100238024045523}
   - component: {fileID: 602975338619875484}
+  - component: {fileID: 7040514087964706957}
   m_Layer: 0
   m_Name: remy
-  m_TagString: liam
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2880,7 +2880,7 @@ Animator:
   m_GameObject: {fileID: 9067758495022153825}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2877767dd1dff504db1ce8f55d66a639, type: 3}
-  m_Controller: {fileID: 9100000, guid: d03b74bbf16726944a755db633872793, type: 2}
+  m_Controller: {fileID: 9100000, guid: a7a1e1adc22d78f4db161177df1113b3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2923,22 +2923,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
---- !u!114 &1109100238024045523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9067758495022153825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fabf71217aa3554aa276973c23acdfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToGathering: 0
-  turnSpeed: 4
-  tmp: 0
-  unlock: 0
 --- !u!136 &602975338619875484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2953,3 +2937,20 @@ CapsuleCollider:
   m_Height: 4.1
   m_Direction: 1
   m_Center: {x: 0, y: 1.9, z: 0}
+--- !u!114 &7040514087964706957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067758495022153825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4fdd36f5211f44c847d0c2b645704f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToGathering: 0
+  turnSpeed: 4
+  tmp: 0
+  unlock: 0
+  Collectible: 

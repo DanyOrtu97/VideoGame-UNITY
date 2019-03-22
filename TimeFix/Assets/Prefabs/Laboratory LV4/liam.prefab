@@ -904,8 +904,8 @@ GameObject:
   - component: {fileID: 5234035685977520522}
   - component: {fileID: 5234035685977520523}
   - component: {fileID: 5234035685977520516}
-  - component: {fileID: 5234035685977520517}
   - component: {fileID: 5234035685977520520}
+  - component: {fileID: 4020627028370914597}
   m_Layer: 0
   m_Name: liam
   m_TagString: Player
@@ -988,7 +988,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
---- !u!114 &5234035685977520517
+--- !u!136 &5234035685977520520
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234035685977520518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 4.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.9, z: 0}
+--- !u!114 &4020627028370914597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1005,20 +1019,6 @@ MonoBehaviour:
   tmp: 0
   unlock: 0
   Collectible: 
---- !u!136 &5234035685977520520
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5234035685977520518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.2
-  m_Height: 4.1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.9, z: 0}
 --- !u!1 &5234035685986643998
 GameObject:
   m_ObjectHideFlags: 0

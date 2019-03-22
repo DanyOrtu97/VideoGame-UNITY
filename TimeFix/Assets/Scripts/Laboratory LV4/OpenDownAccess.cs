@@ -7,7 +7,7 @@ public class OpenDownAccess : MonoBehaviour
 	private BoxCollider boxCollider;
 	private bool EnterCollision = false;
 	private int verifyCount = 0;
-	private GameObject Player;
+	private GameObject PlayerA, PlayerB;
 	private int controlOpen = 0;
 	private float timeToAppearClose = 0f;
 
@@ -21,9 +21,10 @@ public class OpenDownAccess : MonoBehaviour
     void FixedUpdate()
     {
 
-		Player = GameObject.FindGameObjectWithTag("Player");
+		PlayerA = GameObject.FindGameObjectWithTag("PlayerA");
+		PlayerB = GameObject.FindGameObjectWithTag("PlayerB");
 
-		if (Player.GetComponent<PlayerController>().unlock)
+		if (PlayerB.GetComponent<PlayerController>().unlock || PlayerA.GetComponent<PlayerController>().unlock)
 		{
 			boxCollider.isTrigger = true;
 			EnterCollision = false;
@@ -43,7 +44,7 @@ public class OpenDownAccess : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
 		{
 			EnterCollision = true;
 		}
@@ -51,7 +52,7 @@ public class OpenDownAccess : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
 		{
 			EnterCollision = true;
 		}
@@ -78,7 +79,7 @@ public class OpenDownAccess : MonoBehaviour
 		controlOpen+=30;
 	}
 
-
+	/*
 	void OnGUI()
 	{
 
@@ -91,7 +92,7 @@ public class OpenDownAccess : MonoBehaviour
 			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Chiuso", centeredStyleLabel);
 		}
 
-		if (Player.GetComponent<PlayerController>().unlock && controlOpen> 0 && controlOpen < 60)
+		if (PlayerA.GetComponent<PlayerController>().unlock && controlOpen> 0 && controlOpen < 60)
 		{
 			var centeredStyleLabel = GUI.skin.GetStyle("Label");
 			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
@@ -100,8 +101,14 @@ public class OpenDownAccess : MonoBehaviour
 			
 		}
 
+		if (PlayerB.GetComponent<PlayerController>().unlock && controlOpen > 0 && controlOpen < 60)
+		{
+			var centeredStyleLabel = GUI.skin.GetStyle("Label");
+			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
 
+			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Aperto", centeredStyleLabel);
+
+		}
+		*/
 
 	}
-
-}

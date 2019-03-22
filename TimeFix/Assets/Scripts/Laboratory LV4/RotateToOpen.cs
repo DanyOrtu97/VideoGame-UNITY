@@ -24,7 +24,7 @@ public class RotateToOpen : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
 		{
 			checkCollision = true;
 			if (Input.GetKeyDown(KeyCode.R))
@@ -36,7 +36,7 @@ public class RotateToOpen : MonoBehaviour
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
 		{
 			checkCollision = true;
 			if (Input.GetKeyDown(KeyCode.R))
@@ -58,7 +58,7 @@ public class RotateToOpen : MonoBehaviour
 		checkCollision = false;
 	}
 
-
+	/*
 	void OnGUI()
 	{
 		if (checkCollision)
@@ -68,4 +68,5 @@ public class RotateToOpen : MonoBehaviour
 			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Premi R per ruotare", centeredStyleLabel);
 		}
 	}
+	*/
 }
