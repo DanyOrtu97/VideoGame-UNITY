@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 public class LV4_OpenUpAccess : MonoBehaviour
 {
-	private BoxCollider boxCollider;
-	private string mWord;
-	private bool EnterCollision = false;
-	private bool click = false;
+    public Text textA, textB;
+    public GameObject infoA, infoB;
+    private BoxCollider boxCollider;
 	private bool openUp = false;
-	private float ControlTime = 0;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -22,84 +20,84 @@ public class LV4_OpenUpAccess : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (openUp)
+        {
+            boxCollider.isTrigger = true;
+        }
     }
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
-		{
-			EnterCollision = true;
-		}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Digitare la password per entrare!";
 
-		if (openUp)
-		{
-			EnterCollision = false;
-		}
-	}
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                textA.text = "Passaggio aperto!";
+                openUp = true;
+            }
+        }
 
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Digitare la password per entrare!";
 
-	private void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
-		{
-			EnterCollision = true;
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                textA.text = "Passaggio aperto!";
+                openUp = true;
+            }
 
-		}
-		if (openUp)
-		{
-			EnterCollision = false;
-		}
-	}
+        }
+    }
 
-	private void OnCollisionExit(Collision collision)
-	{
-		EnterCollision = false;
-	}
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Digitare la password per entrare!";
 
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                textA.text = "Passaggio aperto!";
+                openUp = true;
+            }
 
-	/*
-	//digita password
-	void OnGUI()
-	{
+        }
 
-		if (EnterCollision)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Digitare la password per entrare!";
 
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Inserisci password per passare", centeredStyleLabel);
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                textA.text = "Passaggio aperto!";
+                openUp = true;
+            }
 
-
-			mWord = GUI.TextField(new Rect(Screen.width / 2 - 50, (Screen.height / 2 - 25)+20, 100, 30), mWord);
-
-			
-			if(GUI.Button(new Rect(Screen.width / 2 - 50, (Screen.height / 2 - 25) + 52, 100, 20), "Ok"))
-			{
-				click = true;
-			}
-
-			if (mWord == "serpente" && click)
-			{
-				boxCollider.isTrigger = true;
-				EnterCollision = false;
-				openUp = true;
-			}
-		}
+        }
+    }
 
 
-		if (openUp && ControlTime < 60)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(false);
+        }
 
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Aperto", centeredStyleLabel);
-			ControlTime++;
-		}
-		}
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(false);
+        }
+    }
 
-		*/
-		
-		
-	}
+
+   
+}
 

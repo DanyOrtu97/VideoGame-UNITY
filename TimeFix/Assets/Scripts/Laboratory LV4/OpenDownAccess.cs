@@ -1,114 +1,77 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenDownAccess : MonoBehaviour
 {
-	private BoxCollider boxCollider;
-	private bool EnterCollision = false;
-	private int verifyCount = 0;
-	private GameObject PlayerA, PlayerB;
-	private int controlOpen = 0;
-	private float timeToAppearClose = 0f;
+    public Text textA, textB;
+    public GameObject infoA, infoB;
+    private BoxCollider boxCollider;
+    public GameObject PlatrformA, PlatrformB;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-		boxCollider = gameObject.GetComponent<BoxCollider>();
+        boxCollider = gameObject.GetComponent<BoxCollider>();
 	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-		PlayerA = GameObject.FindGameObjectWithTag("PlayerA");
-		PlayerB = GameObject.FindGameObjectWithTag("PlayerB");
-
-		if (PlayerB.GetComponent<PlayerController>().unlock || PlayerA.GetComponent<PlayerController>().unlock)
+		if (PlatrformA.GetComponent<PlatformControllerAA>().on && PlatrformB.GetComponent<PlatformControllerB>().on)
 		{
 			boxCollider.isTrigger = true;
-			EnterCollision = false;
-		}
-
-
-		if(timeToAppearClose > 3)
-		{
-			EnterCollision = false;
-			timeToAppearClose = 0;
-		}
-
-
-
+        }
 
 	}
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
-		{
-			EnterCollision = true;
-		}
-	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio chiuso";
+        }
 
-	private void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
-		{
-			EnterCollision = true;
-		}
-	}
-
-	private void OnCollisionExit(Collision collision)
-	{
-		EnterCollision = false;
-	}
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Passaggio chiuso";
+        }
 
 
-	private void OnTriggerEnter(Collider other)
-	{
-		controlOpen++;
-	}
+    }
 
-	private void OnTriggerStay(Collider other)
-	{
-		controlOpen++;
-	}
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true); ;
+        }
 
-	private void OnTriggerExit(Collider other)
-	{
-		controlOpen+=30;
-	}
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+        }
 
-	/*
-	void OnGUI()
-	{
 
-		if (EnterCollision)
-		{
-			timeToAppearClose = Time.time;
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
+    }
 
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Chiuso", centeredStyleLabel);
-		}
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(false);
+        }
 
-		if (PlayerA.GetComponent<PlayerController>().unlock && controlOpen> 0 && controlOpen < 60)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(false);
+        }
+    }
 
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Aperto", centeredStyleLabel);
-			
-		}
+  
 
-		if (PlayerB.GetComponent<PlayerController>().unlock && controlOpen > 0 && controlOpen < 60)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 180, 100), "Passaggio Aperto", centeredStyleLabel);
-
-		}
-		*/
-
-	}
+}

@@ -22,15 +22,44 @@ public class HintsConsole : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.CompareTag("Player1") && PlayerA.GetComponent<PlayerControllerA>().openHint)
+		if(collision.gameObject.CompareTag("PlayerA") && PlayerA.GetComponent<PlayerControllerA>().openHint)
 		{
+            Debug.Log("console");
 			hintA.SetActive(true);
 		}
 
 
-		if (collision.gameObject.CompareTag("Player2") && PlayerB.GetComponent<PlayerControllerA>().openHint)
+		if (collision.gameObject.CompareTag("PlayerB") && PlayerB.GetComponent<PlayerControllerB>().openHint)
 		{
 			hintB.SetActive(true);
 		}
 	}
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (PlayerA.GetComponent<PlayerControllerA>().openHint)
+        {
+            hintA.SetActive(true);
+        }
+
+
+        if (PlayerB.GetComponent<PlayerControllerB>().openHint)
+        {
+            hintB.SetActive(true);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            hintA.SetActive(false);
+        }
+
+
+        if (collision.gameObject.CompareTag("PlayerB"))
+        {
+            hintB.SetActive(false);
+        }
+    }
 }

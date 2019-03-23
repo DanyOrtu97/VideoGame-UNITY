@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControllerB : MonoBehaviour
 {
-	private Animator animator;
+    public Text textB;
+    public GameObject infoB;
+    private Animator animator;
 	private CharacterController controller;
 	private float speed = 4f;
 	private float jumpForce = 10f;
@@ -15,9 +18,8 @@ public class PlayerControllerB : MonoBehaviour
 	private Vector3 moveDir;
 	public bool tmp = false;
 	public bool unlock = false;
-	private bool finalStage = false;
+	public bool finalStage = false;
 	public bool openHint = false;
-	private bool EnterCollision = false;
 
 	//da implemetare per i collectible
 	public int[] Collectible;
@@ -98,42 +100,41 @@ public class PlayerControllerB : MonoBehaviour
 
 
 		//esplosione finale
-		if (Input.GetKeyDown(KeyCode.L))
+		if (Input.GetKeyDown(KeyCode.Z))
 		{
 			Explosion();
 			finalStage = false;
 		}
 
 
-		//HINTS
-		if (Input.GetKeyDown(KeyCode.H))
-		{	
-			openHint = true;
-			EnterCollision = false;
-		}
-
-		if (Input.GetKeyDown(KeyCode.H))
-		{
-			openHint = false;
-		}
+        //HINTS
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            openHint = true;
+        }
 
 
 
-	}
+    }
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Collectible"))
+		if (other.CompareTag("Collectible") && indice < 5)
 		{
 			other.gameObject.SetActive(false);
 			Collectible[indice] = 1;
 			indice++;
 
 		}
+        else
+        {
+            textB.text = "Massima capienza raggiunta!";
+            infoB.gameObject.SetActive(true);
+        }
 
 		if (other.CompareTag("FinalStage"))
 		{
-			finalStage = true;
+            finalStage = true;
 		}
 
 		if (other.name == "Secret Room")
@@ -143,35 +144,50 @@ public class PlayerControllerB : MonoBehaviour
 
 	}
 
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.name == "console" && !openHint)
-		{
-			EnterCollision = true;
-		}
-
-		if (collision.gameObject.name == "Capsule")
-		{
-			unlock = true;
-		}
-	}
-
-	private void OnCollisionExit(Collision collision)
-	{
-		EnterCollision = false;
-	}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("FinalStage"))
+        {
+            finalStage = true;
+        }
+    }
 
 
-	private void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.name == "console" && !openHint)
-		{
-			EnterCollision = true;
-		}
-	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "console" && !openHint)
+        {
+            textB.text = "Premi X per leggere!";
+            infoB.gameObject.SetActive(true);
+        }
 
-	private void Explosion()
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            unlock = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        infoB.gameObject.SetActive(false);
+        openHint = false;
+    }
+
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.name == "console" && !openHint)
+        {
+            textB.text = "Premi X per leggere!";
+            infoB.gameObject.SetActive(true);
+        }
+        else
+        {
+            infoB.gameObject.SetActive(false);
+        }
+    }
+
+    private void Explosion()
 	{
 		int conta = 0;
 
@@ -188,37 +204,5 @@ public class PlayerControllerB : MonoBehaviour
 			Debug.Log("Esplosione atomica");
 		}
 	}
-
-	/*
-	void OnGUI()
-	{
-		if (finalStage)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 300, 100), "Impedisci a Liam e Remy di combinare guai!!! Esplodici tutto con L", centeredStyleLabel);
-		}
-
-
-		if (EnterCollision)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 150, 180, 100), "Premi H per leggere", centeredStyleLabel);
-		}
-
-		if (openHint)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 150, 180, 100), "Premi H per chiudere", centeredStyleLabel);
-		}
-
-
-	}
-	*/
 
 }

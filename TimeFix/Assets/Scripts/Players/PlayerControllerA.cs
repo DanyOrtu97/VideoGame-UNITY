@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControllerA : MonoBehaviour
 {
-	private Animator animator;
+    public Text textA;
+    public Image sprite;
+    public GameObject infoA;
+    private Animator animator;
 	private CharacterController controller;
 	private float speed = 4f;
 	private float jumpForce = 10f;
@@ -15,12 +19,11 @@ public class PlayerControllerA : MonoBehaviour
 	private Vector3 moveDir;
 	public bool tmp = false;
 	public bool unlock = false;
-	private bool finalStage = false;
-	public bool openHint = false;
-	private bool EnterCollision = false;
+	public bool finalStage = false;
+    public bool openHint = false;
 
-	//da implemetare per i collectible
-	public int[] Collectible;
+    //da implemetare per i collectible
+    public int[] Collectible;
 	private int indice = 0;
 
 	private void Awake()
@@ -74,7 +77,7 @@ public class PlayerControllerA : MonoBehaviour
 		rotation += x * turnSpeed;
 		transform.eulerAngles = new Vector3(0, rotation, 0);
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.PageDown))
 		{
 			moveDir.y = jumpForce;
 			animator.SetBool("Jump", true);
@@ -84,7 +87,7 @@ public class PlayerControllerA : MonoBehaviour
 			animator.SetBool("Jump", false);
 		}
 
-		if (Input.GetKeyDown(KeyCode.F) && tmp == false)
+		if (Input.GetKeyDown(KeyCode.P) && tmp == false)
 		{
 			animator.SetBool("Take", true);
 			timeToGathering = Time.time;
@@ -98,7 +101,7 @@ public class PlayerControllerA : MonoBehaviour
 
 
 		//esplosione finale
-		if (Input.GetKeyDown(KeyCode.L))
+		if (Input.GetKeyDown(KeyCode.K))
 		{
 			Explosion();
 			finalStage = false;
@@ -109,29 +112,28 @@ public class PlayerControllerA : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.H))
 		{
 			openHint = true;
-			EnterCollision = false;
-		}
-
-		if (Input.GetKeyDown(KeyCode.H))
-		{
-			openHint = false;
 		}
 
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Collectible"))
+		if (other.CompareTag("Collectible") && indice < 5)
 		{
 			other.gameObject.SetActive(false);
-			Collectible[indice] = 1;
+            sprite.gameObject.SetActive(true);
+            Collectible[indice] = 1;
 			indice++;
-
 		}
+        else
+        {
+            textA.text = "Massima capienza raggiunta!";
+            infoA.gameObject.SetActive(true);
+        }
 
-		if (other.CompareTag("FinalStage"))
+        if (other.CompareTag("FinalStage"))
 		{
-			finalStage = true;
+            finalStage = true;
 		}
 
 		if (other.name == "Secret Room")
@@ -141,15 +143,25 @@ public class PlayerControllerA : MonoBehaviour
 
 	}
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("FinalStage"))
+        {
+            finalStage = true;
+        }
+    }
 
-	private void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.name == "console" && !openHint)
 		{
-			EnterCollision = true;
-		}
+            textA.text = "Premi H per leggere!";
+            infoA.gameObject.SetActive(true);
+        }
 
-		if (collision.gameObject.name == "Capsule")
+
+		if (collision.gameObject.CompareTag("PlayerB"))
 		{
 			unlock = true;
 		}
@@ -157,17 +169,23 @@ public class PlayerControllerA : MonoBehaviour
 
 	private void OnCollisionExit(Collision collision)
 	{
-		EnterCollision = false;
-	}
+        infoA.gameObject.SetActive(false);
+        openHint = false;
+    }
 
 
 	private void OnCollisionStay(Collision collision)
 	{
-		if (collision.gameObject.name == "console" && !openHint)
-		{
-			EnterCollision = true;
-		}
-	}
+        if (collision.gameObject.name == "console" && !openHint)
+        {
+            textA.text = "Premi H per leggere!";
+            infoA.gameObject.SetActive(true);
+        }
+        else
+        {
+            infoA.gameObject.SetActive(false);
+        }
+    }
 
 	private void Explosion()
 	{
@@ -186,38 +204,6 @@ public class PlayerControllerA : MonoBehaviour
 			Debug.Log("Esplosione atomica");
 		}
 	}
-
-	/*
-	void OnGUI()
-	{
-		if (finalStage)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 25, 300, 100), "Impedisci a Liam e Remy di combinare guai!!! Esplodici tutto con L", centeredStyleLabel);
-		}
-
-
-		if (EnterCollision)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 150, 180, 100), "Premi H per leggere", centeredStyleLabel);
-		}
-
-		if (openHint)
-		{
-			var centeredStyleLabel = GUI.skin.GetStyle("Label");
-			centeredStyleLabel.alignment = TextAnchor.UpperCenter;
-
-			GUI.Label(new Rect(Screen.width / 2 - 80, Screen.height / 2 - 150, 180, 100), "Premi H per chiudere", centeredStyleLabel);
-		}
-
-
-	}
-	*/
 }
 
 
