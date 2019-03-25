@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerControllerB : MonoBehaviour
 {
     public Text textB;
+    public Image sprite1, sprite2, sprite3, sprite4, sprite5;
     public GameObject infoB;
     private Animator animator;
 	private CharacterController controller;
@@ -123,9 +124,27 @@ public class PlayerControllerB : MonoBehaviour
 		{
 			other.gameObject.SetActive(false);
 			Collectible[indice] = 1;
-			indice++;
 
-		}
+            switch (indice)
+            {
+                case 0:
+                    sprite1.gameObject.SetActive(true);
+                    break;
+                case 1:
+                    sprite2.gameObject.SetActive(true);
+                    break;
+                case 2:
+                    sprite3.gameObject.SetActive(true);
+                    break;
+                case 3:
+                    sprite4.gameObject.SetActive(true);
+                    break;
+                case 4:
+                    sprite5.gameObject.SetActive(true);
+                    break;
+            }
+            indice++;
+        }
         else
         {
             textB.text = "Massima capienza raggiunta!";
@@ -199,9 +218,9 @@ public class PlayerControllerB : MonoBehaviour
 			}
 		}
 
-		if (conta == 2)
+		if (conta == 5)
 		{
-			Debug.Log("Esplosione atomica");
+			Debug.Log("Esplosione atomicaB");
 		}
 	}
 

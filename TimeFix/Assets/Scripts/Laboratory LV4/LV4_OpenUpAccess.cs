@@ -14,7 +14,7 @@ public class LV4_OpenUpAccess : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		boxCollider = gameObject.GetComponent<BoxCollider>();
+        boxCollider = gameObject.GetComponent<BoxCollider>();
 	}
 
     // Update is called once per frame
@@ -25,6 +25,7 @@ public class LV4_OpenUpAccess : MonoBehaviour
             boxCollider.isTrigger = true;
         }
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {

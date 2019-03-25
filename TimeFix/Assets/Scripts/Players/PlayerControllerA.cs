@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerControllerA : MonoBehaviour
 {
+    
     public Text textA;
-    public Image sprite;
+    public Image sprite1, sprite2, sprite3, sprite4, sprite5;
     public GameObject infoA;
     private Animator animator;
 	private CharacterController controller;
@@ -121,8 +122,23 @@ public class PlayerControllerA : MonoBehaviour
 		if (other.CompareTag("Collectible") && indice < 5)
 		{
 			other.gameObject.SetActive(false);
-            sprite.gameObject.SetActive(true);
+
+
             Collectible[indice] = 1;
+
+            switch (indice)
+            {
+                case 0 : sprite1.gameObject.SetActive(true);
+                        break; 
+                case 1 : sprite2.gameObject.SetActive(true);
+                        break;
+                case 2 : sprite3.gameObject.SetActive(true);
+                        break;
+                case 3 : sprite4.gameObject.SetActive(true);
+                        break;
+                case 4 : sprite5.gameObject.SetActive(true);
+                        break;
+            }
 			indice++;
 		}
         else
@@ -199,11 +215,10 @@ public class PlayerControllerA : MonoBehaviour
 			}
 		}
 
-		if (conta == 2)
+		if (conta == 5)
 		{
-			Debug.Log("Esplosione atomica");
+			Debug.Log("Esplosione atomicaA");
 		}
 	}
 }
-
 

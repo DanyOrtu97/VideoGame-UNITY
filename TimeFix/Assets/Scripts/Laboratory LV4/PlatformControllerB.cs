@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlatformControllerB : MonoBehaviour
 {
     public bool on = false;
+    public GameObject PlatrformA;
+    public GameObject infoB;
+    public Text textB;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +27,13 @@ public class PlatformControllerB : MonoBehaviour
         
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-            Debug.Log("Platform");
+            Debug.Log("PlatformB");
             on = true;
+
+            if (PlatrformA.GetComponent<PlatformControllerAA>().on){
+                infoB.gameObject.SetActive(true);
+                textB.text = "Passaggio aperto";
+            }
         }
     }
 
@@ -32,7 +41,12 @@ public class PlatformControllerB : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
+            Debug.Log("PlatformB");
             on = true;
+            if (PlatrformA.GetComponent<PlatformControllerAA>().on){
+                infoB.gameObject.SetActive(true);
+                textB.text = "Passaggio aperto";
+            }
         }
     }
 
@@ -41,6 +55,8 @@ public class PlatformControllerB : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             on = false;
+            infoB.gameObject.SetActive(true);
+            textB.text = "Passaggio chiuso";
         }
     }
 }
