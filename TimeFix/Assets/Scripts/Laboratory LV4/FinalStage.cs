@@ -24,35 +24,34 @@ public class FinalStage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerA") && PlayerA.GetComponent<PlayerControllerA>().finalStage)
+        if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, esplodici tutto con K";
+            textA.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con K";
         }
 
 
-        if (other.CompareTag("PlayerB") && PlayerB.GetComponent<PlayerControllerB>().finalStage)
+        if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, esplodici tutto con Z";
+            textB.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con Z";
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
         
-        if (other.CompareTag("PlayerA") && PlayerA.GetComponent<PlayerControllerA>().finalStage)
+        if (other.CompareTag("PlayerA"))
         {
-            Debug.Log("Trigerrato");
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, esplodici tutto con K";
+            textA.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con K";
         }
 
 
-        if (other.CompareTag("PlayerB") && PlayerB.GetComponent<PlayerControllerB>().finalStage)
+        if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, esplodici tutto con Z";
+            textB.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con Z";
         }
     }
 
@@ -60,14 +59,14 @@ public class FinalStage : MonoBehaviour
     {
         if (other.CompareTag("PlayerA"))
         {
-            infoA.gameObject.SetActive(true);
+            infoA.gameObject.SetActive(false);
         }
 
 
         if (other.CompareTag("PlayerB"))
         {
 
-            infoB.gameObject.SetActive(true);
+            infoB.gameObject.SetActive(false);
         }
     }
 

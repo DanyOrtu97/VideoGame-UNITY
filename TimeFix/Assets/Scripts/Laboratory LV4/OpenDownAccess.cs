@@ -23,6 +23,8 @@ public class OpenDownAccess : MonoBehaviour
 		if (PlatrformA.GetComponent<PlatformControllerAA>().on && PlatrformB.GetComponent<PlatformControllerB>().on)
 		{
 			boxCollider.isTrigger = true;
+            textA.text = "Passaggio aperto";
+            textB.text = "Passaggio aperto";
         }
 
 	}
@@ -72,6 +74,51 @@ public class OpenDownAccess : MonoBehaviour
         }
     }
 
-  
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio aperto";
+        }
+
+        if (other.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Passaggio aperto";
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio aperto";
+        }
+
+        if (other.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Passaggio aperto";
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(false);
+        }
+    }
+
+
+
 
 }

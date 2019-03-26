@@ -11,16 +11,14 @@ public class PlayerControllerA : MonoBehaviour
     public GameObject infoA;
     private Animator animator;
 	private CharacterController controller;
-	private float speed = 4f;
+	private float speed = 2f;
 	private float jumpForce = 10f;
 	private float gravity = 30f;
 	private float rotation = 0f;
 	public float timeToGathering = 0f;
-	public float turnSpeed = 4f;
+	public float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
-	public bool unlock = false;
-	public bool finalStage = false;
     public bool openHint = false;
 
     //da implemetare per i collectible
@@ -37,7 +35,7 @@ public class PlayerControllerA : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		controller = gameObject.GetComponent<CharacterController>();
-		indice = 0;
+        indice = 0;
 		Collectible = new int[] { 4, 4, 4, 4, 4 };
 	}
 
@@ -105,7 +103,6 @@ public class PlayerControllerA : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.K))
 		{
 			Explosion();
-			finalStage = false;
 		}
 
 
@@ -141,46 +138,25 @@ public class PlayerControllerA : MonoBehaviour
             }
 			indice++;
 		}
-        else
+
+        if (other.CompareTag("Collectible") && indice == 5)
         {
             textA.text = "Massima capienza raggiunta!";
             infoA.gameObject.SetActive(true);
         }
 
-        if (other.CompareTag("FinalStage"))
-		{
-            finalStage = true;
-		}
-
-		if (other.name == "Secret Room")
-		{
-			finalStage = false;
-		}
-
 	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("FinalStage"))
-        {
-            finalStage = true;
-        }
-    }
 
 
     private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.name == "console" && !openHint)
+        if (collision.gameObject.name == "console" && !openHint)
 		{
             textA.text = "Premi H per leggere!";
             infoA.gameObject.SetActive(true);
         }
 
-
-		if (collision.gameObject.CompareTag("PlayerB"))
-		{
-			unlock = true;
-		}
 	}
 
 	private void OnCollisionExit(Collision collision)

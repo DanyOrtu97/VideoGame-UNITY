@@ -54,8 +54,6 @@ public class PlatformControllerAA : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             on = false;
-            infoA.gameObject.SetActive(true);
-            textA.text = "Passaggio chiuso";
         }
     }
 }

@@ -27,7 +27,6 @@ public class PlatformControllerB : MonoBehaviour
         
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-            Debug.Log("PlatformB");
             on = true;
 
             if (PlatrformA.GetComponent<PlatformControllerAA>().on){
@@ -41,7 +40,6 @@ public class PlatformControllerB : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-            Debug.Log("PlatformB");
             on = true;
             if (PlatrformA.GetComponent<PlatformControllerAA>().on){
                 infoB.gameObject.SetActive(true);
@@ -55,8 +53,6 @@ public class PlatformControllerB : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             on = false;
-            infoB.gameObject.SetActive(true);
-            textB.text = "Passaggio chiuso";
         }
     }
 }

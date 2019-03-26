@@ -10,12 +10,12 @@ public class PlayerControllerB : MonoBehaviour
     public GameObject infoB;
     private Animator animator;
 	private CharacterController controller;
-	private float speed = 4f;
+	private float speed = 2f;
 	private float jumpForce = 10f;
 	private float gravity = 30f;
 	private float rotation = 0f;
 	public float timeToGathering = 0f;
-	public float turnSpeed = 4f;
+	public float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
 	public bool unlock = false;
@@ -36,7 +36,7 @@ public class PlayerControllerB : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		controller = gameObject.GetComponent<CharacterController>();
-		indice = 0;
+        indice = 0;
 		Collectible = new int[] { 4, 4, 4, 4, 4 };
 	}
 
@@ -104,7 +104,6 @@ public class PlayerControllerB : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Z))
 		{
 			Explosion();
-			finalStage = false;
 		}
 
 
@@ -145,31 +144,15 @@ public class PlayerControllerB : MonoBehaviour
             }
             indice++;
         }
-        else
+
+        if (other.CompareTag("Collectible") && indice == 5)
         {
             textB.text = "Massima capienza raggiunta!";
             infoB.gameObject.SetActive(true);
         }
 
-		if (other.CompareTag("FinalStage"))
-		{
-            finalStage = true;
-		}
-
-		if (other.name == "Secret Room")
-		{
-			finalStage = false;
-		}
-
 	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("FinalStage"))
-        {
-            finalStage = true;
-        }
-    }
 
 
     private void OnCollisionEnter(Collision collision)
@@ -190,6 +173,7 @@ public class PlayerControllerB : MonoBehaviour
     {
         infoB.gameObject.SetActive(false);
         openHint = false;
+        
     }
 
 
