@@ -44,18 +44,18 @@ public class PlayerControllerB : MonoBehaviour
 	void FixedUpdate()
 	{
 
-		/*
+        /*
 		 * 
 		 * movimenti
 		 */
 
 
-		float z = Input.GetAxis("VerticalB");
-		float x = Input.GetAxis("HorizontalB");
+        float z = KeyBindingManager.GetAxis("Vertical", "B");
+        float x = KeyBindingManager.GetAxis("Horizontal", "B");
 
 
 
-		if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
+        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
 		{
 			animator.SetFloat("Velocity", z);
 			animator.SetBool("Jump", true);

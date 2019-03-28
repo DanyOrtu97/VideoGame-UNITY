@@ -43,15 +43,13 @@ public class PlayerControllerA : MonoBehaviour
 	void FixedUpdate()
 	{
 
-		/*
+        /*
 		 * 
 		 * movimenti
 		 */
-
-
-		float z = Input.GetAxis("VerticalA");
-		float x = Input.GetAxis("HorizontalA");
-
+        float z = KeyBindingManager.GetAxis("Vertical","A"); 
+        float x = KeyBindingManager.GetAxis("Horizontal", "A");
+  
 
 
 		if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
