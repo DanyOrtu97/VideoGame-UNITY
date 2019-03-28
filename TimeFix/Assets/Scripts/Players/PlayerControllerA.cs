@@ -86,11 +86,13 @@ public class PlayerControllerA : MonoBehaviour
 			animator.SetBool("Jump", false);
 		}
 
+        /*
 		if (Input.GetKeyDown(KeyCode.P) && tmp == false)
 		{
 			animator.SetBool("Take", true);
 			timeToGathering = Time.time;
 		}
+        */
 
 		moveDir.x = 0;
 		moveDir.z = 0;
