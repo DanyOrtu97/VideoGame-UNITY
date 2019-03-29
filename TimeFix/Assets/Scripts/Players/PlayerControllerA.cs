@@ -47,12 +47,12 @@ public class PlayerControllerA : MonoBehaviour
 		 * 
 		 * movimenti
 		 */
-        float z = KeyBindingManager.GetAxis("Vertical","A"); 
-        float x = KeyBindingManager.GetAxis("Horizontal", "A");
-  
+        float z = Input.GetAxis(InputAssign.keyDict["PlayerAVertical"]); 
+        float x = Input.GetAxis(InputAssign.keyDict["PlayerAHorizontal"]);
 
 
-		if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
+
+        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
 		{
 			animator.SetFloat("Velocity", z);
 			animator.SetBool("Jump", true);

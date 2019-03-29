@@ -17,6 +17,9 @@ TagManager:
   - HintB
   - InfoA
   - InfoB
+  - ThirdStatue
+  - SecondStatue
+  - FirstStatue
   layers:
   - Default
   - TransparentFX
@@ -27,8 +30,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Player
-  - 
+  - PlayerA
+  - PlayerB
   - 
   - 
   - 

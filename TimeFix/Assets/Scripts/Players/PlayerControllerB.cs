@@ -50,8 +50,8 @@ public class PlayerControllerB : MonoBehaviour
 		 */
 
 
-        float z = KeyBindingManager.GetAxis("Vertical", "B");
-        float x = KeyBindingManager.GetAxis("Horizontal", "B");
+        float z = Input.GetAxis(InputAssign.keyDict["PlayerBVertical"]);
+        float x = Input.GetAxis(InputAssign.keyDict["PlayerBHorizontal"]);
 
 
 
