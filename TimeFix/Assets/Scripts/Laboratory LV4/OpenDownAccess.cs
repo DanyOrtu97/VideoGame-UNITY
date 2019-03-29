@@ -9,6 +9,7 @@ public class OpenDownAccess : MonoBehaviour
     public GameObject infoA, infoB;
     private BoxCollider boxCollider;
     public GameObject PlatrformA, PlatrformB;
+    public bool LiamAccess = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class OpenDownAccess : MonoBehaviour
 
 		if (PlatrformA.GetComponent<PlatformControllerAA>().on && PlatrformB.GetComponent<PlatformControllerB>().on)
 		{
-			boxCollider.isTrigger = true;
+            LiamAccess = true;
+            boxCollider.isTrigger = true;
             textA.text = "Passaggio aperto";
             textB.text = "Passaggio aperto";
         }
@@ -31,7 +33,13 @@ public class OpenDownAccess : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess)
+        {
+            boxCollider.isTrigger = true;
+            infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio aperto";
+        }
+        else if (collision.gameObject.CompareTag("PlayerA") && !LiamAccess)
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Passaggio chiuso";
@@ -50,7 +58,7 @@ public class OpenDownAccess : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
-            infoA.gameObject.SetActive(true); ;
+            infoA.gameObject.SetActive(true);
         }
 
         if (collision.gameObject.CompareTag("PlayerB"))
@@ -85,8 +93,8 @@ public class OpenDownAccess : MonoBehaviour
 
         if (other.CompareTag("PlayerB"))
         {
-            infoB.gameObject.SetActive(true);
-            textB.text = "Passaggio aperto";
+
+            boxCollider.isTrigger = false;
         }
     }
 
@@ -109,6 +117,8 @@ public class OpenDownAccess : MonoBehaviour
     {
         if (other.CompareTag("PlayerA"))
         {
+            LiamAccess = false;
+            boxCollider.isTrigger = false; 
             infoA.gameObject.SetActive(false);
         }
 

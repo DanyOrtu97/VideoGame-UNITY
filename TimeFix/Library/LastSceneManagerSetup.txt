@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Impostazioni.unity
+- path: Assets/Scenes/Livello4Laboratory.unity
   isLoaded: 1
   isActive: 1

@@ -8,14 +8,18 @@ public class LV4_OpenUpAccess : MonoBehaviour
     public Text textA, textB;
     public GameObject infoA, infoB;
     private BoxCollider boxCollider;
-	private bool openUp = false;
+    public GameObject boxColliderDown;
+    public InputField passwordA, passwordB;
+    private bool openUp = false;
 
 
 	// Start is called before the first frame update
 	void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider>();
-	}
+        
+
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -23,6 +27,8 @@ public class LV4_OpenUpAccess : MonoBehaviour
         if (openUp)
         {
             boxCollider.isTrigger = true;
+            boxColliderDown.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+
         }
     }
 
@@ -33,8 +39,9 @@ public class LV4_OpenUpAccess : MonoBehaviour
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Digitare la password per entrare!";
+            passwordA.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (passwordA.text.Equals("serpente"))
             {
                 textA.text = "Passaggio aperto!";
                 openUp = true;
@@ -45,8 +52,9 @@ public class LV4_OpenUpAccess : MonoBehaviour
         {
             infoB.gameObject.SetActive(true);
             textB.text = "Digitare la password per entrare!";
+            passwordB.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (passwordB.text.Equals("serpente"))
             {
                 textA.text = "Passaggio aperto!";
                 openUp = true;
@@ -61,8 +69,9 @@ public class LV4_OpenUpAccess : MonoBehaviour
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Digitare la password per entrare!";
+            passwordA.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (passwordA.text.Equals("serpente"))
             {
                 textA.text = "Passaggio aperto!";
                 openUp = true;
@@ -74,8 +83,9 @@ public class LV4_OpenUpAccess : MonoBehaviour
         {
             infoB.gameObject.SetActive(true);
             textB.text = "Digitare la password per entrare!";
+            passwordB.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (passwordB.text.Equals("serpente"))
             {
                 textA.text = "Passaggio aperto!";
                 openUp = true;
@@ -90,11 +100,13 @@ public class LV4_OpenUpAccess : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(false);
+            passwordA.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(false);
+            passwordB.gameObject.SetActive(false);
         }
     }
 

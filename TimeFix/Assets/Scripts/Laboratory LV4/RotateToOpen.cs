@@ -7,42 +7,38 @@ public class RotateToOpen : MonoBehaviour
 {
     public Text textA, textB;
     public GameObject infoA, infoB;
-    private Transform transform;
-	private bool checkCollision = false;
-	private BoxCollider boxCollider;
+    private bool incrementa = false;
+    private float degree;
+    public float speed;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
 	{
-		transform = gameObject.GetComponent<Transform>();
-		boxCollider = gameObject.GetComponent<BoxCollider>();
+        degree = 0f;
+        speed = 4f;
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
-		
-	}
+        if (incrementa == true)
+        {
+            degree = (degree + 90) % 360;
+            incrementa = false;
+        }
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, degree, 0), Time.deltaTime * speed);
+        //transform.eulerAngles += new Vector3(0, degree, 0);
+    }
 
 	private void OnCollisionEnter(Collision collision)
 	{
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi I per ruotare";
-
-
-            if (Input.GetKeyDown(KeyCode.I))
+            textA.text = "Premi R per ruotare";
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                if (transform.eulerAngles.y == 270)
-                {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else
-                {
-                    transform.eulerAngles += new Vector3(0, 90, 0);
-                }
-
+                incrementa = true;
             }
 
         }
@@ -54,14 +50,7 @@ public class RotateToOpen : MonoBehaviour
             textB.text = "Premi R per ruotare";
             if (Input.GetKeyDown(KeyCode.R))
             {
-                if (transform.eulerAngles.y == 270)
-                {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else
-                {
-                    transform.eulerAngles += new Vector3(0, 90, 0);
-                }
+                incrementa = true;
             }
         }
     }
@@ -73,19 +62,11 @@ public class RotateToOpen : MonoBehaviour
             
             infoA.gameObject.SetActive(true);
 
-            textA.text = "Premi I per ruotare";
+            textA.text = "Premi R per ruotare";
 
-            if (Input.GetKeyDown(KeyCode.I))
-			{
-				if (transform.eulerAngles.y == 270)
-				{
-                    transform.eulerAngles = new Vector3(0,0,0);
-				}
-				else
-				{
-                    transform.eulerAngles += new Vector3(0, 90, 0);
-				}
-
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                incrementa = true;
             }
         }
 
@@ -94,16 +75,11 @@ public class RotateToOpen : MonoBehaviour
             
             infoB.gameObject.SetActive(true);
             textB.text = "Premi R per ruotare";
-            if (Input.GetKeyDown(KeyCode.R) )
+
+
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                if (transform.eulerAngles.y == 270)
-                {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else
-                {
-                    transform.eulerAngles += new Vector3(0, 90, 0);
-                }
+                incrementa = true;
             }
         }
     }
