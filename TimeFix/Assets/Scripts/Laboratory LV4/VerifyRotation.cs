@@ -9,7 +9,7 @@ public class VerifyRotation : MonoBehaviour
     public GameObject infoA, infoB;
 	public GameObject battery1, battery2, battery3;
 	private BoxCollider boxCollider;
-
+    private float[] degrees = {-1,-1,-1};  
 
 	// Start is called before the first frame update
 	void Start()
@@ -18,20 +18,10 @@ public class VerifyRotation : MonoBehaviour
 	}
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
-
-		if(battery1.transform.eulerAngles.y ==90 
-			&& battery2.transform.eulerAngles.y == 180
-			&& battery3.transform.eulerAngles.y == 90)
-		{
-			boxCollider.isTrigger = true;
-		}
-        else
-        {
-            boxCollider.isTrigger = false;
-        }
+	
 	}
 
 
@@ -126,7 +116,21 @@ public class VerifyRotation : MonoBehaviour
     }
 
 
+    public void insertDegree(float degree, int i)
+    {
+        degrees[i] = degree;
 
+        Debug.Log(degrees[0] +" "+degrees[1] + " " + degrees[2]);
+
+        if (degrees[0] == 90 && degrees[1] == 180 && degrees[2] == 90)
+        {
+            boxCollider.isTrigger = true;
+        }
+        else
+        {
+            boxCollider.isTrigger = false;
+        }
+    }
 
 
 

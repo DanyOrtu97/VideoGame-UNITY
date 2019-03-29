@@ -7,6 +7,7 @@ public class RotateToOpen : MonoBehaviour
 {
     public Text textA, textB;
     public GameObject infoA, infoB;
+    public GameObject SecretAccess;
     private bool incrementa = false;
     private float degree;
     public float speed;
@@ -24,10 +25,26 @@ public class RotateToOpen : MonoBehaviour
         if (incrementa == true)
         {
             degree = (degree + 90) % 360;
+
+            if (this.gameObject.GetComponent<RotateToOpen>().CompareTag("battery1"))
+            {
+                SecretAccess.gameObject.GetComponent<VerifyRotation>().insertDegree(degree, 0);
+            }
+
+            else if (this.gameObject.GetComponent<RotateToOpen>().CompareTag("battery2"))
+            {
+                SecretAccess.gameObject.GetComponent<VerifyRotation>().insertDegree(degree, 1);
+            }
+
+            else if(this.gameObject.GetComponent<RotateToOpen>().CompareTag("battery3"))
+            {
+                SecretAccess.gameObject.GetComponent<VerifyRotation>().insertDegree(degree, 2);
+            }
+
+
             incrementa = false;
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, degree, 0), Time.deltaTime * speed);
-        //transform.eulerAngles += new Vector3(0, degree, 0);
     }
 
 	private void OnCollisionEnter(Collision collision)
@@ -98,6 +115,5 @@ public class RotateToOpen : MonoBehaviour
 
         }
     }
-
 
 }
