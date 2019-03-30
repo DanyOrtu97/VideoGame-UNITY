@@ -14,21 +14,12 @@ public class PlayerControllerB : MonoBehaviour
 	private float jumpForce = 10f;
 	private float gravity = 30f;
 	private float rotation = 0f;
-	public float timeToGathering = 0f;
-	public float turnSpeed = 2f;
+	private float timeToGathering = 0f;
+	private float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
-	public bool unlock = false;
-	public bool finalStage = false;
-	public bool openHint = false;
-
-	//da implemetare per i collectible
 	public int[] Collectible;
 	private int indice = 0;
-
-	private void Awake()
-	{
-	}
 
 
 	// Start is called before the first frame update
@@ -38,7 +29,9 @@ public class PlayerControllerB : MonoBehaviour
 		controller = gameObject.GetComponent<CharacterController>();
         indice = 0;
 		Collectible = new int[] { 4, 4, 4, 4, 4 };
-	}
+        turnSpeed = 3f;
+        speed = 3f;
+    }
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -109,12 +102,6 @@ public class PlayerControllerB : MonoBehaviour
 		}
 
 
-        //HINTS
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            openHint = true;
-        }
-
 
 
     }
@@ -154,43 +141,6 @@ public class PlayerControllerB : MonoBehaviour
         }
 
 	}
-
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "console" && !openHint)
-        {
-            textB.text = "Premi X per leggere!";
-            infoB.gameObject.SetActive(true);
-        }
-
-        if (collision.gameObject.CompareTag("PlayerA"))
-        {
-            unlock = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        infoB.gameObject.SetActive(false);
-        openHint = false;
-        
-    }
-
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.name == "console" && !openHint)
-        {
-            textB.text = "Premi X per leggere!";
-            infoB.gameObject.SetActive(true);
-        }
-        else
-        {
-            infoB.gameObject.SetActive(false);
-        }
-    }
 
     private void Explosion()
 	{

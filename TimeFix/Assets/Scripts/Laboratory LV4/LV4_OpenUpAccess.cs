@@ -146,11 +146,13 @@ public class LV4_OpenUpAccess : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
 
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 

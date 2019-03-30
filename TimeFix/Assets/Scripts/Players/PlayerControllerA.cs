@@ -15,19 +15,12 @@ public class PlayerControllerA : MonoBehaviour
 	private float jumpForce = 10f;
 	private float gravity = 30f;
 	private float rotation = 0f;
-	public float timeToGathering = 0f;
-	public float turnSpeed = 2f;
+	private float timeToGathering = 0f;
+	private float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
-    public bool openHint = false;
-
-    //da implemetare per i collectible
     public int[] Collectible;
 	private int indice = 0;
-
-	private void Awake()
-	{
-	}
 
 
 	// Start is called before the first frame update
@@ -37,7 +30,9 @@ public class PlayerControllerA : MonoBehaviour
 		controller = gameObject.GetComponent<CharacterController>();
         indice = 0;
 		Collectible = new int[] { 4, 4, 4, 4, 4 };
-	}
+        turnSpeed = 3f;
+        speed = 3f;
+    }
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -105,13 +100,6 @@ public class PlayerControllerA : MonoBehaviour
 			Explosion();
 		}
 
-
-		//HINTS
-		if (Input.GetKeyDown(KeyCode.H))
-		{
-			openHint = true;
-		}
-
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -148,36 +136,6 @@ public class PlayerControllerA : MonoBehaviour
 	}
 
 
-
-    private void OnCollisionEnter(Collision collision)
-	{
-        if (collision.gameObject.name == "console" && !openHint)
-		{
-            textA.text = "Premi H per leggere!";
-            infoA.gameObject.SetActive(true);
-        }
-
-	}
-
-	private void OnCollisionExit(Collision collision)
-	{
-        infoA.gameObject.SetActive(false);
-        openHint = false;
-    }
-
-
-	private void OnCollisionStay(Collision collision)
-	{
-        if (collision.gameObject.name == "console" && !openHint)
-        {
-            textA.text = "Premi H per leggere!";
-            infoA.gameObject.SetActive(true);
-        }
-        else
-        {
-            infoA.gameObject.SetActive(false);
-        }
-    }
 
 	private void Explosion()
 	{
