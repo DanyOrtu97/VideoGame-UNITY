@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -18,6 +19,7 @@ public class Timer : MonoBehaviour
         textTimer.gameObject.GetComponent<Text>().text = ((int)timeLeft).ToString();
         if (timeLeft < 0) {
             Debug.Log("Game over");
+            SceneManager.LoadScene("GameOver",LoadSceneMode.Single);
         }
 
     }
