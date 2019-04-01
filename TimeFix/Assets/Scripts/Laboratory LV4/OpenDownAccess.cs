@@ -10,6 +10,8 @@ public class OpenDownAccess : MonoBehaviour
     private BoxCollider boxCollider;
     public GameObject PlatrformA, PlatrformB;
     public bool LiamAccess = false;
+    private bool RemyCollision = false;
+    private bool LiamCollision = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,22 +35,40 @@ public class OpenDownAccess : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess)
+        if(collision.gameObject.CompareTag("PlayerA") && LiamAccess && RemyCollision)
+        {
+            LiamCollision = true;
+            LiamAccess = true;
+        }
+
+        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess && !RemyCollision)
         {
             boxCollider.isTrigger = true;
             infoA.gameObject.SetActive(true);
             textA.text = "Passaggio aperto";
+            LiamCollision = true;
         }
+
         else if (collision.gameObject.CompareTag("PlayerA") && !LiamAccess)
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Passaggio chiuso";
+            LiamCollision = true;
         }
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
             textB.text = "Passaggio chiuso";
+            RemyCollision = true;
+        }
+
+        if(RemyCollision && LiamCollision)
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Spostati Remy";
+            infoB.gameObject.SetActive(true);
+            textB.text = "Spostati Remy";
         }
 
 
@@ -56,16 +76,40 @@ public class OpenDownAccess : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess && RemyCollision)
+        {
+            LiamCollision = true;
+            LiamAccess = true;
+        }
+
+        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess && !RemyCollision)
+        {
+            boxCollider.isTrigger = true;
+            infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio aperto";
+            LiamCollision = true;
+        }
+        else if (collision.gameObject.CompareTag("PlayerA") && !LiamAccess)
         {
             infoA.gameObject.SetActive(true);
+            textA.text = "Passaggio chiuso";
+            LiamCollision = true;
         }
+
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
+            RemyCollision = true;
         }
 
+        if (RemyCollision && LiamCollision)
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Può accedere solo Liam, Remy spostati altrimenti il campo di forza impedirà il passaggio ad entrambi!";
+            infoB.gameObject.SetActive(true);
+            textB.text = "Può accedere solo Liam, Remy spostati altrimenti il campo di forza impedirà il passaggio ad entrambi!";
+        }
 
     }
 
@@ -74,11 +118,13 @@ public class OpenDownAccess : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(false);
+            LiamCollision = false;
         }
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(false);
+            RemyCollision = false;
         }
     }
 
@@ -93,7 +139,6 @@ public class OpenDownAccess : MonoBehaviour
 
         if (other.CompareTag("PlayerB"))
         {
-
             boxCollider.isTrigger = false;
         }
     }
@@ -104,21 +149,21 @@ public class OpenDownAccess : MonoBehaviour
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Passaggio aperto";
-        }
 
-        if (other.CompareTag("PlayerB"))
-        {
-            infoB.gameObject.SetActive(true);
-            textB.text = "Passaggio aperto";
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("PlayerA"))
         {
-            LiamAccess = false;
-            boxCollider.isTrigger = false; 
+            if (other.GetComponent<Transform>().position.y <= 46)
+            {
+                LiamAccess = false;
+                boxCollider.isTrigger = false;           
+            }
+
             infoA.gameObject.SetActive(false);
         }
 

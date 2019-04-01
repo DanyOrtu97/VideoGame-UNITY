@@ -54,6 +54,18 @@ public class BlockTwo : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            this.gameObject.SetActive(false);
+        }
 
-   
+        if (other.CompareTag("PlayerB"))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+
 }
