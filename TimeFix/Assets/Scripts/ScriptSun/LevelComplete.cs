@@ -19,7 +19,7 @@ public class LevelComplete : MonoBehaviour
     public void AddPlayer()
     {
         playerCorrect++;
-        if (playerCorrect == 1)
+        if (playerCorrect == 2)
         {
             ChangeScene();
         }
