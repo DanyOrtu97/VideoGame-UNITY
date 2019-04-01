@@ -23,6 +23,8 @@ public class PlayerControllerA : MonoBehaviour
 	private int indice = 0;
 
 
+
+     
 	// Start is called before the first frame update
 	void Start()
 	{

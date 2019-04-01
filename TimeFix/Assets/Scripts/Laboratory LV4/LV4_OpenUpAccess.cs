@@ -28,6 +28,7 @@ public class LV4_OpenUpAccess : MonoBehaviour
         {
             boxCollider.isTrigger = true;
             boxColliderDown.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            boxColliderDown.gameObject.SetActive(false);
 
         }
     }
