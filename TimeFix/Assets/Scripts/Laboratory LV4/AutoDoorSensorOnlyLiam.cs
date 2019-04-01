@@ -32,7 +32,9 @@ namespace OS.Demo.Stuff
 
             if(this.gameObject.name != "DoorGame")
             {
+                Close();
                 this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             CheckNeedClose();
         }

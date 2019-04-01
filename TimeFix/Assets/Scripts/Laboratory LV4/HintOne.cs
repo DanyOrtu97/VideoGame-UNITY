@@ -11,7 +11,8 @@ public class HintOne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        infoA.gameObject.SetActive(true);
+        textA.text = "Trova il tuo amico Remy!";
     }
 
     // Update is called once per frame
@@ -37,5 +38,15 @@ public class HintOne : MonoBehaviour
             textA.text = "Trova il tuo amico Remy!";
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(false);
+        }
+
+     }
 
 }

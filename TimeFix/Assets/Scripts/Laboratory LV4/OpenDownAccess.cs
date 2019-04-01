@@ -63,12 +63,12 @@ public class OpenDownAccess : MonoBehaviour
             RemyCollision = true;
         }
 
-        if(RemyCollision && LiamCollision)
+        if(RemyCollision && LiamCollision && LiamAccess)
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Spostati Remy";
+            textA.text = "Può accedere solo Liam, Remy spostati altrimenti il campo di forza impedirà il passaggio ad entrambi!";
             infoB.gameObject.SetActive(true);
-            textB.text = "Spostati Remy";
+            textB.text = "Può accedere solo Liam, Remy spostati altrimenti il campo di forza impedirà il passaggio ad entrambi!";
         }
 
 
@@ -103,7 +103,7 @@ public class OpenDownAccess : MonoBehaviour
             RemyCollision = true;
         }
 
-        if (RemyCollision && LiamCollision)
+        if (RemyCollision && LiamCollision && LiamAccess)
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Può accedere solo Liam, Remy spostati altrimenti il campo di forza impedirà il passaggio ad entrambi!";

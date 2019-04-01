@@ -27,14 +27,14 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con K";
+            textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
         }
 
 
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con Z";
+            textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
         }
     }
 
@@ -44,14 +44,14 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con K";
+            textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
         }
 
 
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, usa i cubi magici e esplodici tutto con Z";
+            textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
         }
     }
 
