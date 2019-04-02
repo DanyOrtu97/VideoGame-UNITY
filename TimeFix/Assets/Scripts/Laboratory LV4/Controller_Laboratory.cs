@@ -132,6 +132,7 @@ public class Controller_Laboratory : MonoBehaviour
         else
         {
             Invoke("changeSceneGameOver", 6);
+
         }
     }
 
@@ -155,6 +156,14 @@ public class Controller_Laboratory : MonoBehaviour
     {
         SceneManager.LoadScene("Win", LoadSceneMode.Single);
     }
+
+
+
+
+
+
+
+
 
 
 
