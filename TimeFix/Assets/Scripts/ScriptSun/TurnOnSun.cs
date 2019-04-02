@@ -9,11 +9,11 @@ public class TurnOnSun : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
 
-        gameController.GetComponent<LevelComplete>().AddPlayer();
+        gameController.GetComponent<LevelComplete>().AddPlayer(other.tag);
     
     }
     private void OnTriggerExit(Collider other)
     {
-        gameController.GetComponent<LevelComplete>().RemovePlayer();
+        gameController.GetComponent<LevelComplete>().RemovePlayer(other.tag);
     }
 }

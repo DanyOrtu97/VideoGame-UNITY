@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-    private int playerCorrect=0;
+    private List<string> playerCorrect=new List<string>();
 
     public  void ChangeScene()
     {
         SceneManager.LoadScene("Scene2", LoadSceneMode.Single);
     }
-    public void RemovePlayer()
+    public void RemovePlayer(string tag)
     {
-        playerCorrect--;
+        playerCorrect.Remove(tag);
     }
-    public void AddPlayer()
+    public void AddPlayer(string tag)
     {
-        playerCorrect++;
-        if (playerCorrect == 2)
+        playerCorrect.Add(tag);
+        if (playerCorrect.Contains("PlayerA")&& playerCorrect.Contains("PlayerB"))
         {
             ChangeScene();
         }

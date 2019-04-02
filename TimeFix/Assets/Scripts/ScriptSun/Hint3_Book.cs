@@ -39,7 +39,7 @@ public class Hint3_Book : MonoBehaviour
             {
                 allertGuiA.gameObject.SetActive(false);
                 panelGuiA.gameObject.SetActive(true);
-                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Indizio molto bello";
+                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Il sole splende alle 12:30. Azibo 23-04-1936";
             }
         }
         if (collision.gameObject.CompareTag("PlayerB"))
@@ -49,7 +49,7 @@ public class Hint3_Book : MonoBehaviour
             {
                 allertGuiB.gameObject.SetActive(false);
                 panelGuiB.gameObject.SetActive(true);
-                allertGuiPanelB.gameObject.GetComponent<Text>().text = "Indizio molto bello";
+                allertGuiPanelB.gameObject.GetComponent<Text>().text = "Il sole splende alle 12:30. Azibo 23-04-1936";
             }
         }
 
