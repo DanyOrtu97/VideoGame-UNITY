@@ -3200,6 +3200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234035685977520518, guid: a5c57a64955f6994fb11b54d568f17be,
         type: 3}
       propertyPath: m_Name
@@ -3729,10 +3733,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c57a64955f6994fb11b54d568f17be, type: 3}
@@ -6351,7 +6351,7 @@ PrefabInstance:
     - target: {fileID: 7949494406840927270, guid: 896403f93f3759340a1fae37fdf01b53,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 108.6
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 7949494406840927270, guid: 896403f93f3759340a1fae37fdf01b53,
         type: 3}
