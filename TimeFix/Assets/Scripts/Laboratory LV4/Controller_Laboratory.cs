@@ -101,11 +101,11 @@ public class Controller_Laboratory : MonoBehaviour
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+            Invoke("changeSceneWin", 6);
         }
         else
         {
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+            Invoke("changeSceneGameOver", 6);
         }
 
         
@@ -127,11 +127,11 @@ public class Controller_Laboratory : MonoBehaviour
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+            Invoke("changeSceneWin", 6);
         }
         else
         {
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+            Invoke("changeSceneGameOver", 6);
         }
     }
 
@@ -145,6 +145,17 @@ public class Controller_Laboratory : MonoBehaviour
     {
         return indiceB;
     }
+
+    public void changeSceneGameOver()
+    {
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
+
+    public void changeSceneWin()
+    {
+        SceneManager.LoadScene("Win", LoadSceneMode.Single);
+    }
+
 
 
 }
