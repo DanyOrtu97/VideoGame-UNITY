@@ -9,7 +9,7 @@ public class FinalStage : MonoBehaviour
     public Text textA, textB;
     public GameObject infoA, infoB;
     public GameObject PlayerA, PlayerB;
-
+    public GameObject gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,11 @@ public class FinalStage : MonoBehaviour
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
+            //esplosione finale
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+            }
         }
 
 
@@ -35,6 +40,11 @@ public class FinalStage : MonoBehaviour
         {
             infoB.gameObject.SetActive(true);
             textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
+            //esplosione finale
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+            }
         }
     }
 
@@ -45,6 +55,11 @@ public class FinalStage : MonoBehaviour
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
+            //esplosione finale
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+            }
         }
 
 
@@ -52,6 +67,11 @@ public class FinalStage : MonoBehaviour
         {
             infoB.gameObject.SetActive(true);
             textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
+            //esplosione finale
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+            }
         }
     }
 

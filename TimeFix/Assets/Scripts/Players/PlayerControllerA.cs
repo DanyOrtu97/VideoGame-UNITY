@@ -7,20 +7,17 @@ public class PlayerControllerA : MonoBehaviour
 {
     
     public Text textA;
-    public Image sprite1, sprite2, sprite3, sprite4, sprite5;
     public GameObject infoA;
     private Animator animator;
 	private CharacterController controller;
 	private float speed = 2f;
 	private float jumpForce = 10f;
-	private float gravity = 30f;
+	private float gravity = 40f;
 	private float rotation = 0f;
 	private float timeToGathering = 0f;
 	private float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
-    public int[] Collectible;
-	private int indice = 0;
 
 
 
@@ -30,8 +27,6 @@ public class PlayerControllerA : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		controller = gameObject.GetComponent<CharacterController>();
-        indice = 0;
-		Collectible = new int[] { 4, 4, 4, 4, 4 };
         turnSpeed = 3f;
         speed = 3f;
     }
@@ -96,65 +91,10 @@ public class PlayerControllerA : MonoBehaviour
 
 
 
-		//esplosione finale
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			Explosion();
-		}
+		
 
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Collectible") && indice < 5)
-		{
-			other.gameObject.SetActive(false);
-
-
-            Collectible[indice] = 1;
-
-            switch (indice)
-            {
-                case 0 : sprite1.gameObject.SetActive(true);
-                        break; 
-                case 1 : sprite2.gameObject.SetActive(true);
-                        break;
-                case 2 : sprite3.gameObject.SetActive(true);
-                        break;
-                case 3 : sprite4.gameObject.SetActive(true);
-                        break;
-                case 4 : sprite5.gameObject.SetActive(true);
-                        break;
-            }
-			indice++;
-		}
-
-        if (other.CompareTag("Collectible") && indice == 5)
-        {
-            textA.text = "Massima capienza raggiunta!";
-            infoA.gameObject.SetActive(true);
-        }
-
-	}
-
-
-
-	private void Explosion()
-	{
-		int conta = 0;
-
-		for (int i = 0; i < 5; i++)
-		{
-			if (Collectible[i] == 1)
-			{
-				conta++;
-			}
-		}
-
-		if (conta == 5)
-		{
-			Debug.Log("Esplosione atomicaA");
-		}
-	}
+	
 }
 
