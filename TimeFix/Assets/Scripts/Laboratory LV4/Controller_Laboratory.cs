@@ -13,6 +13,7 @@ public class Controller_Laboratory : MonoBehaviour
     private int indiceA = 0;
     public int[] CollectibleB;
     private int indiceB = 0;
+    public GameObject loading;
 
     // Start is called before the first frame update
     void Start()
@@ -105,7 +106,7 @@ public class Controller_Laboratory : MonoBehaviour
         }
         else
         {
-            Invoke("changeSceneGameOver", 6);
+            Invoke("changeSceneGameOver", 2);
         }
 
         
@@ -130,8 +131,8 @@ public class Controller_Laboratory : MonoBehaviour
             Invoke("changeSceneWin", 6);
         }
         else
-        {
-            Invoke("changeSceneGameOver", 6);
+        {   
+            Invoke("changeSceneGameOver", 2);
 
         }
     }
@@ -148,7 +149,7 @@ public class Controller_Laboratory : MonoBehaviour
     }
 
     public void changeSceneGameOver()
-    {
+    { 
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
@@ -156,13 +157,6 @@ public class Controller_Laboratory : MonoBehaviour
     {
         SceneManager.LoadScene("Win", LoadSceneMode.Single);
     }
-
-
-
-
-
-
-
 
 
 

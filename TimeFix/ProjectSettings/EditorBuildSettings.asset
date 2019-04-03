@@ -9,20 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu3D.unity
     guid: 35c468d26a9a1d240b7a72d1ad4a8fb4
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: e986e86edc8b63b4eac2ff0109560dce
-  - enabled: 1
-    path: Assets/Scenes/Win.unity
-    guid: 3f9bd10cf0e5fea4f88209f86effb362
-  - enabled: 1
     path: Assets/Scenes/Impostazioni.unity
     guid: dc24d3423aa432b4fb643824e30797fc
   - enabled: 1
-    path: Assets/Scenes/Livello2SunTemple.unity
-    guid: 7bae18a2e2bd8ab43871b40ef13bdd35
-  - enabled: 1
     path: Assets/Scenes/Livello1.unity
     guid: 3f6798407db29c34fbe1dd2544769937
+  - enabled: 1
+    path: Assets/Scenes/Livello2SunTemple.unity
+    guid: 7bae18a2e2bd8ab43871b40ef13bdd35
   - enabled: 1
     path: Assets/Scenes/Livello3.unity
     guid: ddeb29942b7702d4a97633470aeb33e4
@@ -30,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Livello4Laboratory.unity
     guid: 1cf138c1f0f853b4cab9162647f00a69
   - enabled: 1
-    path: Assets/Scenes/LoadingBetweenTwoScene.unity
-    guid: 0c733d0e20fa2b6499f90d5a7a9cfdf1
+    path: Assets/Scenes/GameOver.unity
+    guid: e986e86edc8b63b4eac2ff0109560dce
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 3f9bd10cf0e5fea4f88209f86effb362
   m_configObjects: {}
