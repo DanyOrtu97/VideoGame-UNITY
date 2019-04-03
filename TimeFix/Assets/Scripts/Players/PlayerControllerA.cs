@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class PlayerControllerA : MonoBehaviour
 {
     
-    public Text textA;
-    public GameObject infoA;
     private Animator animator;
 	private CharacterController controller;
 	private float speed = 2f;
