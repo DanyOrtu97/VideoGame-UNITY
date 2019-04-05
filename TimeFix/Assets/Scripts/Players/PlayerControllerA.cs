@@ -16,6 +16,7 @@ public class PlayerControllerA : MonoBehaviour
 	private float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
+    private bool died = false;
 
 
 
@@ -42,7 +43,7 @@ public class PlayerControllerA : MonoBehaviour
 
 
 
-        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
+        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) && !died)
 		{
 			animator.SetFloat("Velocity", z);
 			animator.SetBool("Jump", true);
@@ -93,6 +94,15 @@ public class PlayerControllerA : MonoBehaviour
 
 	}
 
+    public bool getDied()
+    {
+        return died;
+    }
+
+    public void setDied(bool diedTrue)
+    {
+        died = diedTrue;
+    }
 	
 }
 

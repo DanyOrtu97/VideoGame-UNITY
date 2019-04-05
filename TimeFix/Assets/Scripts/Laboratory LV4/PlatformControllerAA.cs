@@ -9,17 +9,26 @@ public class PlatformControllerAA : MonoBehaviour
     public bool on = false;
     public GameObject infoA;
     public Text textA;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            audio.Play();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

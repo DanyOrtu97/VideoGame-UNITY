@@ -9,11 +9,12 @@ using UnityEngine.SceneManagement;
 public class SaveLoad : MonoBehaviour
 {
     private int sceneId;
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-        sceneId = SceneManager.GetActiveScene().buildIndex;
+        
     }
 
     private void FixedUpdate()
@@ -28,7 +29,12 @@ public class SaveLoad : MonoBehaviour
         FileStream fStream = File.Create(Application.persistentDataPath + "saveFile.octo");
 
         SaveManager saver = new SaveManager();
-        saver.levelSaved = sceneId;
+        sceneName = SceneManager.GetActiveScene().name;
+        //sceneId = SceneManager.GetActiveScene().buildIndex;
+
+        Debug.Log(sceneName);
+        saver.levelSaved = sceneName;
+        //saver.levelSaved = sceneId;
         //All other to insert on binary file
 
 
@@ -46,8 +52,10 @@ public class SaveLoad : MonoBehaviour
             SaveManager saver = (SaveManager)(binary.Deserialize(fStream));
             fStream.Close();
 
-            SceneManager.LoadScene(saver.levelSaved);
+            //SceneManager.LoadScene(saver.levelSaved);
 
+            Debug.Log(saver.levelSaved);
+            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene(saver.levelSaved);
         }
     }
 }
@@ -55,6 +63,7 @@ public class SaveLoad : MonoBehaviour
 [Serializable]
 class SaveManager
 {
-    public int levelSaved;
+    public string levelSaved;
+    //public int levelSaved;
     //Do stuff
 }

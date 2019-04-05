@@ -9,11 +9,12 @@ public class PlatformControllerB : MonoBehaviour
     public GameObject PlatrformA;
     public GameObject infoB;
     public Text textB;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,16 @@ public class PlatformControllerB : MonoBehaviour
     {
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerB"))
+        {
+            audio.Play();
+        }
+    }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {

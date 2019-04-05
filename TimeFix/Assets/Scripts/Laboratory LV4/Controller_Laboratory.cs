@@ -13,7 +13,10 @@ public class Controller_Laboratory : MonoBehaviour
     private int indiceA = 0;
     public int[] CollectibleB;
     private int indiceB = 0;
-    public GameObject loading;
+    public GameObject PlayerA;
+    public GameObject PlayerB;
+    public GameObject PlayerAOld;
+    public GameObject PlayerBOld;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,7 @@ public class Controller_Laboratory : MonoBehaviour
         CollectibleA = new int[] { 4, 4, 4, 4, 4 };
         indiceB = 0;
         CollectibleB = new int[] { 4, 4, 4, 4, 4 };
+        this.gameObject.GetComponent<SaveLoad>().Save();
     }
 
     // Update is called once per frame
@@ -102,11 +106,17 @@ public class Controller_Laboratory : MonoBehaviour
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
+            PlayerBOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerAOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
             Invoke("changeSceneWin", 6);
         }
         else
         {
-            Invoke("changeSceneGameOver", 2);
+            PlayerB.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerA.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerB.gameObject.GetComponent<PlayerControllerB>().setDied(true);
+            PlayerA.gameObject.GetComponent<PlayerControllerA>().setDied(true);
+            Invoke("changeSceneGameOver", 4);
         }
 
         
@@ -128,11 +138,17 @@ public class Controller_Laboratory : MonoBehaviour
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
+            PlayerBOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerAOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
             Invoke("changeSceneWin", 6);
         }
         else
-        {   
-            Invoke("changeSceneGameOver", 2);
+        {
+            PlayerB.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerA.gameObject.GetComponent<Animator>().SetBool("Died", true);
+            PlayerB.gameObject.GetComponent<PlayerControllerB>().setDied(true);
+            PlayerA.gameObject.GetComponent<PlayerControllerA>().setDied(true);
+            Invoke("changeSceneGameOver", 4);
 
         }
     }

@@ -16,7 +16,7 @@ public class PlayerControllerB : MonoBehaviour
 	private float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
-
+    private bool died = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -42,7 +42,7 @@ public class PlayerControllerB : MonoBehaviour
 
 
 
-        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) /*&& !died*/)
+        if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) && !died)
 		{
 			animator.SetFloat("Velocity", z);
 			animator.SetBool("Jump", true);
@@ -87,13 +87,16 @@ public class PlayerControllerB : MonoBehaviour
 		moveDir.y -= gravity * Time.deltaTime;
 		controller.Move(moveDir * Time.deltaTime);
 
+    }
 
+    public bool getDied()
+    {
+        return died;
+    }
 
-
-
-
-
-
+    public void setDied(bool diedTrue)
+    {
+        died = diedTrue;
     }
 
 }
