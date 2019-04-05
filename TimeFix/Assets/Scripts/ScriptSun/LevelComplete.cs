@@ -8,10 +8,6 @@ public class LevelComplete : MonoBehaviour
 {
     private List<string> playerCorrect=new List<string>();
 
-    public  void ChangeScene()
-    {
-        SceneManager.LoadScene("Scene2", LoadSceneMode.Single);
-    }
     public void RemovePlayer(string tag)
     {
         playerCorrect.Remove(tag);
@@ -21,7 +17,7 @@ public class LevelComplete : MonoBehaviour
         playerCorrect.Add(tag);
         if (playerCorrect.Contains("PlayerA")&& playerCorrect.Contains("PlayerB"))
         {
-            ChangeScene();
+            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4laboratory");
         }
 
     }
