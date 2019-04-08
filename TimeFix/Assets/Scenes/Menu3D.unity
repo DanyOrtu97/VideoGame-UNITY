@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111030988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7696221f0cbbc764498b26fbbf4228af, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f4bdffd92bd20c4588a1c97c28400e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   impostazioni: {fileID: 663868531}

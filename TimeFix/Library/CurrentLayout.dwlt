@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 3172
+  controlID: 124
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 498}
   m_MaxSize: {x: 14006, y: 14048}
   vertical: 1
-  controlID: 3192
+  controlID: 36
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 3193
+  controlID: 37
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 274}
   m_MaxSize: {x: 14006, y: 10024}
   vertical: 0
-  controlID: 3131
+  controlID: 83
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -651,9 +651,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 38a40300
+      m_SelectedIDs: 5c1c0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 06c3f7ff2a28fbff3049fbffce6afbffd06afbffba8afbfff4d1030018d2030030d2030076d2030074d803004cd9030078da0300
+      m_ExpandedIDs: d4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -741,7 +741,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/GameOverScripts
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -753,7 +753,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b06f0000
     m_LastClickedID: 28592
-    m_ExpandedIDs: ffffffff00000000422e000048340000623400007a3400008a3400009a340000765000007c5a0000b8a20300d4a2030020a3030042a3030044a303004ea3030010a4030062a403007aa40300aca40300d0a40300e2a403000ca50300e0a50300e6a50300a0a60300d2a6030010a7030056a703005ca70300c4a7030014a803006aa803007ca80300fea8030026a9030054a9030064a90300dea903008eaa030078d103007ad103007cd103007ed1030080d1030082d1030084d1030086d1030088d103008ad103008cd103008ed10300
+    m_ExpandedIDs: 000000007e0e0000a80e0000220f0000460f00008c0f00008e0f0000a40f0000d80f0000ac1100005a1200006c12000084120000b0120000241300006813000082130000e2130000501500005c150000101700005c17000076170000001800000a180000c4180000d2180000a8190000f4190000521a0000061b00002e1b00004a1b0000681c0000b61c0000161d0000381d0000ec1d00009e1f000086400000884000008a4000008c4000008e40000090400000924000009440000096400000984000009a4000009c400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -778,10 +778,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 315}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000422e000048340000623400007a3400008a3400009a340000765000007c5a0000b8a20300d4a2030020a3030042a3030044a303004ea3030010a4030062a403007aa40300aca40300d0a40300e2a403000ca50300e0a50300e6a50300a0a60300d2a6030010a7030056a703005ca70300c4a7030014a803006aa803007ca80300fea8030026a9030054a9030064a90300dea903008eaa030078d103007ad103007cd103007ed1030080d1030082d1030084d1030086d1030088d103008ad103008cd103008ed10300
+    m_ExpandedIDs: ffffffff000000007e0e0000a80e0000220f0000460f00008c0f00008e0f0000a40f0000d80f0000ac1100005a1200006c12000084120000b0120000241300006813000082130000e2130000501500005c150000101700005c17000076170000001800000a180000c4180000d2180000a8190000f4190000521a0000061b00002e1b00004a1b00005c1c0000681c0000b61c0000161d0000381d0000ec1d00009e1f000086400000884000008a4000008c4000008e40000090400000924000009440000096400000984000009a4000009c400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
