@@ -51,13 +51,13 @@ public static class KeyBindingManager {
 		return Input.GetKeyUp(_keyCode);
 	}
 
-	public static void UpdateDictionary(KeyBinding key)
+	/*public static void UpdateDictionary(KeyBinding key)
 	{
         if (!keyDict.ContainsKey(key.keyAction))
             keyDict.Add(key.keyAction, key.keyCode);
         else
             keyDict[key.keyAction] = key.keyCode;
-	}
+	}*/
     public static float GetAxis(string ax,string pl) {
         if (pl.Equals("A"))
         {
