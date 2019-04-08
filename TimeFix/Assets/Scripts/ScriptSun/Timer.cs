@@ -9,18 +9,22 @@ public class Timer : MonoBehaviour
     public GameObject door;
     private float timeLeft = 60.0f;
     public GameObject textTimer;
-
+    public bool startTimer=false;
     void FixedUpdate()
     {
-        timeLeft -= Time.deltaTime;
-        textTimer.gameObject.GetComponent<Text>().text = ((int)timeLeft).ToString();
-        if (timeLeft < 0) {
-            if (!door.gameObject.GetComponent<DoorController>().isOpen)
+        if (startTimer)
+        {
+            timeLeft -= Time.deltaTime;
+            textTimer.gameObject.GetComponent<Text>().text = ((int)timeLeft).ToString();
+            if (timeLeft < 0)
             {
-                Debug.Log("Game over");
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                if (!door.gameObject.GetComponent<DoorController>().isOpen)
+                {
+                    Debug.Log("Game over");
+                    SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                }
+                textTimer.gameObject.SetActive(false);
             }
-            textTimer.gameObject.SetActive(false);
         }
 
     }
