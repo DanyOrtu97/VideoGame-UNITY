@@ -17,6 +17,14 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject PlayerB;
     public GameObject PlayerAOld;
     public GameObject PlayerBOld;
+    public GameObject intro;
+
+    private void Awake()
+    {
+        intro.SetActive(true);
+        PlayerA.SetActive(false);
+        PlayerB.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +37,18 @@ public class Controller_Laboratory : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            intro.SetActive(false);
+            PlayerA.SetActive(true);
+            PlayerB.SetActive(true);
+        }
         
     }
+
+
 
     public void collectibleA()
     {
