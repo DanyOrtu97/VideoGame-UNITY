@@ -8,7 +8,7 @@ public class PlayerControllerA : MonoBehaviour
     
     private Animator animator;
 	private CharacterController controller;
-	private float speed = 2f;
+	public float speed = 2f;
 	private float jumpForce = 10f;
 	private float gravity = 40f;
 	private float rotation = 0f;
