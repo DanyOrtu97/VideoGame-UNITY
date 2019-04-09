@@ -7,6 +7,8 @@ public class ApplicationManager : MonoBehaviour {
     public GameObject impostazioni;
     public GameObject menu;
     public GameObject credits;
+    public GameObject leggendaA;
+    public GameObject leggendaB;
 
     public void Quit () 
 	{
@@ -21,6 +23,8 @@ public class ApplicationManager : MonoBehaviour {
     {
         menu.SetActive(false);
         impostazioni.SetActive(true);
+        leggendaA.SetActive(true);
+        leggendaB.SetActive(true);
         credits.SetActive(false);
     }
 
@@ -28,6 +32,8 @@ public class ApplicationManager : MonoBehaviour {
     {
         menu.SetActive(true);
         impostazioni.SetActive(false);
+        leggendaA.SetActive(false);
+        leggendaB.SetActive(false);
         credits.SetActive(false);
     }
 
@@ -35,6 +41,8 @@ public class ApplicationManager : MonoBehaviour {
     {
         menu.SetActive(false);
         impostazioni.SetActive(false);
+        leggendaA.SetActive(false);
+        leggendaB.SetActive(false);
         credits.SetActive(true);
     }
 }
