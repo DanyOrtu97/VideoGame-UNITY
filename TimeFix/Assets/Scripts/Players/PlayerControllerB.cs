@@ -8,12 +8,12 @@ public class PlayerControllerB : MonoBehaviour
 
     private Animator animator;
 	private CharacterController controller;
-	private float speed = 2f;
+	public float speed = 2f;
 	private float jumpForce = 10f;
 	private float gravity = 40f;
 	private float rotation = 0f;
 	private float timeToGathering = 0f;
-	private float turnSpeed = 2f;
+	public float turnSpeed = 2f;
 	private Vector3 moveDir;
 	public bool tmp = false;
     private bool died = false;
@@ -23,8 +23,7 @@ public class PlayerControllerB : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		controller = gameObject.GetComponent<CharacterController>();
-        turnSpeed = 3f;
-        speed = 3f;
+
     }
 
 	// Update is called once per frame
@@ -37,8 +36,8 @@ public class PlayerControllerB : MonoBehaviour
 		 */
 
 
-        float z = Input.GetAxis(InputAssign.keyDict["PlayerBVertical"]);
-        float x = Input.GetAxis(InputAssign.keyDict["PlayerBHorizontal"]);
+        float z = Input.GetAxis(InputAssign.keyDictMovement["PlayerBVertical"]);
+        float x = Input.GetAxis(InputAssign.keyDictMovement["PlayerBHorizontal"]);
 
 
 
