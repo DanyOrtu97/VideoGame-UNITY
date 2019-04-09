@@ -1,0 +1,147 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Inventory : MonoBehaviour
+{
+    private bool inventoryEnabled;
+    public GameObject inventory;
+
+    private int allSlots;
+    private int enabledSlots;
+    private int j;
+    private GameObject[] slot;
+
+    public GameObject slotHolder;
+
+    public GameObject alertGUI;
+
+    public GameObject gameController;
+
+
+    private void Start()
+    {
+        allSlots = 12;
+        slot = new GameObject[allSlots];
+
+        for(int i = 0; i<allSlots; i++)
+        {
+            slot[i] = slotHolder.transform.GetChild(i).gameObject;
+
+            if(slot[i].GetComponent<Slot>().item == null)
+            {
+                slot[i].GetComponent<Slot>().empty = true;
+            }
+        }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryEnabled = !inventoryEnabled;
+        }
+
+        if(inventoryEnabled == true)
+        {
+            inventory.SetActive(true);
+        }
+        else
+        {
+            inventory.SetActive(false);
+        }
+    }
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Item")
+        {
+            GameObject itemPickedUp = other.gameObject;
+            Item item = itemPickedUp.GetComponent<Item>();
+
+            AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+        }
+    }
+    */
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            alertGUI.gameObject.SetActive(true);
+            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per raccogliere";
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject itemPickedUp = collision.gameObject;
+                Item item = itemPickedUp.GetComponent<Item>();
+
+                AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+
+                if (item.type.Equals("barca"))
+                {
+                    gameController.gameObject.GetComponent<GameController>().setCounterBarca();
+                }
+
+                if (item.type.Equals("food"))
+                {
+                    gameController.gameObject.GetComponent<GameController>().setCounterFood();
+                }
+
+                alertGUI.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            alertGUI.gameObject.SetActive(false);
+        }
+    }
+
+
+
+    void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
+    {
+        for (j = j; j < allSlots; j++)
+        {
+            if (slot[j].GetComponent<Slot>().empty)
+            {
+             
+                itemObject.GetComponent<Item>().pickedUp = true;
+
+
+                slot[j].GetComponent<Slot>().item = itemObject;
+                slot[j].GetComponent<Slot>().icon = itemIcon;
+                slot[j].GetComponent<Slot>().type = itemType;
+                slot[j].GetComponent<Slot>().description = itemDescription;
+                slot[j].GetComponent<Slot>().ID = itemID;
+
+
+                itemObject.transform.parent = slot[j].transform;
+                itemObject.SetActive(false);
+
+                slot[j].GetComponent<Slot>().UpdateSlot();
+                slot[j].GetComponent<Slot>().empty = false;
+                j++;
+            }
+            return;
+        }
+    }
+
+
+    
+
+}
+
