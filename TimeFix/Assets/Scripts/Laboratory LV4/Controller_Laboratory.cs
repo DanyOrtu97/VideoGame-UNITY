@@ -18,6 +18,7 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject PlayerAOld;
     public GameObject PlayerBOld;
     public GameObject intro;
+    public Text InteractionClose;
 
     private void Awake()
     {
@@ -34,14 +35,16 @@ public class Controller_Laboratory : MonoBehaviour
         indiceB = 0;
         CollectibleB = new int[] { 4, 4, 4, 4, 4 };
         this.gameObject.GetComponent<SaveLoad>().Save();
+        InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
-            intro.SetActive(false);
+            intro.SetActive(false); 
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
         }

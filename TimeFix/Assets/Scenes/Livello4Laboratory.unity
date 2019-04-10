@@ -1207,6 +1207,7 @@ MonoBehaviour:
   PlayerAOld: {fileID: 1477492087}
   PlayerBOld: {fileID: 830907428}
   intro: {fileID: 69263669}
+  InteractionClose: {fileID: 960939659}
 --- !u!4 &206713629
 Transform:
   m_ObjectHideFlags: 0
