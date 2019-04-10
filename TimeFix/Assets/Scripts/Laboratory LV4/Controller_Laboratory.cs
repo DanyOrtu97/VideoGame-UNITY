@@ -18,6 +18,7 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject PlayerAOld;
     public GameObject PlayerBOld;
     public GameObject intro;
+    public Text InteractionClose;
 
     private void Awake()
     {
@@ -34,14 +35,16 @@ public class Controller_Laboratory : MonoBehaviour
         indiceB = 0;
         CollectibleB = new int[] { 4, 4, 4, 4, 4 };
         this.gameObject.GetComponent<SaveLoad>().Save();
+        InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
-            intro.SetActive(false);
+            intro.SetActive(false); 
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
         }
@@ -106,7 +109,7 @@ public class Controller_Laboratory : MonoBehaviour
         }
     }
 
-    public void ExplosionA()
+    public void Explosion()
     {
         int conta = 0;
 
@@ -118,30 +121,6 @@ public class Controller_Laboratory : MonoBehaviour
             }
         }
 
-        if (conta == 5)
-        {
-            fire1.SetActive(true);
-            fire2.SetActive(true);
-            PlayerBOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
-            PlayerAOld.gameObject.GetComponent<Animator>().SetBool("Died", true);
-            Invoke("changeSceneWin", 6);
-        }
-        else
-        {
-            PlayerB.gameObject.GetComponent<Animator>().SetBool("Died", true);
-            PlayerA.gameObject.GetComponent<Animator>().SetBool("Died", true);
-            PlayerB.gameObject.GetComponent<PlayerControllerB>().setDied(true);
-            PlayerA.gameObject.GetComponent<PlayerControllerA>().setDied(true);
-            Invoke("changeSceneGameOver", 4);
-        }
-
-        
-    }
-
-    public void ExplosionB()
-    {
-        int conta = 0;
-
         for (int i = 0; i < 5; i++)
         {
             if (CollectibleB[i] == 1)
@@ -150,7 +129,7 @@ public class Controller_Laboratory : MonoBehaviour
             }
         }
 
-        if (conta == 5)
+        if (conta == 10)
         {
             fire1.SetActive(true);
             fire2.SetActive(true);
@@ -167,7 +146,9 @@ public class Controller_Laboratory : MonoBehaviour
             Invoke("changeSceneGameOver", 4);
 
         }
+        
     }
+
 
 
     public int getIndiceA()

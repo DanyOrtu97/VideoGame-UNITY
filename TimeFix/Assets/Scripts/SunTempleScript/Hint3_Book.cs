@@ -18,13 +18,13 @@ public class Hint3_Book : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             allertGuiA.gameObject.SetActive(true);
-            allertGuiA.gameObject.GetComponent<Text>().text = "Premi H per leggere ";
+            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere il libro";
 
         }
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(true);
-            allertGuiB.gameObject.GetComponent<Text>().text = "Premi H per leggere ";
+            allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per leggere il libro";
 
         }
 
@@ -35,7 +35,7 @@ public class Hint3_Book : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 allertGuiA.gameObject.SetActive(false);
                 panelGuiA.gameObject.SetActive(true);
@@ -45,7 +45,7 @@ public class Hint3_Book : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 allertGuiB.gameObject.SetActive(false);
                 panelGuiB.gameObject.SetActive(true);

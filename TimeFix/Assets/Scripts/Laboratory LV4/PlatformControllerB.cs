@@ -42,7 +42,8 @@ public class PlatformControllerB : MonoBehaviour
 
             if (PlatrformA.GetComponent<PlatformControllerAA>().on){
                 infoB.gameObject.SetActive(true);
-                textB.text = "Passaggio aperto";
+                textB.text = "Passaggio inferiore aperto per Liam";
+                audio.enabled = false;
             }
         }
     }
@@ -54,7 +55,8 @@ public class PlatformControllerB : MonoBehaviour
             on = true;
             if (PlatrformA.GetComponent<PlatformControllerAA>().on){
                 infoB.gameObject.SetActive(true);
-                textB.text = "Passaggio aperto";
+                textB.text = "Passaggio inferiore aperto per Liam";
+                audio.enabled = false;
             }
         }
     }

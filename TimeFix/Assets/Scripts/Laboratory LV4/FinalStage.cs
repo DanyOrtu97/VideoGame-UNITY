@@ -27,11 +27,12 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per impedire a Liam e Remy del futuro di fare disastri!";
+
             //esplosione finale
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
 
@@ -39,11 +40,11 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
     }
@@ -54,11 +55,11 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con K";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
 
@@ -66,11 +67,11 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Impedisci a Liam e Remy di fare casini, usate i cubi magici con Z";
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
     }

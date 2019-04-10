@@ -38,11 +38,11 @@ public class RotateStatue : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("PlayerA")) {
-            allertGuiA.gameObject.GetComponent<Text>().text = "Premi L per ruotare la statua di 90 gradi";
+            allertGuiA.gameObject.GetComponent<Text>().text =  "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare la statua" ;
             allertGuiA.gameObject.SetActive(true);
         }
         if (collision.gameObject.CompareTag("PlayerB")) {
-            allertGuiB.gameObject.GetComponent<Text>().text = "Premi L per ruotare la statua di 90 gradi";
+            allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare la statua";
             allertGuiB.gameObject.SetActive(true);
         }
         
@@ -53,7 +53,7 @@ public class RotateStatue : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
 
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 incrementa = true;
             }
@@ -61,7 +61,7 @@ public class RotateStatue : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
 
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 incrementa = true;
             }

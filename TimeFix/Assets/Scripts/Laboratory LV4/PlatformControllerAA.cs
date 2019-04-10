@@ -35,12 +35,12 @@ public class PlatformControllerAA : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
-            Debug.Log("PlatformA");
             on = true;
             if (PlatrformB.GetComponent<PlatformControllerB>().on)
             {
                 infoA.gameObject.SetActive(true);
-                textA.text = "Passaggio aperto";
+                textA.text = "Passaggio inferiore aperto per Liam";
+                audio.enabled = false;
             }
         }
     }
@@ -49,11 +49,11 @@ public class PlatformControllerAA : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
-            Debug.Log("PlatformA");
             on = true;
             if (PlatrformB.GetComponent<PlatformControllerB>().on){
                 infoA.gameObject.SetActive(true);
-                textA.text = "Passaggio aperto";
+                textA.text = "Passaggio inferiore aperto per Liam";
+                audio.enabled = false;
             }
         }
     }

@@ -31,10 +31,10 @@ public class HintsConsole : MonoBehaviour
 	{
 		if(collision.gameObject.CompareTag("PlayerA"))
 		{
-            textA.text = "Premi H per leggere!";
+            textA.text  = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere";
             infoA.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 isOpenA = true;
             }
@@ -47,10 +47,10 @@ public class HintsConsole : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
-            textA.text = "Premi H per leggere!";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere";
             infoA.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 isOpenA = true;
             }
