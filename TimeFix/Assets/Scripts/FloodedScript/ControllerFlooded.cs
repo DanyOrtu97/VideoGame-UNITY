@@ -7,6 +7,8 @@ public class ControllerFlooded : MonoBehaviour
     public GameObject luceCentrale;
     public GameObject portale;
     private int contaLuci=0;
+    private int contaChiavi; 
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +32,15 @@ public class ControllerFlooded : MonoBehaviour
 
         }
     }
+
+    public void RaccogliChiave()
+    {
+        contaChiavi++;
+    }
+
+    public bool IsOpenRecinto()
+    {
+        return contaChiavi == 1;
+    }
+    
 }

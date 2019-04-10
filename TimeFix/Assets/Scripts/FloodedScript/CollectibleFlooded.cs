@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CollectibleFlooded : MonoBehaviour
 {
     public GameObject controller;
     public string nome;
     public float speed = 1f;
-    public Vector3 rotationVector;
+    public Vector3 rotationVector= new Vector3(0, 30, 0);
+
+
+    private void Start()
+    {
+        rotationVector = new Vector3(0, 30, 0);
+    }
+
     void FixedUpdate()
     {
         transform.Rotate(rotationVector * Time.deltaTime * speed);
