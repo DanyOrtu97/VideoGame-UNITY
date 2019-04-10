@@ -17,7 +17,7 @@ public class LevelComplete : MonoBehaviour
         playerCorrect.Add(tag);
         if (playerCorrect.Contains("PlayerA")&& playerCorrect.Contains("PlayerB"))
         {
-            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4laboratory");
+            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
         }
 
     }

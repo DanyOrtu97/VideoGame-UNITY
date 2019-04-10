@@ -9,6 +9,7 @@ public class IntroSunTemple : MonoBehaviour
     public GameObject introCanvas;
     public GameObject[] element;
     public GameObject testoInterazione;
+    public GameObject testoTastoIntro;
     // Update is called once per frame
     private void Start()
     {
