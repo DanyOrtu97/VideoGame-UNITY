@@ -31,7 +31,7 @@ public class FinalStage : MonoBehaviour
             //esplosione finale
             if (Input.GetKeyDown(KeyCode.K))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
 
@@ -43,7 +43,7 @@ public class FinalStage : MonoBehaviour
             //esplosione finale
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
     }
@@ -58,7 +58,7 @@ public class FinalStage : MonoBehaviour
             //esplosione finale
             if (Input.GetKeyDown(KeyCode.K))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionA();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
 
@@ -70,7 +70,7 @@ public class FinalStage : MonoBehaviour
             //esplosione finale
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionB();
+                gameController.gameObject.GetComponent<Controller_Laboratory>().Explosion();
             }
         }
     }

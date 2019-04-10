@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RotateCollectible : MonoBehaviour
 {
     private float speed = 5f;
     public GameObject gameController;
+    public Text textA, textB;
+    public GameObject infoA, infoB;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +30,42 @@ public class RotateCollectible : MonoBehaviour
             gameController.gameObject.GetComponent<Controller_Laboratory>().collectibleA();
             this.gameObject.SetActive(false);
         }
+        else if (other.CompareTag("PlayerA") && gameController.gameObject.GetComponent<Controller_Laboratory>().getIndiceA() >= 5)
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Massima capienza raggiunta";
+        }
+
+
 
         if (other.CompareTag("PlayerB") && gameController.gameObject.GetComponent<Controller_Laboratory>().getIndiceB() < 5)
         {
             gameController.gameObject.GetComponent<Controller_Laboratory>().collectibleB();
             this.gameObject.SetActive(false);
         }
+        else if (other.CompareTag("PlayerB") && gameController.gameObject.GetComponent<Controller_Laboratory>().getIndiceB() >= 5)
+        {
+            infoB.gameObject.SetActive(true);
+            textB.text = "Massima capienza raggiunta";
+        }
+
     }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("PlayerB")){
+            infoB.gameObject.SetActive(false);
+        }
+    }
+
+
+
 
 
 }

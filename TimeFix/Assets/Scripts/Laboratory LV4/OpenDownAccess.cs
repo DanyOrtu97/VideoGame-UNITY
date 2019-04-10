@@ -27,8 +27,8 @@ public class OpenDownAccess : MonoBehaviour
 		{
             LiamAccess = true;
             boxCollider.isTrigger = true;
-            textA.text = "Passaggio aperto";
-            textB.text = "Passaggio aperto";
+            textA.text = "Passaggio inferiore aperto per Liam";
+            textB.text = "Passaggio inferiore aperto per Liam";
         }
 
 	}
