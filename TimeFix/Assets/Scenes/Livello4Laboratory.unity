@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5f38cebe9302c4daf1c25902ba4c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterPause: 0
+  letterPause: 0.05
 --- !u!1001 &41464901
 PrefabInstance:
   m_ObjectHideFlags: 0

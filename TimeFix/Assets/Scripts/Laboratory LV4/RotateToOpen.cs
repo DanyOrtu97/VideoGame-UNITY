@@ -52,8 +52,8 @@ public class RotateToOpen : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi R per ruotare";
-            if (Input.GetKeyDown(KeyCode.R))
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare";
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 incrementa = true;
             }
@@ -64,8 +64,8 @@ public class RotateToOpen : MonoBehaviour
         {
             
             infoB.gameObject.SetActive(true);
-            textB.text = "Premi R per ruotare";
-            if (Input.GetKeyDown(KeyCode.R))
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare";
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 incrementa = true;
             }
@@ -79,9 +79,9 @@ public class RotateToOpen : MonoBehaviour
             
             infoA.gameObject.SetActive(true);
 
-            textA.text = "Premi R per ruotare";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare";
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 incrementa = true;
             }
@@ -91,10 +91,10 @@ public class RotateToOpen : MonoBehaviour
         {
             
             infoB.gameObject.SetActive(true);
-            textB.text = "Premi R per ruotare";
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare";
 
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 incrementa = true;
             }
