@@ -11,6 +11,7 @@ public class DrawAndOpen : MonoBehaviour
     public GameObject infoB;
     public InputField passwordB;
     public GameObject activeKey;
+    private bool isValidPassword=false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +48,12 @@ public class DrawAndOpen : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerB"))
-        {
-            
-            
+        {    
 
             infoB.gameObject.SetActive(true);
-            textB.text = "Inserisci i numeri relativi alle luci che vuoi accendere divisi da spazi!";
+            textB.text = "Lancia una moneta, una faccia è quella giusta, se la chiave vuoi trovare " +
+                "la combinazione giusta dovrai attivare! \n" +
+                "Inserisci i numeri relativi alle luci che vuoi accendere divisi da spazi!";
             passwordB.gameObject.SetActive(true);
 
             inputLights = passwordB.text;
@@ -61,9 +62,10 @@ public class DrawAndOpen : MonoBehaviour
             if (passwordB.text.Equals("2 4 5 6 8") || passwordB.text.Equals("2 4 5 6 8 "))
             {
                 activeKey.SetActive(true);
-                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+                isValidPassword = true;
+                
                 passwordB.gameObject.SetActive(false);
-                infoB.gameObject.SetActive(false);
+                textB.text = "Combinazione Corretta! Chiave sbloccata";
             }
 
 
@@ -86,8 +88,12 @@ public class DrawAndOpen : MonoBehaviour
     {
         if (other.CompareTag("PlayerB"))
         {
+            if(isValidPassword)
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
             infoB.gameObject.SetActive(false);
             passwordB.gameObject.SetActive(false);
+         
         }
     }
 

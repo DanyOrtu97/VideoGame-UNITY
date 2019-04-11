@@ -24,7 +24,8 @@ public class AttivaLeveLabirinto : MonoBehaviour
         if (flagOneMove && conta<1)
         {
             flagOneMove = false;
-            luce1.gameObject.SetActive(true);
+            luce1.gameObject.GetComponent<Light>().enabled = true;
+            this.gameObject.GetComponent<Light>().color = Color.yellow;
             gameController.gameObject.GetComponent<ControllerFlooded>().AddLight();
             this.gameObject.transform.position += new Vector3(0, -1, 0);
 

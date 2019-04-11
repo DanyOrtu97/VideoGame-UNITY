@@ -41,6 +41,9 @@ public class ApriPortaRecintoRemy : MonoBehaviour
                     porta2_B.gameObject.SetActive(false);
                     porta1_A.gameObject.SetActive(false);
                     porta2_A.gameObject.SetActive(false);
+                    infoB.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
+
                 }
             }
         }
@@ -66,6 +69,7 @@ public class ApriPortaRecintoRemy : MonoBehaviour
                     porta1_A.gameObject.SetActive(false);
                     porta2_A.gameObject.SetActive(false);
                     infoB.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                 }
             }
         }
@@ -79,6 +83,7 @@ public class ApriPortaRecintoRemy : MonoBehaviour
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
         
     }
