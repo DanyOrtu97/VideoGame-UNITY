@@ -20,7 +20,6 @@ public class Timer : MonoBehaviour
             {
                 if (!door.gameObject.GetComponent<DoorController>().isOpen)
                 {
-                    Debug.Log("Game over");
                     SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
                 }
                 textTimer.gameObject.SetActive(false);

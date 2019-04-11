@@ -125,6 +125,7 @@ public class VerifyRotation : MonoBehaviour
         if (degrees[0] == 90 && degrees[1] == 180 && degrees[2] == 90)
         {
             boxCollider.isTrigger = true;
+
         }
         else
         {
@@ -132,6 +133,10 @@ public class VerifyRotation : MonoBehaviour
         }
     }
 
-
+    public bool UltimateStage()
+    {
+        Debug.Log(boxCollider.isTrigger);
+        return boxCollider.isTrigger;
+    }
 
 }

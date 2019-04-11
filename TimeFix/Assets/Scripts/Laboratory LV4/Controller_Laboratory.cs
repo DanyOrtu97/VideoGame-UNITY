@@ -149,6 +149,35 @@ public class Controller_Laboratory : MonoBehaviour
         
     }
 
+    public bool ExplosionTrue()
+    {
+        int conta = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (CollectibleA[i] == 1)
+            {
+                conta++;
+            }
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (CollectibleB[i] == 1)
+            {
+                conta++;
+            }
+        }
+
+        if (conta == 10)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
     public int getIndiceA()
@@ -170,7 +199,6 @@ public class Controller_Laboratory : MonoBehaviour
     {
         SceneManager.LoadScene("Win", LoadSceneMode.Single);
     }
-
 
 
 
