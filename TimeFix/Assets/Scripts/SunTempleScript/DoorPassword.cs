@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class DoorPassword : MonoBehaviour
 {
     public GameObject allertGuiB;
-
+    public GameObject timer;
+    public InputField  passwordB;
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -25,11 +26,20 @@ public class DoorPassword : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (this.gameObject.GetComponent<DoorController>().isOpen == false)
             {
-                Debug.Log("Porta Aperta");
-                allertGuiB.gameObject.SetActive(false);
-                this.gameObject.GetComponent<DoorController>().isOpen = true;
+                allertGuiB.gameObject.SetActive(true);
+                allertGuiB.gameObject.GetComponent<Text>().text = "Inserisci password";
+
+                passwordB.gameObject.SetActive(true);
+
+                if (passwordB.text.Equals("serpente"))
+                {
+                    Debug.Log("Porta Aperta");
+                    allertGuiB.gameObject.SetActive(false);
+                    timer.gameObject.SetActive(false);
+                    this.gameObject.GetComponent<DoorController>().isOpen = true;
+                }
             }
         }
             
@@ -39,6 +49,7 @@ public class DoorPassword : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(false);
+            passwordB.gameObject.SetActive(false);
         }
     }
 }
