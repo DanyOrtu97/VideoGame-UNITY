@@ -259,7 +259,7 @@ MonoBehaviour:
     Impedite al Liam e Remy del futuro di fare disastri e ristabilite l''equilibrio
     dell''universo.
 
-    Fate attenzione ai cubi magici!'
+    Fate attenzione ai cubi di energia!'
 --- !u!222 &18624366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7791,6 +7791,21 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 383842501312389906, guid: 896403f93f3759340a1fae37fdf01b53,
         type: 3}
       propertyPath: m_Layer
@@ -8225,21 +8240,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 564447190926040380, guid: 896403f93f3759340a1fae37fdf01b53,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3535870797292381447, guid: 896403f93f3759340a1fae37fdf01b53, type: 3}
@@ -9834,6 +9834,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5234035685977520516, guid: a5c57a64955f6994fb11b54d568f17be,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234035685977520520, guid: a5c57a64955f6994fb11b54d568f17be,
         type: 3}
       propertyPath: m_Radius
@@ -10273,11 +10278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5234035685977520516, guid: a5c57a64955f6994fb11b54d568f17be,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c57a64955f6994fb11b54d568f17be, type: 3}

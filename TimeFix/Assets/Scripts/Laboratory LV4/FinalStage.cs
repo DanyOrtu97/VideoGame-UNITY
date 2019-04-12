@@ -27,7 +27,7 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per utilizzare i cubi magici e impedire a Liam e Remy del futuro di fare disastri!";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per utilizzare i cubi di energia per impedire a Liam e Remy del futuro di fare disastri!";
 
             //esplosione finale
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -40,7 +40,7 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per utilizzare i cubi magici e impedire a Liam e Remy del futuro di fare disastri!";
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per utilizzare i cubi di energia per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
@@ -55,7 +55,7 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per utilizzare i cubi magici e impedire a Liam e Remy del futuro di fare disastri!";
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per utilizzare i cubi di energia per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
@@ -67,7 +67,7 @@ public class FinalStage : MonoBehaviour
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per utilizzare i cubi magici e impedire a Liam e Remy del futuro di fare disastri!";
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per utilizzare i cubi di energia per impedire a Liam e Remy del futuro di fare disastri!";
             //esplosione finale
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {

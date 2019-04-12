@@ -27,13 +27,13 @@ public class FinalHint : MonoBehaviour
         if (other.CompareTag("PlayerA") && SecretAccess.gameObject.GetComponent<VerifyRotation>().UltimateStage())
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Passaggio per il Laboratorio aperto. Raccogliete TUTTI i cubi magici e correte! ";
+            textA.text = "Passaggio per il Laboratorio aperto. Raccogliete TUTTI i cubi di energia e correte! ";
         }
 
         if (other.CompareTag("PlayerB") && SecretAccess.gameObject.GetComponent<VerifyRotation>().UltimateStage())
         {
             infoB.gameObject.SetActive(true);
-            textB.text = "Passaggio per il Laboratorio aperto. Raccogliete TUTTI i cubi magici e correte! ";
+            textB.text = "Passaggio per il Laboratorio aperto. Raccogliete TUTTI i cubi di energia e correte! ";
         }
     }
 
