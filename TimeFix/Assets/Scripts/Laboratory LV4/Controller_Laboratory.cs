@@ -19,12 +19,19 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject PlayerBOld;
     public GameObject intro;
     public Text InteractionClose;
+    public GameObject videoIntroCamera;
+    public GameObject Interface;
+    private float timeToIntro = 0f;
+    private int contaActive = 0;
 
     private void Awake()
     {
-        intro.SetActive(true);
+        videoIntroCamera.SetActive(true);
+        intro.SetActive(false);
+        Interface.SetActive(false);
         PlayerA.SetActive(false);
         PlayerB.SetActive(false);
+        timeToIntro = Time.time;
     }
 
     // Start is called before the first frame update
@@ -41,7 +48,17 @@ public class Controller_Laboratory : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if(Time.time - timeToIntro > 50 && contaActive == 0)
+        {
+            videoIntroCamera.SetActive(false);
+            intro.SetActive(true);
+            Interface.SetActive(true);
+            PlayerA.SetActive(false);
+            PlayerB.SetActive(false);
+            contaActive++;
+
+        }
+
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false); 
