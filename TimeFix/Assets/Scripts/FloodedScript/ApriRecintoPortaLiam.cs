@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ApriPortaRecintoLiam : MonoBehaviour
+public class ApriRecintoPortaLiam : MonoBehaviour
 {
     public Text textA;
     public GameObject infoA;
