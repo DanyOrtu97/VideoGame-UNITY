@@ -10,21 +10,20 @@ public class DoorPassword : MonoBehaviour
     public GameObject timer;
     public InputField  passwordB;
 
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB")) {
+        if (other.gameObject.CompareTag("PlayerB"))
+        {
             if (this.gameObject.GetComponent<DoorController>().isOpen == false)
             {
                 allertGuiB.gameObject.SetActive(true);
                 allertGuiB.gameObject.GetComponent<Text>().text = "Inserisci password";
             }
         }
-        
-
     }
-    public void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             if (this.gameObject.GetComponent<DoorController>().isOpen == false)
             {
@@ -42,14 +41,14 @@ public class DoorPassword : MonoBehaviour
                 }
             }
         }
-            
     }
-    public void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(false);
             passwordB.gameObject.SetActive(false);
         }
     }
+   
 }

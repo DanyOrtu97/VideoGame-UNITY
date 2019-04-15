@@ -34,23 +34,22 @@ public class RotateStatue : MonoBehaviour
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-90, 0, degree), Time.deltaTime * speed);
     }
-
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA")) {
-            allertGuiA.gameObject.GetComponent<Text>().text =  "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare la statua" ;
+        if (other.gameObject.CompareTag("PlayerA"))
+        {
+            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare la statua";
             allertGuiA.gameObject.SetActive(true);
         }
-        if (collision.gameObject.CompareTag("PlayerB")) {
+        if (other.gameObject.CompareTag("PlayerB"))
+        {
             allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare la statua";
             allertGuiB.gameObject.SetActive(true);
         }
-        
-
     }
-    public void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -58,7 +57,7 @@ public class RotateStatue : MonoBehaviour
                 incrementa = true;
             }
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
@@ -66,21 +65,18 @@ public class RotateStatue : MonoBehaviour
                 incrementa = true;
             }
         }
-        
 
     }
-    public void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             allertGuiA.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(false);
         }
-        
     }
 
 }
