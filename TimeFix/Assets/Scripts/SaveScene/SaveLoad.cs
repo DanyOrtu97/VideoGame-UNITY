@@ -32,7 +32,6 @@ public class SaveLoad : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
         //sceneId = SceneManager.GetActiveScene().buildIndex;
 
-        Debug.Log(sceneName);
         saver.levelSaved = sceneName;
         //saver.levelSaved = sceneId;
         //All other to insert on binary file
@@ -54,7 +53,6 @@ public class SaveLoad : MonoBehaviour
 
             //SceneManager.LoadScene(saver.levelSaved);
 
-            Debug.Log(saver.levelSaved);
             this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene(saver.levelSaved);
         }
     }

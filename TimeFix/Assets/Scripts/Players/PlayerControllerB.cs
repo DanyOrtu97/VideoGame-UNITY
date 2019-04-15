@@ -17,13 +17,13 @@ public class PlayerControllerB : MonoBehaviour
 	private Vector3 moveDir;
 	public bool tmp = false;
     private bool died = false;
+    private Vector3 normal;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		animator = GetComponent<Animator>();
 		controller = gameObject.GetComponent<CharacterController>();
-
     }
 
 	// Update is called once per frame
@@ -85,7 +85,6 @@ public class PlayerControllerB : MonoBehaviour
 		moveDir.z = 0;
 		moveDir.y -= gravity * Time.deltaTime;
 		controller.Move(moveDir * Time.deltaTime);
-
     }
 
     public bool getDied()

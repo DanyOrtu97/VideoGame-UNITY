@@ -20,11 +20,10 @@ public class InventarioFlooded : MonoBehaviour
     }
     public bool isValid()
     {
-        List<string> total = new List<string>();
-        total.AddRange(inventarioA);
-        total.AddRange(inventarioB);
+ 
 
-        if (total.Contains("Nebulizzatore") && total.Contains("TurboSpazzola") && total.Contains("Carburante"))
+        if (inventarioA.Contains("Nebulizzatore") && inventarioA.Contains("TurboSpazzola") && inventarioA.Contains("Carburante")
+            && inventarioB.Contains("Nebulizzatore") && inventarioB.Contains("TurboSpazzola") && inventarioB.Contains("Carburante"))
         {
             return true;
         }

@@ -25,7 +25,7 @@ public class StartCollider : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Liam è intrappolato nel labirinto, trova un metodo per farlo uscire!";
+            textA.text = "Liam e' intrappolato nel labirinto, trova un metodo per farlo uscire!";
         }
 
         if (other.CompareTag("PlayerB"))
@@ -40,7 +40,7 @@ public class StartCollider : MonoBehaviour
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Liam è intrappolato nel labirinto, trova un metodo per farlo uscire!";
+            textA.text = "Liam e' intrappolato nel labirinto, trova un metodo per farlo uscire!";
         }
 
         if (other.CompareTag("PlayerB"))

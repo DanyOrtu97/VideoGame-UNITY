@@ -40,8 +40,8 @@ public class OpenHomeUltimateDoor : MonoBehaviour
                 passwordB.gameObject.SetActive(false);
                 infoB.gameObject.SetActive(false);
                 textB.text = "Porta aperta!";
-                porta1.gameObject.SetActive(false);
-                porta2.gameObject.SetActive(false);
+                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen=true;
+                porta2.gameObject.GetComponent<DoorController>().isOpen = true;
             }
 
 
@@ -59,8 +59,8 @@ public class OpenHomeUltimateDoor : MonoBehaviour
                 passwordA.gameObject.SetActive(false);
                 infoA.gameObject.SetActive(false);
                 textA.text = "Porta aperta!";
-                porta1.gameObject.SetActive(false);
-                porta2.gameObject.SetActive(false);
+                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                porta2.gameObject.GetComponent<DoorController>().isOpen = true;
             }
 
 
@@ -84,8 +84,8 @@ public class OpenHomeUltimateDoor : MonoBehaviour
                 passwordB.gameObject.SetActive(false);
                 infoB.gameObject.SetActive(false);
                 textB.text = "Porta aperta!";
-                porta1.gameObject.SetActive(false);
-                porta2.gameObject.SetActive(false);
+                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                porta2.gameObject.GetComponent<DoorController>().isOpen = true;
             }
 
 
@@ -103,8 +103,8 @@ public class OpenHomeUltimateDoor : MonoBehaviour
                 passwordA.gameObject.SetActive(false);
                 infoA.gameObject.SetActive(false);
                 textA.text = "Porta aperta!";
-                porta1.gameObject.SetActive(false);
-                porta2.gameObject.SetActive(false);
+                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                porta2.gameObject.GetComponent<DoorController>().isOpen = true;
             }
 
 

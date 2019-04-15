@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class DrawAndOpen : MonoBehaviour
 {
@@ -51,21 +52,25 @@ public class DrawAndOpen : MonoBehaviour
         {    
 
             infoB.gameObject.SetActive(true);
-            textB.text = "Lancia una moneta, una faccia è quella giusta, se la chiave vuoi trovare " +
-                "la combinazione giusta dovrai attivare! \n" +
-                "Inserisci i numeri relativi alle luci che vuoi accendere divisi da spazi!";
+            textB.text = "Lancia una moneta, una faccia e' quella giusta, se la chiave vuoi trovare " +
+                "la combinazione dovrai scovare! \n" +
+                "Inserisci i numeri relativi alle luci che vuoi accendere !";
             passwordB.gameObject.SetActive(true);
 
             inputLights = passwordB.text;
-            
 
-            if (passwordB.text.Equals("2 4 5 6 8") || passwordB.text.Equals("2 4 5 6 8 "))
+
+            if(!passwordB.text.Contains("1") && passwordB.text.Contains("2") && !passwordB.text.Contains("3") && 
+                passwordB.text.Contains("4") && passwordB.text.Contains("5") && passwordB.text.Contains("6") && 
+                !passwordB.text.Contains("7") && passwordB.text.Contains("8") && !passwordB.text.Contains("9") &&
+                !passwordB.text.Contains("0"))
             {
                 activeKey.SetActive(true);
                 isValidPassword = true;
-                
+
                 passwordB.gameObject.SetActive(false);
                 textB.text = "Combinazione Corretta! Chiave sbloccata";
+
             }
 
 
