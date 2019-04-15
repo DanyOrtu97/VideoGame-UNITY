@@ -12,27 +12,24 @@ public class Hint2_Door : MonoBehaviour
     public GameObject allertGuiPanelA;
     public GameObject allertGuiPanelB;
 
-
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             allertGuiA.gameObject.SetActive(true);
-            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere il libro";
+            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere la pergamena";
 
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(true);
-            allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per leggere il libro";
+            allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per leggere la pergamena";
 
         }
-
-
     }
-    public void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -42,7 +39,7 @@ public class Hint2_Door : MonoBehaviour
                 allertGuiPanelA.gameObject.GetComponent<Text>().text = "Porta del Tempio: Il tempio di Kajec è l'edificio più antico della città. Si narra che in antichità 3 dragoni lo protegessero dai nemici.";
             }
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
@@ -53,23 +50,21 @@ public class Hint2_Door : MonoBehaviour
             }
         }
 
-
     }
-    public void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             panelGuiA.gameObject.SetActive(false);
             allertGuiA.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             panelGuiB.gameObject.SetActive(false);
             allertGuiB.gameObject.SetActive(false);
         }
-
     }
+  
 
 }
 

@@ -1,18 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorySunTemple : MonoBehaviour
 {
+    [Serializable]
+    public struct Dict {
+        public string name;
+        public Sprite image;
+    }
+    public Dict[] listSprite;
     private List<string> inventarioA =new List<string>();
     private List<string> inventarioB = new List<string>();
+    public GameObject[] boxSpriteA;
+    public GameObject[] boxSpriteB;
+
     public void AddItem(string name,string player) {
+        Sprite add=null;
+        foreach( Dict it in listSprite){
+            if(it.name.Equals(name)){
+                add=it.image;
+            }
+        }
         if (player.Equals("A"))
         {
             inventarioA.Add(name);
+            boxSpriteA[inventarioA.Count-1].gameObject.GetComponent<Image>().sprite=add;
+
         }
         else {
             inventarioB.Add(name);
+            boxSpriteB[inventarioB.Count-1].gameObject.GetComponent<Image>().sprite=add;
         }
         
     }

@@ -12,27 +12,25 @@ public class Hint3_Book : MonoBehaviour
     public GameObject allertGuiPanelA;
     public GameObject allertGuiPanelB;
 
-
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             allertGuiA.gameObject.SetActive(true);
             allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere il libro";
 
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(true);
             allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per leggere il libro";
 
         }
 
-
     }
-    public void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -42,7 +40,7 @@ public class Hint3_Book : MonoBehaviour
                 allertGuiPanelA.gameObject.GetComponent<Text>().text = "Il sole splende alle 12:30. Azibo 23-04-1936";
             }
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
@@ -53,23 +51,21 @@ public class Hint3_Book : MonoBehaviour
             }
         }
 
-
     }
-    public void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             panelGuiA.gameObject.SetActive(false);
             allertGuiA.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             panelGuiB.gameObject.SetActive(false);
             allertGuiB.gameObject.SetActive(false);
         }
-
     }
+   
 
 }
 
