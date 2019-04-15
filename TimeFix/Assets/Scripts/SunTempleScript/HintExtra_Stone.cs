@@ -14,49 +14,45 @@ public class HintExtra_Stone : MonoBehaviour
     public GameObject allertGuiPanelB;
     public Vector3 newPosition;
 
-    
-
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             allertGuiA.gameObject.SetActive(true);
-            allertGuiA.gameObject.GetComponent<Text>().text = "Premi "+ InputAssign.keyDictInteractString["PlayerAInteract"] + " per spostare";
+            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per spostare";
 
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             allertGuiB.gameObject.SetActive(true);
             allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per spostare";
 
         }
-
-
     }
-    
-    public void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
-            
+
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 allertGuiA.gameObject.SetActive(false);
-                
+
                 if (controller.gameObject.GetComponent<InventorySunTemple>().isValid())
                 {
                     StartCoroutine(MoveFunction());
                 }
-                else {
+                else
+                {
                     panelGuiA.gameObject.SetActive(true);
                     allertGuiPanelA.gameObject.GetComponent<Text>().text = "Il masso e' troppo pesante, servirebbe una leva...";
                 }
-                
+
             }
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
-            
+
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 allertGuiB.gameObject.SetActive(false);
@@ -71,24 +67,22 @@ public class HintExtra_Stone : MonoBehaviour
                 }
             }
         }
-
-
     }
-    public void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             panelGuiA.gameObject.SetActive(false);
             allertGuiA.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             panelGuiB.gameObject.SetActive(false);
             allertGuiB.gameObject.SetActive(false);
         }
-
     }
+
+   
 
     IEnumerator MoveFunction()
     {
