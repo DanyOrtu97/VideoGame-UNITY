@@ -9,6 +9,7 @@ public class ControllerFlooded : MonoBehaviour
     public GameObject portale;
     public GameObject infoA;
     public GameObject colliderUscita;
+    public GameObject videoIntro, liam, remy, interfacciaUtente, descrizioneIntro ;
     public int[] CollectibleA;
     private int indiceA = 0;
     public int[] CollectibleB;
@@ -19,6 +20,21 @@ public class ControllerFlooded : MonoBehaviour
     public Text InteractionClose;
     private int contaLuci=0;
     private int contaChiavi;
+    private float timeIntro = 0.0f;
+    private int contaInizio = 0;
+
+
+    private void Awake()
+    {
+        timeIntro = Time.time;
+        videoIntro.gameObject.SetActive(true);
+        liam.gameObject.SetActive(false);
+        remy.gameObject.SetActive(false);
+        interfacciaUtente.gameObject.SetActive(false);
+        descrizioneIntro.gameObject.SetActive(false);
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +48,17 @@ public class ControllerFlooded : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (Time.time - timeIntro > 40 && contaInizio == 0 )
+        {
+            videoIntro.gameObject.SetActive(false);
+            liam.gameObject.SetActive(true);
+            remy.gameObject.SetActive(true);
+            interfacciaUtente.gameObject.SetActive(true);
+            descrizioneIntro.gameObject.SetActive(true);
+            contaInizio++;
+        }
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false);

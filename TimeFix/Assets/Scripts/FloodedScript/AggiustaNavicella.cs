@@ -25,6 +25,31 @@ public class AggiustaNavicella : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
+
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            {
+                textA.text = "Navicella rotta, Premi U per aggiustarla!";
+
+                if (Input.GetKey(KeyCode.U))
+                {
+                    navicellaAggiustata.SetActive(true);
+                    infoA.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
+                }
+
+            }
+            else
+            {
+                textA.text = "Tu o Remy non avete tutti i pezzi, trovateli!!";
+
+            }
+        }
+
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
@@ -44,13 +69,44 @@ public class AggiustaNavicella : MonoBehaviour
                 }
                 
             }
+            else
+            {
+                textB.text = "Tu o Liam non avete tutti i pezzi, trovateli!!";
 
-
+            }
         }
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
+
+        if (other.CompareTag("PlayerA"))
+        {
+            infoA.gameObject.SetActive(true);
+            textA.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
+
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            {
+                textA.text = "Navicella rotta, Premi U per aggiustarla!";
+
+                if (Input.GetKey(KeyCode.U))
+                {
+                    navicellaAggiustata.SetActive(true);
+                    infoA.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
+
+
+                }
+
+            }
+            else
+            {
+                textA.text = "Tu o Remy non avete tutti i pezzi, trovateli!!";
+
+            }
+        }
         if (other.CompareTag("PlayerB"))
         {
             infoB.gameObject.SetActive(true);
@@ -70,6 +126,11 @@ public class AggiustaNavicella : MonoBehaviour
                 }
 
             }
+            else
+            {
+                textB.text = "Tu o Liam non avete tutti i pezzi, trovateli!!";
+
+            }
 
 
         }
@@ -79,6 +140,12 @@ public class AggiustaNavicella : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("PlayerA"))
+        {
+
+            infoA.gameObject.SetActive(false);
+        }
+
         if (other.CompareTag("PlayerB"))
         {
 

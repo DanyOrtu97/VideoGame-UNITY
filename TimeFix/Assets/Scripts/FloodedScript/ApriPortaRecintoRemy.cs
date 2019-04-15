@@ -8,6 +8,7 @@ public class ApriPortaRecintoRemy : MonoBehaviour
     public GameObject gameController;
     public GameObject porta1_B, porta2_B;
     public GameObject porta1_A, porta2_A;
+    public GameObject triggerLiam; 
 
     public Text textB;
     public GameObject infoB;
@@ -37,12 +38,15 @@ public class ApriPortaRecintoRemy : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.U))
                 {
-                    porta1_B.gameObject.SetActive(false);
-                    porta2_B.gameObject.SetActive(false);
-                    porta1_A.gameObject.SetActive(false);
-                    porta2_A.gameObject.SetActive(false);
+                    porta1_B.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                    porta2_B.gameObject.GetComponent<DoorController>().isOpen = true;
+
+                    porta1_A.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                    porta2_A.gameObject.GetComponent<DoorController>().isOpen = true;
+
                     infoB.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
+                    triggerLiam.gameObject.SetActive(false);
 
                 }
             }
@@ -64,10 +68,13 @@ public class ApriPortaRecintoRemy : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.U))
                 {
-                    porta1_B.gameObject.SetActive(false);
-                    porta2_B.gameObject.SetActive(false);
-                    porta1_A.gameObject.SetActive(false);
-                    porta2_A.gameObject.SetActive(false);
+                    porta1_B.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                    porta2_B.gameObject.GetComponent<DoorController>().isOpen = true;
+
+                    porta1_A.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
+                    porta2_A.gameObject.GetComponent<DoorController>().isOpen = true;
+
+                    triggerLiam.gameObject.SetActive(false);
                     infoB.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
                 }
