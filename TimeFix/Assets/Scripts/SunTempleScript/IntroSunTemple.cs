@@ -9,20 +9,33 @@ public class IntroSunTemple : MonoBehaviour
     public GameObject introCanvas;
     public GameObject[] element;
     public GameObject testoInterazione;
-    public GameObject testoTastoIntro;
+    public GameObject cameraCinematic;
+    public GameObject cameraIntro;
+    private float timeStart;
+    private int lockStart=0;
     // Update is called once per frame
     private void Start()
     {
+        timeStart=Time.time;
         testoInterazione.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare";
     }
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"])) {
-            introCanvas.SetActive(false);
-            this.GetComponent<Timer>().startTimer = true;
-            foreach(GameObject item in element) {
-                item.SetActive(true);
+        if(Time.time - timeStart > 50&&lockStart<2){
+            lockStart=1;
+            introCanvas.SetActive(true);
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"])) {
+                lockStart=2;
+                introCanvas.SetActive(false);
+                cameraIntro.SetActive(false);
+                this.GetComponent<Timer>().startTimer = true;
+                foreach(GameObject item in element) {
+                    item.SetActive(true);
+                }
+                
+
             }
+            
         }
     }
 }
