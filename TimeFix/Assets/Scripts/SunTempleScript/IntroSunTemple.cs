@@ -16,12 +16,13 @@ public class IntroSunTemple : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        this.gameObject.GetComponent<SaveLoad>().Save();
         timeStart=Time.time;
         testoInterazione.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare";
     }
     void FixedUpdate()
     {
-        if(Time.time - timeStart > 50&&lockStart<2){
+        if(Time.time - timeStart >50&&lockStart<2){
             lockStart=1;
             introCanvas.SetActive(true);
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"])) {
