@@ -10,6 +10,7 @@ public class SettingController : MonoBehaviour
     public Dropdown playerB;
     public Text descrizioneControlliA;
     public Text descrizioneControlliB;
+   
     public void BackToMainMenu() {
         SceneManager.LoadScene("Menu3D", LoadSceneMode.Single);
     }
@@ -25,6 +26,9 @@ public class SettingController : MonoBehaviour
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
+
+            descrizioneControlliA.text="Movimento: WASD\n Interazione: E";
+            descrizioneControlliB.text="Movimento: Frecce \nInterazione: Invio";
         }
         else if (playerA.value == 1 && playerB.value == 1) {
             InputAssign.UpdateDictionaryMovement("PlayerAHorizontal", "HorizontalJoystick");
@@ -36,6 +40,9 @@ public class SettingController : MonoBehaviour
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
+
+            descrizioneControlliA.text="Movimento: Analogico\n"+"Interazione: O";
+            descrizioneControlliB.text="Movimento: Analogico\n"+"Interazione: O";
         }
         else if (playerA.value == 0 && playerB.value == 1)
         {
@@ -48,6 +55,9 @@ public class SettingController : MonoBehaviour
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
+
+            descrizioneControlliA.text="Movimento: WASD\n"+"Interazione: E";
+            descrizioneControlliB.text="Movimento: Analogico\n"+"Interazione: O";
         }
         else if (playerA.value == 1 && playerB.value == 0)
         {
@@ -60,6 +70,9 @@ public class SettingController : MonoBehaviour
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
+            //⭙⭘
+            descrizioneControlliA.text="Movimento: Analogico\n"+"Interazione: O";
+            descrizioneControlliB.text="Movimento: Frecce\n"+"Interazione: Invio";
         }
     }
 }

@@ -840,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.00028992, y: -90.8}
+  m_AnchoredPosition: {x: 0.000289917, y: -90.8}
   m_SizeDelta: {x: 298.4, y: 140.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &172149453
@@ -876,9 +876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Movimento: WASD
-
-    Interazione: E'
+  m_Text: "Movimento:\u23F6\u23F4\u23F7\u23F5Frecce\nInterazione: Invio"
 --- !u!222 &172149454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3083,8 +3081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerA: {fileID: 1701892495}
   playerB: {fileID: 1366337315}
-  descrizioneControlliA: {fileID: 0}
-  descrizioneControlliB: {fileID: 0}
+  descrizioneControlliA: {fileID: 170713978}
+  descrizioneControlliB: {fileID: 172149453}
 --- !u!1 &1112048615
 GameObject:
   m_ObjectHideFlags: 0
