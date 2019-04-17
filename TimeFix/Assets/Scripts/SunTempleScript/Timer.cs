@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public GameObject door;
-    private float timeLeft = 60.0f;
+    private float timeLeft = 100.0f;
     public GameObject textTimer;
     public bool startTimer=false;
+    public GameObject liam;
     void FixedUpdate()
     {
         if (startTimer)
@@ -20,11 +21,17 @@ public class Timer : MonoBehaviour
             {
                 if (!door.gameObject.GetComponent<DoorController>().isOpen)
                 {
-                    SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                    liam.gameObject.GetComponent<Animator>().SetBool("Died", true);
+                    liam.gameObject.GetComponent<PlayerControllerA>().setDied(true);
+                    Invoke("ChangeSceneGameOver", 4);
+                    
                 }
                 textTimer.gameObject.SetActive(false);
             }
         }
 
+    }
+    private void ChangeSceneGameOver() {
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

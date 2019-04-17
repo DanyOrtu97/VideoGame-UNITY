@@ -35,6 +35,7 @@ public class DoorPassword : MonoBehaviour
                 if (passwordB.text.Equals("serpente"))
                 {
                     Debug.Log("Porta Aperta");
+                    passwordB.gameObject.SetActive(false);
                     allertGuiB.gameObject.SetActive(false);
                     timer.gameObject.SetActive(false);
                     this.gameObject.GetComponent<DoorController>().isOpen = true;
