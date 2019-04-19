@@ -20,7 +20,7 @@ public class EndLevel1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerA") && onBoat == false)
+        if (collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per Salpare";
@@ -40,12 +40,10 @@ public class EndLevel1 : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && onBoat == false)
             {
-                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 0)
+                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3)
                 {
                     onBoat = true;
-                    tr.gameObject.SetActive(false);
-                    tr.transform.position = new Vector3(24.31f, 2.70f, 46.91f);
-                    tr.gameObject.SetActive(true);
+                    tr.transform.position = new Vector3(24.31f, 2.53f, 46.91f);
                     tr.eulerAngles = new Vector3(0, 120, 0);
                     alertGUI.gameObject.SetActive(false);
 
@@ -72,9 +70,7 @@ public class EndLevel1 : MonoBehaviour
         if (onBoat)
         {
             this.transform.Translate(Vector3.back * Time.deltaTime * speed); //muove in avanti la barca anche se c'è back
-            tr.gameObject.SetActive(false);
             tr.transform.position = this.transform.position; //fa muovere insieme barca e player 
-            tr.gameObject.SetActive(true);
         }
         
     }

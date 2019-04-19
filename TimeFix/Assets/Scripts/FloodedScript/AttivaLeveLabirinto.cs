@@ -11,13 +11,6 @@ public class AttivaLeveLabirinto : MonoBehaviour
     public GameObject infoA;
     private bool flagOneMove = false;
     private int conta = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-           
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,9 +31,9 @@ public class AttivaLeveLabirinto : MonoBehaviour
         if(other.CompareTag("PlayerA") && conta<1)
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi U per abbassare la leva!";
+            textA.text = "Premi  " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per abbassare la leva!";
 
-            if (Input.GetKeyDown(KeyCode.U))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 flagOneMove = true;
                 
@@ -55,9 +48,9 @@ public class AttivaLeveLabirinto : MonoBehaviour
         if (other.CompareTag("PlayerA") && conta < 1)
         {
             infoA.gameObject.SetActive(true);
-            textA.text = "Premi U per abbassare la leva!";
+            textA.text = "Premi  " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per abbassare la leva!";
 
-            if (Input.GetKeyDown(KeyCode.U))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 flagOneMove = true;
             }

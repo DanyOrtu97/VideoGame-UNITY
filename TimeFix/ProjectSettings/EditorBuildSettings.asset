@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Livello2SunTemple.unity
     guid: 7bae18a2e2bd8ab43871b40ef13bdd35
   - enabled: 1
+    path: Assets/Scenes/Livello3Flooded.unity
+    guid: 4c86c6a9ff04317409fe2823dc53ef4d
+  - enabled: 1
     path: Assets/Scenes/Livello4Laboratory.unity
     guid: 1cf138c1f0f853b4cab9162647f00a69
   - enabled: 1

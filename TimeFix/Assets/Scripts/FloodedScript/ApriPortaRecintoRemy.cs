@@ -13,17 +13,6 @@ public class ApriPortaRecintoRemy : MonoBehaviour
     public Text textB;
     public GameObject infoB;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,9 +23,9 @@ public class ApriPortaRecintoRemy : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<ControllerFlooded>().IsOpenRecinto())
             {
-                textB.text = "Premi U per aprire il cancello!";
+                textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aprire il cancello!";
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     porta1_B.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
                     porta2_B.gameObject.GetComponent<DoorController>().isOpen = true;
@@ -64,9 +53,9 @@ public class ApriPortaRecintoRemy : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<ControllerFlooded>().IsOpenRecinto())
             {
-                textB.text = "Premi U per aprire il cancello!";
+                textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aprire il cancello!";
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     porta1_B.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
                     porta2_B.gameObject.GetComponent<DoorController>().isOpen = true;

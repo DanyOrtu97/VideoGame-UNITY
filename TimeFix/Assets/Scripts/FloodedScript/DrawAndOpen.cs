@@ -15,16 +15,7 @@ public class DrawAndOpen : MonoBehaviour
     private bool isValidPassword=false;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
 
 
 

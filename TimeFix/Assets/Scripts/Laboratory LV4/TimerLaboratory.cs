@@ -25,10 +25,7 @@ public class TimerLaboratory : MonoBehaviour
                 textTimer.gameObject.SetActive(false);
             }
 
-            if (gameController.gameObject.GetComponent<Controller_Laboratory>().ExplosionTrue())
-            {
-                textTimer.gameObject.SetActive(false);
-            }
+            
         }
 
     }

@@ -97,6 +97,21 @@ public class Inventory : MonoBehaviour
                     gameController.gameObject.GetComponent<GameController>().setCounterFood();
                 }
 
+                if (item.type.Equals("iron"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterIron();
+                }
+
+                if (item.type.Equals("tool"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterTool();
+                }
+
+                if (item.type.Equals("hammer"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
+                }
+
                 alertGUI.gameObject.SetActive(false);
             }
         }
@@ -112,7 +127,7 @@ public class Inventory : MonoBehaviour
 
 
 
-    void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
+     void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
         for (j = j; j < allSlots; j++)
         {
@@ -139,6 +154,43 @@ public class Inventory : MonoBehaviour
             return;
         }
     }
+
+    
+    public void removeItemByType(string tipo)
+    {
+        int countDeletedItems = 0;
+
+        for (int i = 0; i < allSlots; i++)
+        {
+            if(slot[i].GetComponent<Slot>().type.Equals(tipo))
+            {
+                countDeletedItems++;
+               
+                slot[i].GetComponent<Slot>().freeSlot();
+            }
+        }
+
+        for(int i = 0; i< countDeletedItems; i++)
+        {
+            j--;
+        }
+        
+    }
+
+    public bool checkItem(string tipo)
+    {
+
+        for (int i = 0; i < allSlots; i++)
+        {
+            if (slot[i].GetComponent<Slot>().type.Equals(tipo))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
 
 
     
