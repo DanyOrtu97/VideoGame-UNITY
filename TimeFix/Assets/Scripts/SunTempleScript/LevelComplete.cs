@@ -20,7 +20,7 @@ public class LevelComplete : MonoBehaviour
             if (this.IsValid() && lockL == false)
             {
                 lockL = true;
-                this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
+                this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello3Flooded");
 
             }
         }

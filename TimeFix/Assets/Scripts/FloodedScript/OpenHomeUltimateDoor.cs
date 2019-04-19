@@ -11,17 +11,6 @@ public class OpenHomeUltimateDoor : MonoBehaviour
     public GameObject infoB, infoA;
     public InputField passwordB, passwordA;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
