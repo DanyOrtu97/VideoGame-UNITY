@@ -23,8 +23,11 @@ public class ControllerFlooded : MonoBehaviour
     private float timeIntro = 0.0f;
     private int contaInizio = 0;
 
+    private List<string> listplayerNavicella=new List<string>();
+    public GameObject canvasAsync;
+    private bool lockR=false;
 
-    /*private void Awake()
+    private void Awake()
     {
         timeIntro = Time.time;
         videoIntro.gameObject.SetActive(true);
@@ -33,7 +36,7 @@ public class ControllerFlooded : MonoBehaviour
         interfacciaUtente.gameObject.SetActive(false);
         descrizioneIntro.gameObject.SetActive(false);
 
-    }*/
+    }
 
 
     // Start is called before the first frame update
@@ -50,7 +53,7 @@ public class ControllerFlooded : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*if (Time.time - timeIntro > 80 && contaInizio == 0 )
+        if (Time.time - timeIntro > 60 && contaInizio == 0 )
         {
             videoIntro.gameObject.SetActive(false);
             liam.gameObject.SetActive(true);
@@ -58,8 +61,7 @@ public class ControllerFlooded : MonoBehaviour
             interfacciaUtente.gameObject.SetActive(true);
             descrizioneIntro.gameObject.SetActive(true);
             contaInizio++;
-        }*/
-
+        }
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false);
@@ -130,6 +132,14 @@ public class ControllerFlooded : MonoBehaviour
                     break;
             }
             indiceB++;
+        }
+    }
+    public void AddNavicella(string player){
+        listplayerNavicella.Add(player);
+        if(listplayerNavicella.Contains("PlayerA")&&listplayerNavicella.Contains("PlayerB")&&lockR==false){
+            lockR=true;
+            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
+            
         }
     }
 

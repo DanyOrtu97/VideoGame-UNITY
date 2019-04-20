@@ -23,4 +23,16 @@ public class Slot : MonoBehaviour
     {
         slotIconGO.GetComponent<Image>().sprite = icon;
     }
+
+    public void freeSlot()
+    {
+        item = null;
+        ID = 0;
+        type = "";
+        description = "";
+        empty = true;
+        icon = null;
+        slotIconGO.GetComponent<Image>().sprite = icon;
+
+    }
 }

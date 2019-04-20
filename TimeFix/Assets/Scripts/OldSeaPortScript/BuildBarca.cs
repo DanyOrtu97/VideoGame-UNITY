@@ -32,7 +32,7 @@ public class BuildBarca : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (gameController.gameObject.GetComponent<GameController>().getCounterBarca() == 0)
+                if (gameController.gameObject.GetComponent<GameController>().getCounterBarca() == 3)
                 {
                     barca.gameObject.SetActive(true);
                     this.gameObject.SetActive(false);

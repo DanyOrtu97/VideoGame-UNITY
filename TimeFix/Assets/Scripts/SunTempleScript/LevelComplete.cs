@@ -6,19 +6,31 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-    private List<string> playerCorrect=new List<string>();
-
-    public void RemovePlayer(string tag)
+    private Dictionary<string, string> dictPosizioni = new Dictionary<string, string>();
+    private bool lockL = false;
+    public void RemovePlayer(string tag,string punto)
     {
-        playerCorrect.Remove(tag);
+        dictPosizioni.Remove(tag);
     }
-    public void AddPlayer(string tag)
+    public void AddPlayer(string tag,string punto)
     {
-        playerCorrect.Add(tag);
-        if (playerCorrect.Contains("PlayerA")&& playerCorrect.Contains("PlayerB"))
+        if (!dictPosizioni.ContainsKey(tag))
         {
-            this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
-        }
+            dictPosizioni.Add(tag, punto);
+            if (this.IsValid() && lockL == false)
+            {
+                lockL = true;
+                this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello3Flooded");
 
+            }
+        }
+       
+
+    }
+    private bool IsValid() {
+        if (dictPosizioni["PlayerA"] != dictPosizioni["PlayerB"]) {
+            return true;
+        }
+        return false;
     }
 }

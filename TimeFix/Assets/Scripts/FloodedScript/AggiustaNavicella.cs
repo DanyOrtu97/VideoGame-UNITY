@@ -11,18 +11,6 @@ public class AggiustaNavicella : MonoBehaviour
     public GameObject infoB, infoA;
     public GameObject navicellaAggiustata;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
 
@@ -33,9 +21,10 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
             {
-                textA.text = "Navicella rotta, Premi U per aggiustarla!";
+                textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
+                
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
                     navicellaAggiustata.SetActive(true);
                     infoA.gameObject.SetActive(false);
@@ -57,9 +46,9 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
             {
-                textB.text = "Navicella rotta, Premi U per aggiustarla!";
+                textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     navicellaAggiustata.SetActive(true);
                     infoB.gameObject.SetActive(false);
@@ -89,15 +78,14 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
             {
-                textA.text = "Navicella rotta, Premi U per aggiustarla!";
+                 textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
+                
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
                     navicellaAggiustata.SetActive(true);
                     infoA.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
-
-
                 }
 
             }
@@ -114,15 +102,15 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
             {
-                textB.text = "Navicella rotta, Premi U per aggiustarla!";
+               textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
 
-                if (Input.GetKey(KeyCode.U))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     navicellaAggiustata.SetActive(true);
                     infoB.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
-
-
+                    
+                   
                 }
 
             }
