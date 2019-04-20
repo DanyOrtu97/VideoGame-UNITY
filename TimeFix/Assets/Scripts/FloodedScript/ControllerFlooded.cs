@@ -24,7 +24,7 @@ public class ControllerFlooded : MonoBehaviour
     private int contaInizio = 0;
 
 
-    private void Awake()
+    /*private void Awake()
     {
         timeIntro = Time.time;
         videoIntro.gameObject.SetActive(true);
@@ -33,7 +33,7 @@ public class ControllerFlooded : MonoBehaviour
         interfacciaUtente.gameObject.SetActive(false);
         descrizioneIntro.gameObject.SetActive(false);
 
-    }
+    }*/
 
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class ControllerFlooded : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time - timeIntro > 40 && contaInizio == 0 )
+        /*if (Time.time - timeIntro > 80 && contaInizio == 0 )
         {
             videoIntro.gameObject.SetActive(false);
             liam.gameObject.SetActive(true);
@@ -58,7 +58,8 @@ public class ControllerFlooded : MonoBehaviour
             interfacciaUtente.gameObject.SetActive(true);
             descrizioneIntro.gameObject.SetActive(true);
             contaInizio++;
-        }
+        }*/
+
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false);
