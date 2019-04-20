@@ -23,6 +23,8 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject Interface;
     private float timeToIntro = 0f;
     private int contaActive = 0;
+    private bool inventoryEnabledA = true, inventoryEnabledB = true;
+    public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
 
     private void Awake()
     {
@@ -65,7 +67,38 @@ public class Controller_Laboratory : MonoBehaviour
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
         }
-        
+
+        //INTERFACE b
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryEnabledA = !inventoryEnabledA;
+        }
+
+        if (inventoryEnabledA)
+        {
+            InterfaceCollectibleA.SetActive(true);
+        }
+        else
+        {
+            InterfaceCollectibleA.SetActive(false);
+        }
+
+
+        //INTERFACE b
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            inventoryEnabledB = !inventoryEnabledB;
+        }
+
+        if (inventoryEnabledB)
+        {
+            InterfaceCollectibleB.SetActive(true);
+        }
+        else
+        {
+            InterfaceCollectibleB.SetActive(false);
+        }
+
     }
 
 
