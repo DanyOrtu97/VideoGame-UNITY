@@ -36,7 +36,8 @@ public class Hint2_Door : MonoBehaviour
             {
                 allertGuiA.gameObject.SetActive(false);
                 panelGuiA.gameObject.SetActive(true);
-                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Porta del Tempio: Il tempio di Kajec è l'edificio più antico della città. Si narra che in antichità 3 dragoni lo protegessero dai nemici.";
+                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Porta del Tempio: Il tempio di Kajec e' l'edificio piu' antico della citta'." +
+                "Si narra che in antichita' 3 dragoni lo protegessero dai nemici.";
             }
         }
         if (other.gameObject.CompareTag("PlayerB"))
@@ -46,7 +47,8 @@ public class Hint2_Door : MonoBehaviour
             {
                 allertGuiB.gameObject.SetActive(false);
                 panelGuiB.gameObject.SetActive(true);
-                allertGuiPanelB.gameObject.GetComponent<Text>().text = "Porta del Tempio: Il tempio di Kajec è l'edificio più antico della città. Si narra che in antichità 3 dragoni lo protegessero dai nemici.";
+                allertGuiPanelB.gameObject.GetComponent<Text>().text = "Porta del Tempio: Il tempio di Kajec e' l'edificio piu' antico della citta'." +
+                "Si narra che in antichita' 3 dragoni lo protegessero dai nemici.";
             }
         }
 
@@ -64,7 +66,7 @@ public class Hint2_Door : MonoBehaviour
             allertGuiB.gameObject.SetActive(false);
         }
     }
-  
+
 
 }
 

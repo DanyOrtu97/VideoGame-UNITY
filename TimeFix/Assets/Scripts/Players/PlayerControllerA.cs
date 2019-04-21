@@ -64,7 +64,7 @@ public class PlayerControllerA : MonoBehaviour
 		rotation += x * turnSpeed;
 		transform.eulerAngles = new Vector3(0, rotation, 0);
 
-		if (Input.GetKeyDown(KeyCode.PageDown))
+		if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAJump"]))
 		{
 			moveDir.y = jumpForce;
 			animator.SetBool("Jump", true);

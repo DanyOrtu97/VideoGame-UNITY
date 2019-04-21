@@ -8,7 +8,7 @@ public class DoorPassword : MonoBehaviour
 {
     public GameObject allertGuiB;
     public GameObject timer;
-    public InputField  passwordB;
+    public InputField passwordB;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +32,7 @@ public class DoorPassword : MonoBehaviour
 
                 passwordB.gameObject.SetActive(true);
 
-                if (passwordB.text.Equals("serpente"))
+                if (passwordB.text.Equals("kajec"))
                 {
                     Debug.Log("Porta Aperta");
                     passwordB.gameObject.SetActive(false);
@@ -51,5 +51,5 @@ public class DoorPassword : MonoBehaviour
             passwordB.gameObject.SetActive(false);
         }
     }
-   
+
 }

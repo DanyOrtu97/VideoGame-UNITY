@@ -17,6 +17,7 @@ public class SettingController : MonoBehaviour
     public void UpdateDropdown() {
         if (playerA.value == 0 && playerB.value == 0)
         {
+            //Movimento e interazione
             InputAssign.UpdateDictionaryMovement("PlayerAHorizontal", "Horizontal");
             InputAssign.UpdateDictionaryMovement("PlayerAVertical", "Vertical");
             InputAssign.UpdateDictionaryInteract("PlayerAInteract", KeyCode.E);
@@ -24,6 +25,11 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerBVertical", "HorizontalB");
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Return);
 
+            //salto
+            InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Space);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightCommand);
+
+            //Stringeh per i tasti
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
 
@@ -37,6 +43,10 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerBHorizontal", "HorizontalJoystick1");
             InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalJoystick1");
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Joystick2Button0);
+
+            //salto
+            InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Joystick1Button1);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.Joystick2Button1);
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
@@ -53,6 +63,10 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalJoystick");
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Joystick1Button0);
 
+            //salto
+            InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Space);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.Joystick1Button1);
+
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
 
@@ -67,6 +81,10 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerBHorizontal", "HorizontalB");
             InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalB");
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Return);
+
+            //salto
+            InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Joystick1Button1);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightControl);
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");

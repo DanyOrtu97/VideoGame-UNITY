@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/PrismTmp.unity
+- path: Assets/Scenes/Livello2SunTemple.unity
   isLoaded: 1
   isActive: 1

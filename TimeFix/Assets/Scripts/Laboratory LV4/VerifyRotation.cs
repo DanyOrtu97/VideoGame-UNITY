@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class VerifyRotation : MonoBehaviour
 {
+
     public Text textA, textB;
     public GameObject infoA, infoB;
 	public GameObject battery1, battery2, battery3;

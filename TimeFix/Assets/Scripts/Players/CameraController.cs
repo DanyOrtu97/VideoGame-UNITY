@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
         
         // cast the bumper ray out from rear and check to see if there is anything behind
         if (Physics.Raycast(target.TransformPoint(bumperRayOffset), back, out hit, bumperDistanceCheck)
-            && hit.transform != target) // ignore ray-casts that hit the user. DR
+            && hit.transform != target&&!hit.collider.isTrigger) // ignore ray-casts that hit the user. DR
         {
             // clamp wanted position to hit position
             wantedPosition.x = hit.point.x;
