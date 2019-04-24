@@ -10,10 +10,13 @@ public class InputAssign : MonoBehaviour
         { "PlayerAVertical","Vertical"},
         { "PlayerBHorizontal","HorizontalB"},
         { "PlayerBVertical","VerticalB"},
+
     };
     public static Dictionary<string, KeyCode> keyDictInteract = new Dictionary<string, KeyCode>() {
         { "PlayerAInteract",KeyCode.E},
         { "PlayerBInteract",KeyCode.Return},
+        { "PlayerAJump",KeyCode.Space},
+        { "PlayerBJump",KeyCode.RightControl},
     };
     public static Dictionary<string, string> keyDictInteractString = new Dictionary<string, string>() {
         { "PlayerAInteract","E"},
