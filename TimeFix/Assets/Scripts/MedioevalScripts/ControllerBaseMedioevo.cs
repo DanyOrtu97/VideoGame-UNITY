@@ -11,14 +11,15 @@ public class ControllerBaseMedioevo : MonoBehaviour
     public GameObject PlayerB;
     public GameObject intro;
     public Text InteractionClose;
-    public GameObject videoIntroCamera;
+    public GameObject videoIntroCamera1;
+    public GameObject videoIntroCamera2;
     public GameObject Interface;
     private float timeToIntro = 0f;
     private int contaActive = 0;
 
     private void Awake()
     {
-        videoIntroCamera.SetActive(true);
+        videoIntroCamera1.SetActive(true);
         intro.SetActive(false);
         Interface.SetActive(false);
         PlayerA.SetActive(false);
@@ -36,15 +37,21 @@ public class ControllerBaseMedioevo : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time - timeToIntro > 5 && contaActive == 0)
+        if (Time.time - timeToIntro > 26 && contaActive == 0)
         {
-            videoIntroCamera.SetActive(false);
+            videoIntroCamera1.SetActive(false);
+            videoIntroCamera2.SetActive(true);
+            contaActive++;
+        }
+
+        if (Time.time - timeToIntro > 85 && contaActive == 1)
+        {
+            videoIntroCamera2.SetActive(false);
             intro.SetActive(true);
             Interface.SetActive(true);
             PlayerA.SetActive(false);
             PlayerB.SetActive(false);
             contaActive++;
-
         }
 
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
