@@ -69,8 +69,10 @@ public class EndLevel1 : MonoBehaviour
     {
         if (onBoat)
         {
+            player.gameObject.SetActive(false);
             this.transform.Translate(Vector3.back * Time.deltaTime * speed); //muove in avanti la barca anche se c'è back
             tr.transform.position = this.transform.position; //fa muovere insieme barca e player 
+            player.gameObject.SetActive(true);
         }
         
     }

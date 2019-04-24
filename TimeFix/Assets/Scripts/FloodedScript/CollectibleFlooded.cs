@@ -29,34 +29,117 @@ public class CollectibleFlooded : MonoBehaviour
     {
         if (other.CompareTag("PlayerA"))
         {
-            controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "A");
-            controller.gameObject.GetComponent<ControllerFlooded>().collectibleA();
-            this.gameObject.SetActive(false);
 
-            if (controller.gameObject.GetComponent<InventarioFlooded>().isValid())
+            infoA.gameObject.SetActive(true);
+            textA.gameObject.SetActive(true);
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per raccogliere il pezzo della nacivella!";
+
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
-                infoA.gameObject.SetActive(true);
-                textA.gameObject.SetActive(true);
+                controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "A");
+                controller.gameObject.GetComponent<ControllerFlooded>().collectibleA();
+                this.gameObject.SetActive(false);
 
-                textA.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+                if (controller.gameObject.GetComponent<InventarioFlooded>().isValidA())
+                {
+                    textA.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+                }
+                else
+                {
+                    textA.text = "";
+                }
             }
-
+               
         }
 
         if (other.CompareTag("PlayerB"))
         {
-            controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "B");
-            controller.gameObject.GetComponent<ControllerFlooded>().collectibleB();
-            this.gameObject.SetActive(false);
+            infoB.gameObject.SetActive(true);
+            textB.gameObject.SetActive(true);
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per raccogliere il pezzo della nacivella!";
 
-            if (controller.gameObject.GetComponent<InventarioFlooded>().isValid())
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
-                infoB.gameObject.SetActive(true);
-                textB.gameObject.SetActive(true);
+                controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "B");
+                controller.gameObject.GetComponent<ControllerFlooded>().collectibleB();
+                this.gameObject.SetActive(false);
+                
+                if (controller.gameObject.GetComponent<InventarioFlooded>().isValidB())
+                {
+                    textB.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+                }
+                else
+                {
+                    textB.text = "";
+                }
+            }
 
-                textB.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PlayerA"))
+        {
+
+            infoA.gameObject.SetActive(true);
+            textA.gameObject.SetActive(true);
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per raccogliere il pezzo della nacivella!";
+
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
+            {
+                controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "A");
+                controller.gameObject.GetComponent<ControllerFlooded>().collectibleA();
+                this.gameObject.SetActive(false);
+
+                if (controller.gameObject.GetComponent<InventarioFlooded>().isValidA())
+                {
+                    textA.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+                }
+                else
+                {
+                    textA.text = "";
+                }
             }
         }
+
+        if (other.CompareTag("PlayerB"))
+        {
+            infoB.gameObject.SetActive(true);
+            textB.gameObject.SetActive(true);
+            textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per raccogliere il pezzo della nacivella!";
+
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
+            {
+                controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "B");
+                controller.gameObject.GetComponent<ControllerFlooded>().collectibleB();
+                this.gameObject.SetActive(false);
+
+                if (controller.gameObject.GetComponent<InventarioFlooded>().isValidB())
+                {
+                    textB.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
+                }
+                else
+                {
+                    textB.text = "";
+                }
+            }
+           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("PlayerA"))
+        {
+            textA.text = "";
+        }
+
+        if (other.gameObject.CompareTag("PlayerB"))
+        {
+            textB.text = "";
+        }
+
     }
 
 }
