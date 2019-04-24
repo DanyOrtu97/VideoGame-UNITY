@@ -33,6 +33,8 @@ public class HintExtra_Stone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerA"))
         {
+            allertGuiA.gameObject.SetActive(true);
+            allertGuiA.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per spostare";
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
@@ -52,7 +54,8 @@ public class HintExtra_Stone : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlayerB"))
         {
-
+            allertGuiB.gameObject.SetActive(true);
+            allertGuiB.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per spostare";
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
             {
                 allertGuiB.gameObject.SetActive(false);

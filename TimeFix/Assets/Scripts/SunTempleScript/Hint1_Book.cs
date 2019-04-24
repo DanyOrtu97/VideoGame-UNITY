@@ -39,8 +39,8 @@ public class Hint1_Book : MonoBehaviour
                 allertGuiA.gameObject.SetActive(false);
                 panelGuiA.gameObject.SetActive(true);
                 allertGuiPanelA.gameObject.GetComponent<Text>().text = "Helios, antica roccaforte dell'impero Romano," +
-                    " è una dei tanti borghi ormai abbandonati. Situata nel kazakistan, la città è completamente deserta dal 1930. [altro indizio per scoprire la password]" +
-                    "Azibo 21-12-1935";
+                    " e' una dei tanti borghi ormai abbandonati. Situata nel kazakistan, la città e' completamente deserta dal 1930." +
+                    "La leggenda narra che gli abitanti usassero l'energia solare derivante dal tempio di Kajec.";
             }
         }
         if (other.gameObject.CompareTag("PlayerB"))
@@ -51,8 +51,8 @@ public class Hint1_Book : MonoBehaviour
                 allertGuiB.gameObject.SetActive(false);
                 panelGuiB.gameObject.SetActive(true);
                 allertGuiPanelB.gameObject.GetComponent<Text>().text = "Helios, antica roccaforte dell'impero Romano," +
-                    " è una dei tanti borghi ormai abbandonati. Situata nel kazakistan, la città è completamente deserta dal 1930. [altro indizio per scoprire la password]" +
-                    "Azibo 21-12-1935";
+                    " e' una dei tanti borghi ormai abbandonati. Situata nel kazakistan, la città e' completamente deserta dal 1930." +
+                    "La leggenda narra che gli abitanti usassero l'energia solare derivante dal tempio di Kajec.";
             }
         }
 
@@ -72,6 +72,6 @@ public class Hint1_Book : MonoBehaviour
     }
 
 
- 
+
 
 }
