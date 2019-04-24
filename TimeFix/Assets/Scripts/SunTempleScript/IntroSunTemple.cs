@@ -14,6 +14,8 @@ public class IntroSunTemple : MonoBehaviour
     private float timeStart;
     private int lockStart = 0;
     public float delay;
+    private bool skip=false;
+    public Button skipButton;
     // Update is called once per frame
     private void Start()
     {
@@ -23,8 +25,10 @@ public class IntroSunTemple : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Time.time - timeStart > delay && lockStart < 2)
+        if ((Time.time - timeStart > delay && lockStart < 2)|| skip )
         {
+            skip = false;
+            skipButton.gameObject.SetActive(false);
             lockStart = 1;
             introCanvas.SetActive(true);
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -42,5 +46,8 @@ public class IntroSunTemple : MonoBehaviour
             }
 
         }
+    }
+    public void pressSkip() {
+        skip = true;
     }
 }
