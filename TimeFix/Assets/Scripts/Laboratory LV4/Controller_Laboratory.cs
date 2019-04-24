@@ -68,7 +68,7 @@ public class Controller_Laboratory : MonoBehaviour
             PlayerB.SetActive(true);
         }
 
-        //INTERFACE b
+        //INTERFACE a
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryEnabledA = !inventoryEnabledA;

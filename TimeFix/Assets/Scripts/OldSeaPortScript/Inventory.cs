@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    private bool inventoryEnabled;
+    private bool inventoryEnabled = true;
     public GameObject inventory;
 
     private int allSlots;

@@ -21,6 +21,8 @@ public class CollectibleFlooded : MonoBehaviour
     void FixedUpdate()
     {
         transform.Rotate(rotationVector * Time.deltaTime * speed);
+
+
     }
 
     private void OnTriggerEnter(Collider other)

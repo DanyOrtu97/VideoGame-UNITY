@@ -7,6 +7,8 @@ public class ControllerFlooded : MonoBehaviour
 {
     public GameObject luceCentrale;
     public GameObject portale;
+    private bool inventoryEnabledA = true, inventoryEnabledB = true;
+    public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
     public GameObject infoA;
     public GameObject colliderUscita;
     public GameObject videoIntro, liam, remy, interfacciaUtente, descrizioneIntro ;
@@ -65,6 +67,37 @@ public class ControllerFlooded : MonoBehaviour
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false);
+        }
+
+        //INTERFACE a
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryEnabledA = !inventoryEnabledA;
+        }
+
+        if (inventoryEnabledA)
+        {
+            InterfaceCollectibleA.SetActive(true);
+        }
+        else
+        {
+            InterfaceCollectibleA.SetActive(false);
+        }
+
+
+        //INTERFACE b
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            inventoryEnabledB = !inventoryEnabledB;
+        }
+
+        if (inventoryEnabledB)
+        {
+            InterfaceCollectibleB.SetActive(true);
+        }
+        else
+        {
+            InterfaceCollectibleB.SetActive(false);
         }
     }
 
