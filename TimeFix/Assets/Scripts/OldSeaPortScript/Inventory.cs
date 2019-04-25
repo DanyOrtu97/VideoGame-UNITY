@@ -125,10 +125,66 @@ public class Inventory : MonoBehaviour
             alertGUI.gameObject.SetActive(false);
         }
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            alertGUI.gameObject.SetActive(true);
+            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per raccogliere";
+        }
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject itemPickedUp = collision.gameObject;
+                Item item = itemPickedUp.GetComponent<Item>();
+
+                AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+
+                if (item.type.Equals("barca"))
+                {
+                    gameController.gameObject.GetComponent<GameController>().setCounterBarca();
+                }
+
+                if (item.type.Equals("food"))
+                {
+                    gameController.gameObject.GetComponent<GameController>().setCounterFood();
+                }
+
+                if (item.type.Equals("iron"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterIron();
+                }
+
+                if (item.type.Equals("tool"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterTool();
+                }
+
+                if (item.type.Equals("hammer"))
+                {
+                    gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
+                }
+
+                alertGUI.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            alertGUI.gameObject.SetActive(false);
+        }
+    }
 
 
-
-     void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
+    void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
         for (j = j; j < allSlots; j++)
         {

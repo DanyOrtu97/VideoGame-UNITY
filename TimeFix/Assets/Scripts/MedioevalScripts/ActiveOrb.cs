@@ -33,12 +33,12 @@ public class ActiveOrb : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (player.gameObject.GetComponent<Inventory>().checkItem("blueorb")&& player.gameObject.GetComponent<Inventory>().checkItem("redorb") && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") )
+                    if (player.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto")&& player.gameObject.GetComponent<Inventory>().checkItem("redorb") && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") )
                     {
 
                         isOrbActive = true;
                         player.gameObject.GetComponent<Inventory>().removeItemByType("redorb");
-                        player.gameObject.GetComponent<Inventory>().removeItemByType("blueorb");
+                        player.gameObject.GetComponent<Inventory>().removeItemByType("blueorbPorto");
                         player.gameObject.GetComponent<Inventory>().removeItemByType("greenorb");
 
                         alertGUI.gameObject.SetActive(false);
