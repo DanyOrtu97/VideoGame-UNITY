@@ -25,6 +25,8 @@ public class Controller_Laboratory : MonoBehaviour
     private int contaActive = 0;
     private bool inventoryEnabledA = true, inventoryEnabledB = true;
     public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
+    private bool skip = false;
+    public GameObject skipButton;
 
     private void Awake()
     {
@@ -48,10 +50,14 @@ public class Controller_Laboratory : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(Time.time - timeToIntro > 50 && contaActive == 0)
+        if((Time.time - timeToIntro > 50 && contaActive == 0)||skip)
         {
+
+            skip = false;
+            skipButton.gameObject.SetActive(false);
+
             videoIntroCamera.SetActive(false);
             intro.SetActive(true);
             Interface.SetActive(true);
@@ -68,37 +74,38 @@ public class Controller_Laboratory : MonoBehaviour
             PlayerB.SetActive(true);
         }
 
-        //INTERFACE a
-        if (Input.GetKeyDown(KeyCode.Tab))
+        //INTERFACE a 
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabledA)
         {
-            inventoryEnabledA = !inventoryEnabledA;
-        }
 
-        if (inventoryEnabledA)
-        {
-            InterfaceCollectibleA.SetActive(true);
-        }
-        else
-        {
+            inventoryEnabledA = !inventoryEnabledA;
+
             InterfaceCollectibleA.SetActive(false);
         }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && !inventoryEnabledA)
+        {
+
+            inventoryEnabledA = !inventoryEnabledA;
+            InterfaceCollectibleA.SetActive(true);
+
+        }
+
+
 
 
         //INTERFACE b
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabledB)
         {
             inventoryEnabledB = !inventoryEnabledB;
-        }
 
-        if (inventoryEnabledB)
-        {
-            InterfaceCollectibleB.SetActive(true);
-        }
-        else
-        {
             InterfaceCollectibleB.SetActive(false);
         }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && !inventoryEnabledB)
+        {
+            inventoryEnabledB = !inventoryEnabledB;
+            InterfaceCollectibleB.SetActive(true);
 
+        }
     }
 
 
@@ -250,6 +257,9 @@ public class Controller_Laboratory : MonoBehaviour
         SceneManager.LoadScene("Win", LoadSceneMode.Single);
     }
 
-
+    public void pressSkip()
+    {
+        skip = true;
+    }
 
 }

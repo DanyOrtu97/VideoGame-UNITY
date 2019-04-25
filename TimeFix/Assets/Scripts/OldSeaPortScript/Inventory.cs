@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     private int enabledSlots;
     private int j;
     private GameObject[] slot;
-    public int numberSlot=6;
+    public int numberSlot = 6;
 
     public GameObject slotHolder;
 
@@ -26,11 +26,11 @@ public class Inventory : MonoBehaviour
         allSlots = numberSlot;
         slot = new GameObject[allSlots];
 
-        for(int i = 0; i<allSlots; i++)
+        for (int i = 0; i < allSlots; i++)
         {
             slot[i] = slotHolder.transform.GetChild(i).gameObject;
 
-            if(slot[i].GetComponent<Slot>().item == null)
+            if (slot[i].GetComponent<Slot>().item == null)
             {
                 slot[i].GetComponent<Slot>().empty = true;
             }
@@ -40,19 +40,43 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (this.gameObject.CompareTag("PlayerA"))
         {
-            inventoryEnabled = !inventoryEnabled;
-        }
 
-        if(inventoryEnabled == true)
-        {
-            inventory.SetActive(true);
+
+            //INTERFACE a
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabled)
+            {
+
+                inventoryEnabled = !inventoryEnabled;
+                inventory.SetActive(false);
+            }
+            else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && !inventoryEnabled)
+            {
+
+                inventoryEnabled = !inventoryEnabled;
+                inventory.SetActive(true);
+
+            }
         }
         else
         {
-            inventory.SetActive(false);
+            //INTERFACE b
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabled)
+            {
+                inventoryEnabled = !inventoryEnabled;
+
+                inventory.SetActive(false);
+            }
+            else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && !inventoryEnabled)
+            {
+                inventoryEnabled = !inventoryEnabled;
+                inventory.SetActive(true);
+
+            }
         }
+
+
     }
 
     /*
@@ -190,7 +214,7 @@ public class Inventory : MonoBehaviour
         {
             if (slot[j].GetComponent<Slot>().empty)
             {
-             
+
                 itemObject.GetComponent<Item>().pickedUp = true;
 
 
@@ -212,26 +236,26 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    
+
     public void removeItemByType(string tipo)
     {
         int countDeletedItems = 0;
 
         for (int i = 0; i < allSlots; i++)
         {
-            if(slot[i].GetComponent<Slot>().type.Equals(tipo))
+            if (slot[i].GetComponent<Slot>().type.Equals(tipo))
             {
                 countDeletedItems++;
-               
+
                 slot[i].GetComponent<Slot>().freeSlot();
             }
         }
 
-        for(int i = 0; i< countDeletedItems; i++)
+        for (int i = 0; i < countDeletedItems; i++)
         {
             j--;
         }
-        
+
     }
 
     public bool checkItem(string tipo)
@@ -247,10 +271,10 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
-    
 
 
-    
+
+
 
 }
 

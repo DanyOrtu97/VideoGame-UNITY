@@ -11,7 +11,7 @@ public class ControllerFlooded : MonoBehaviour
     public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
     public GameObject infoA;
     public GameObject colliderUscita;
-    public GameObject videoIntro, liam, remy, interfacciaUtente, descrizioneIntro ;
+    public GameObject videoIntro, liam, remy, interfacciaUtente, descrizioneIntro;
     public int[] CollectibleA;
     private int indiceA = 0;
     public int[] CollectibleB;
@@ -20,16 +20,18 @@ public class ControllerFlooded : MonoBehaviour
     public Image sprite1B, sprite2B, sprite3B;
     public GameObject intro;
     public Text InteractionClose;
-    private int contaLuci=0;
+    private int contaLuci = 0;
     private int contaChiavi;
     private float timeIntro = 0.0f;
     private int contaInizio = 0;
+    private bool skip = false;
+    public GameObject skipButton;
 
-    private List<string> listplayerNavicella=new List<string>();
-    public GameObject canvasAsync;
-    private bool lockR=false;
+    private List<string> listplayerNavicella = new List<string>();
+    private bool lockR = false;
+    private bool lockViewInventario = false;
 
-    /*private void Awake()
+    private void Awake()
     {
         timeIntro = Time.time;
         videoIntro.gameObject.SetActive(true);
@@ -38,74 +40,78 @@ public class ControllerFlooded : MonoBehaviour
         interfacciaUtente.gameObject.SetActive(false);
         descrizioneIntro.gameObject.SetActive(false);
 
-    }*/
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
         indiceA = 0;
-        CollectibleA = new int[] { 4, 4, 4};
+        CollectibleA = new int[] { 4, 4, 4 };
         indiceB = 0;
-        CollectibleB = new int[] { 4, 4, 4};
+        CollectibleB = new int[] { 4, 4, 4 };
         this.gameObject.GetComponent<SaveLoad>().Save();
         InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        /*if (Time.time - timeIntro > 60 && contaInizio == 0 )
+        if ((Time.time - timeIntro > 60 && contaInizio == 0) || skip)
         {
+            skip = false;
+            skipButton.gameObject.SetActive(false);
             videoIntro.gameObject.SetActive(false);
             liam.gameObject.SetActive(true);
             remy.gameObject.SetActive(true);
             interfacciaUtente.gameObject.SetActive(true);
             descrizioneIntro.gameObject.SetActive(true);
             contaInizio++;
-        }*/
+        }
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
             intro.SetActive(false);
         }
 
-        //INTERFACE a
-        if (Input.GetKeyDown(KeyCode.Tab))
+        //INTERFACE a 
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabledA)
         {
             inventoryEnabledA = !inventoryEnabledA;
-        }
 
-        if (inventoryEnabledA)
-        {
-            InterfaceCollectibleA.SetActive(true);
-        }
-        else
-        {
             InterfaceCollectibleA.SetActive(false);
         }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && !inventoryEnabledA)
+        {
+            inventoryEnabledA = !inventoryEnabledA;
+            InterfaceCollectibleA.SetActive(true);
+
+        }
+
+
 
 
         //INTERFACE b
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabledB)
         {
             inventoryEnabledB = !inventoryEnabledB;
-        }
 
-        if (inventoryEnabledB)
-        {
-            InterfaceCollectibleB.SetActive(true);
-        }
-        else
-        {
             InterfaceCollectibleB.SetActive(false);
         }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && !inventoryEnabledB)
+        {
+            inventoryEnabledB = !inventoryEnabledB;
+            InterfaceCollectibleB.SetActive(true);
+
+        }
+
+
     }
 
     public void AddLight()
     {
 
         contaLuci++;
-        if(contaLuci == 4)
+        if (contaLuci == 4)
         {
             luceCentrale.gameObject.GetComponent<Light>().enabled = true;
             portale.gameObject.SetActive(true);
@@ -167,13 +173,19 @@ public class ControllerFlooded : MonoBehaviour
             indiceB++;
         }
     }
-    public void AddNavicella(string player){
+    public void AddNavicella(string player)
+    {
         listplayerNavicella.Add(player);
-        if(listplayerNavicella.Contains("PlayerA")&&listplayerNavicella.Contains("PlayerB")&&lockR==false){
-            lockR=true;
+        if (listplayerNavicella.Contains("PlayerA") && listplayerNavicella.Contains("PlayerB") && lockR == false)
+        {
+            lockR = true;
             this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
-            
+
         }
+    }
+    public void pressSkip()
+    {
+        skip = true;
     }
 
 }

@@ -16,6 +16,8 @@ public class ControllerBaseMedioevo : MonoBehaviour
     public GameObject Interface;
     private float timeToIntro = 0f;
     private int contaActive = 0;
+    private bool skip = false;
+    public Button skipButton;
 
     private void Awake()
     {
@@ -37,15 +39,17 @@ public class ControllerBaseMedioevo : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time - timeToIntro > 26 && contaActive == 0)
+        if (Time.time - timeToIntro > 35 && contaActive == 0)
         {
             videoIntroCamera1.SetActive(false);
             videoIntroCamera2.SetActive(true);
             contaActive++;
         }
 
-        if (Time.time - timeToIntro > 85 && contaActive == 1)
+        if ((Time.time - timeToIntro > 88 && contaActive == 1)||skip)
         {
+            skip = false;
+            skipButton.gameObject.SetActive(false);
             videoIntroCamera2.SetActive(false);
             intro.SetActive(true);
             Interface.SetActive(true);
@@ -60,5 +64,9 @@ public class ControllerBaseMedioevo : MonoBehaviour
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
         }
+    }
+    public void pressSkip()
+    {
+        skip = true;
     }
 }
