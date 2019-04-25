@@ -9,11 +9,16 @@ public class OpenLoot : MonoBehaviour
     public InputField password;
     private bool openUp = false;
     public GameObject content;
+    BoxCollider box;
 
+    private void Start()
+    {
+        box = gameObject.GetComponent<BoxCollider>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.text = "Pronuncia la magia per aprire la cassa";
@@ -31,7 +36,7 @@ public class OpenLoot : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.text = "Pronuncia la magia per aprire la cassa";
@@ -43,7 +48,9 @@ public class OpenLoot : MonoBehaviour
                 this.transform.eulerAngles += new Vector3(90, 0, 0);
 
                 openUp = true;
+
                 password.text = "";
+                box.isTrigger = true;
             }
 
         }
@@ -56,46 +63,20 @@ public class OpenLoot : MonoBehaviour
     {
        
 
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(false);
             password.gameObject.SetActive(false);
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    public bool isOpenUp()
     {
-        
-
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(true);
-            
-        }
+        return openUp;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        
 
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(true);
-            
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        
-
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(false);
-            
-        }
-    }
+   
 
 }
 

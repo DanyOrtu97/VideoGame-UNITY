@@ -9,6 +9,13 @@ public class BuildBarca : MonoBehaviour
     public GameObject alertGUI;
     public GameObject gameController;
     public GameObject barca;
+    public GameObject player;
+    BoxCollider box;
+
+    private void Start()
+    {
+        box = gameObject.GetComponent<BoxCollider>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,10 +44,12 @@ public class BuildBarca : MonoBehaviour
                     barca.gameObject.SetActive(true);
                     this.gameObject.SetActive(false);
                     alertGUI.gameObject.SetActive(false);
+                    player.gameObject.GetComponent<Inventory>().removeItemByType("barca");
+                    box.isTrigger = true;
                 }
                 else
                 {
-                    alertGUI.gameObject.GetComponent<Text>().text = "Non hai i componenti, ti serve la vela, l'albero e lo scafo";
+                    alertGUI.gameObject.GetComponent<Text>().text = "Non hai i pezzi necessari";
                 }
             }
         }

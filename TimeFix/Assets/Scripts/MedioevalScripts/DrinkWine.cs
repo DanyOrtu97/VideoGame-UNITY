@@ -14,9 +14,11 @@ public class DrinkWine : MonoBehaviour
  
     
 
-    private void OnCollisionEnter(Collision collision)
+   
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
 
             if (oneDrink == false)
@@ -30,9 +32,9 @@ public class DrinkWine : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             if (oneDrink == false)
             {
@@ -43,7 +45,7 @@ public class DrinkWine : MonoBehaviour
                     fragment.SetActive(true);
                     alertGUI.gameObject.SetActive(false);
                     oneDrink = true;
-                  
+
 
 
 
@@ -55,9 +57,9 @@ public class DrinkWine : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (other.gameObject.CompareTag("PlayerB"))
         {
             alertGUI.gameObject.SetActive(false);
         }

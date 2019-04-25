@@ -9,6 +9,7 @@ public class EndLevel1 : MonoBehaviour
     public GameObject alertGUI;
     public GameObject gameController;
     public GameObject player;
+    public GameObject cassa;
     private Transform tr;
     private bool onBoat = false;
     private int speed = 1;
@@ -20,7 +21,7 @@ public class EndLevel1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerA"))
+        if (collision.gameObject.CompareTag("PlayerA") && onBoat == false)
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per Salpare";
@@ -40,7 +41,7 @@ public class EndLevel1 : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && onBoat == false)
             {
-                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3)
+                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3 && cassa.GetComponent<OpenLoot>().isOpenUp() == true)
                 {
                     onBoat = true;
                     tr.transform.position = new Vector3(24.31f, 2.53f, 46.91f);
@@ -51,6 +52,11 @@ public class EndLevel1 : MonoBehaviour
                 else
                 {
                     alertGUI.gameObject.GetComponent<Text>().text = "Ti servono 3 provviste di cibo per salpare";
+                    if(cassa.GetComponent<OpenLoot>().isOpenUp() == false)
+                    {
+                        alertGUI.gameObject.GetComponent<Text>().text += " \nServe il tuo aiuto a Remy";
+                    }
+
                 }
             }
         }

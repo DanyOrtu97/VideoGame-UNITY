@@ -12,7 +12,7 @@ public class RemoveMageBarrior : MonoBehaviour
 
 
 
-    BoxCollider box; //Blocco del pontile
+    BoxCollider box; 
 
     // Start is called before the first frame update
     void Start()
