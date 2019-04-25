@@ -18,7 +18,7 @@ public class ControllerBaseMedioevo : MonoBehaviour
     private int contaActive = 0;
     private bool skip = false;
     public Button skipButton;
-
+    private bool oneDescriprion = false;
     private void Awake()
     {
         videoIntroCamera1.SetActive(true);
@@ -46,13 +46,14 @@ public class ControllerBaseMedioevo : MonoBehaviour
             contaActive++;
         }
 
-        if ((Time.time - timeToIntro > 88 && contaActive == 1)||skip)
+        if (((Time.time - timeToIntro > 88 && contaActive == 1)||skip)&&oneDescriprion==false)
         {
             skip = false;
+            oneDescriprion = true;
             skipButton.gameObject.SetActive(false);
             videoIntroCamera2.SetActive(false);
+            videoIntroCamera1.SetActive(false);
             intro.SetActive(true);
-            Interface.SetActive(true);
             PlayerA.SetActive(false);
             PlayerB.SetActive(false);
             contaActive++;
@@ -63,6 +64,7 @@ public class ControllerBaseMedioevo : MonoBehaviour
             intro.SetActive(false);
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
+            Interface.SetActive(true);
         }
     }
     public void pressSkip()

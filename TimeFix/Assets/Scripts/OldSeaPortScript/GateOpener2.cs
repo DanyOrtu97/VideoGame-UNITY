@@ -11,15 +11,16 @@ public class GateOpener2 : MonoBehaviour
     public GameObject glass1;
     public GameObject glass2;
     public GameObject otherGate;
-    private Transform tr;
+    //private Transform tr;
     private bool controlClosure = false;
+    public GameObject doorControl;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        tr = gameObject.GetComponent<Transform>();
+        //tr = gameObject.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,8 @@ public class GateOpener2 : MonoBehaviour
 
         if (light1.gameObject.active && light2.gameObject.active && controlClosure == false)
         {
-            tr.eulerAngles += new Vector3(0, 90, 0);
+            //tr.eulerAngles += new Vector3(0, 90, 0);
+            doorControl.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
             controlClosure = true;
             light3.gameObject.SetActive(false);
             light4.gameObject.SetActive(false);
@@ -45,7 +47,8 @@ public class GateOpener2 : MonoBehaviour
         else if (!light1.gameObject.active && !light2.gameObject.active && controlClosure)
         {
             controlClosure = false;
-            tr.eulerAngles += new Vector3(0, -90, 0);
+            //tr.eulerAngles += new Vector3(0, -90, 0);
+            doorControl.gameObject.GetComponent<DoorControllerLeft>().isOpen = false;
 
         }
     }

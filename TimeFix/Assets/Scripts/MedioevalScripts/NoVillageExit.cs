@@ -10,22 +10,6 @@ public class NoVillageExit : MonoBehaviour
     public Text alertGUI;
 
 
-
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("PlayerB"))
@@ -41,11 +25,6 @@ public class NoVillageExit : MonoBehaviour
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.text = "E' meglio non avventurarsi nel bosco";
-           
-
-            
-
-
         }
     }
 
@@ -53,7 +32,6 @@ public class NoVillageExit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-         
             alertGUI.gameObject.SetActive(false);
         }
 

@@ -24,7 +24,7 @@ public class DrinkWine : MonoBehaviour
             if (oneDrink == false)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per bere vino";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per bere vino";
             }
 
 
@@ -38,7 +38,7 @@ public class DrinkWine : MonoBehaviour
         {
             if (oneDrink == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
 
                     alertGUI.gameObject.GetComponent<Text>().text = "1% alcol";

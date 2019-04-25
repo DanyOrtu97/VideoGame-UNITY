@@ -18,13 +18,13 @@ public class LightOnOff : MonoBehaviour
             {
                 light.gameObject.SetActive(false);
                 glass.gameObject.SetActive(false);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per accendere";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per accendere";
             }
             else
             {
                 light.gameObject.SetActive(true);
                 glass.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per spegnere";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per spegnere";
             }
             flagModifica = false;
         }
@@ -37,10 +37,10 @@ public class LightOnOff : MonoBehaviour
 
 
             if (light.gameObject.active == true)
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per spegnere";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per spegnere";
 
             if (light.gameObject.active == false)
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per accendere";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per accendere";
         }
 
 
@@ -51,7 +51,7 @@ public class LightOnOff : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("PlayerA")){
             if(flagModifica==false){
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
                     flagModifica = true;
                 }

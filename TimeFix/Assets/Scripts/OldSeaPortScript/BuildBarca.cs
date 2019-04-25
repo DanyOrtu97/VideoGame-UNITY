@@ -22,10 +22,8 @@ public class BuildBarca : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(true);
-            alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per costruire la barca";
-
-           
-            
+            alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per costruire la barca";
+  
         }
 
 
@@ -37,7 +35,7 @@ public class BuildBarca : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
                 if (gameController.gameObject.GetComponent<GameController>().getCounterBarca() == 3)
                 {
