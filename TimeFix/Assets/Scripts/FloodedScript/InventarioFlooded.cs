@@ -18,12 +18,24 @@ public class InventarioFlooded : MonoBehaviour
         }
 
     }
-    public bool isValid()
+
+
+    public bool isValidA()
     {
  
 
-        if (inventarioA.Contains("Nebulizzatore") && inventarioA.Contains("TurboSpazzola") && inventarioA.Contains("Carburante")
-            && inventarioB.Contains("Nebulizzatore") && inventarioB.Contains("TurboSpazzola") && inventarioB.Contains("Carburante"))
+        if (inventarioA.Contains("Nebulizzatore") && inventarioA.Contains("TurboSpazzola") && inventarioA.Contains("Carburante"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool isValidB()
+    {
+
+
+        if (inventarioB.Contains("Nebulizzatore") && inventarioB.Contains("TurboSpazzola") && inventarioB.Contains("Carburante"))
         {
             return true;
         }

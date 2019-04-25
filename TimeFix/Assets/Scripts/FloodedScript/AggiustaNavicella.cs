@@ -19,7 +19,7 @@ public class AggiustaNavicella : MonoBehaviour
             infoA.gameObject.SetActive(true);
             textA.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
 
-            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidA())
             {
                 textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
                 
@@ -44,7 +44,7 @@ public class AggiustaNavicella : MonoBehaviour
             infoB.gameObject.SetActive(true);
             textB.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
 
-            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidB())
             {
                 textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
 
@@ -76,7 +76,7 @@ public class AggiustaNavicella : MonoBehaviour
             infoA.gameObject.SetActive(true);
             textA.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
 
-            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidA())
             {
                  textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
                 
@@ -100,7 +100,7 @@ public class AggiustaNavicella : MonoBehaviour
             infoB.gameObject.SetActive(true);
             textB.text = "Navicella rotta, Raccogli i pezzi per aggiustarla!";
 
-            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValid())
+            if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidB())
             {
                textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
 
