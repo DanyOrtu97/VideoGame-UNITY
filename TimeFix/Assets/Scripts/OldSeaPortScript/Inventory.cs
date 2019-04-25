@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     private int enabledSlots;
     private int j;
     private GameObject[] slot;
-    public int numberSlot = 6;
+    public int numberSlot=6;
 
     public GameObject slotHolder;
 
@@ -26,12 +26,13 @@ public class Inventory : MonoBehaviour
         allSlots = numberSlot;
         slot = new GameObject[allSlots];
 
-        for (int i = 0; i < allSlots; i++)
+        for(int i = 0; i<allSlots; i++)
         {
             slot[i] = slotHolder.transform.GetChild(i).gameObject;
 
-            if (slot[i].GetComponent<Slot>().item == null)
+            if(slot[i].GetComponent<Slot>().item == null)
             {
+          
                 slot[i].GetComponent<Slot>().empty = true;
             }
         }
@@ -40,43 +41,19 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (this.gameObject.CompareTag("PlayerA"))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
+            inventoryEnabled = !inventoryEnabled;
+        }
 
-
-            //INTERFACE a
-            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabled)
-            {
-
-                inventoryEnabled = !inventoryEnabled;
-                inventory.SetActive(false);
-            }
-            else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && !inventoryEnabled)
-            {
-
-                inventoryEnabled = !inventoryEnabled;
-                inventory.SetActive(true);
-
-            }
+        if(inventoryEnabled == true)
+        {
+            inventory.SetActive(true);
         }
         else
         {
-            //INTERFACE b
-            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabled)
-            {
-                inventoryEnabled = !inventoryEnabled;
-
-                inventory.SetActive(false);
-            }
-            else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && !inventoryEnabled)
-            {
-                inventoryEnabled = !inventoryEnabled;
-                inventory.SetActive(true);
-
-            }
+            inventory.SetActive(false);
         }
-
-
     }
 
     /*
@@ -92,22 +69,23 @@ public class Inventory : MonoBehaviour
     }
     */
 
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        if (other.CompareTag("Item"))
         {
             alertGUI.gameObject.SetActive(true);
             alertGUI.gameObject.GetComponent<Text>().text = "Premi E per raccogliere";
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        if (other.CompareTag("Item"))
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameObject itemPickedUp = collision.gameObject;
+                GameObject itemPickedUp = other.gameObject;
                 Item item = itemPickedUp.GetComponent<Item>();
 
                 AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
@@ -142,66 +120,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            alertGUI.gameObject.SetActive(false);
-        }
-    }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Item"))
-        {
-            alertGUI.gameObject.SetActive(true);
-            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per raccogliere";
-        }
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (collision.CompareTag("Item"))
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                GameObject itemPickedUp = collision.gameObject;
-                Item item = itemPickedUp.GetComponent<Item>();
-
-                AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
-
-                if (item.type.Equals("barca"))
-                {
-                    gameController.gameObject.GetComponent<GameController>().setCounterBarca();
-                }
-
-                if (item.type.Equals("food"))
-                {
-                    gameController.gameObject.GetComponent<GameController>().setCounterFood();
-                }
-
-                if (item.type.Equals("iron"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterIron();
-                }
-
-                if (item.type.Equals("tool"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterTool();
-                }
-
-                if (item.type.Equals("hammer"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
-                }
-
-                alertGUI.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.CompareTag("Item"))
+        if (other.CompareTag("Item"))
         {
             alertGUI.gameObject.SetActive(false);
         }
@@ -210,11 +131,12 @@ public class Inventory : MonoBehaviour
 
     void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
-        for (j = j; j < allSlots; j++)
+        for (j = 0; j < allSlots; j++)
         {
+        
             if (slot[j].GetComponent<Slot>().empty)
             {
-
+             
                 itemObject.GetComponent<Item>().pickedUp = true;
 
 
@@ -230,32 +152,34 @@ public class Inventory : MonoBehaviour
 
                 slot[j].GetComponent<Slot>().UpdateSlot();
                 slot[j].GetComponent<Slot>().empty = false;
-                j++;
+
+                return;
             }
-            return;
+            else
+            {
+                Debug.Log(j);
+                Debug.Log("non ho trovato una slot vuota");
+            }
+            
         }
     }
 
-
+    
     public void removeItemByType(string tipo)
     {
         int countDeletedItems = 0;
 
         for (int i = 0; i < allSlots; i++)
         {
-            if (slot[i].GetComponent<Slot>().type.Equals(tipo))
+            if(slot[i].GetComponent<Slot>().type.Equals(tipo))
             {
                 countDeletedItems++;
-
+               
                 slot[i].GetComponent<Slot>().freeSlot();
             }
         }
 
-        for (int i = 0; i < countDeletedItems; i++)
-        {
-            j--;
-        }
-
+       
     }
 
     public bool checkItem(string tipo)
@@ -271,10 +195,10 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
+    
 
 
-
-
+    
 
 }
 

@@ -37,7 +37,7 @@ public class MeltIron : MonoBehaviour
             if (isDoneIron == true)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per prendere il ferro lavorato";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per prendere il ferro riscaldato";
             }
 
         }

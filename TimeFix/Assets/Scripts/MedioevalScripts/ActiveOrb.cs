@@ -17,7 +17,7 @@ public class ActiveOrb : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             alertGUI.gameObject.SetActive(true);
-            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per attivare la sfera";
+            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per attivare la sfera e ricaricare il dispositivo ";
 
         }
     }

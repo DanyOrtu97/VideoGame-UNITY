@@ -40,7 +40,7 @@ public class SmashDoor : MonoBehaviour
                     }
                     else
                     {
-                        alertGUI.gameObject.GetComponent<Text>().text = "La porta è bloccata, serve qualcosa per romperla";
+                        alertGUI.gameObject.GetComponent<Text>().text = "La porta e' bloccata, serve qualcosa per romperla";
                     }
                 
 
