@@ -17,7 +17,7 @@ public class ActiveOrb : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             alertGUI.gameObject.SetActive(true);
-            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per attivare la sfera e ricaricare il dispositivo ";
+            alertGUI.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per attivare la sfera e ricaricare il dispositivo ";
 
         }
     }
@@ -31,7 +31,7 @@ public class ActiveOrb : MonoBehaviour
 
             if (isOrbActive == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     if (player.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto")&& player.gameObject.GetComponent<Inventory>().checkItem("redorb") && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") )
                     {

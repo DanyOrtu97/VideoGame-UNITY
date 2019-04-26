@@ -17,6 +17,46 @@ public class InventorySunTemple : MonoBehaviour
     public GameObject[] boxSpriteA;
     public GameObject[] boxSpriteB;
 
+    private bool inventoryEnabledA = true, inventoryEnabledB = true;
+    public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
+
+    private void Update()
+    {
+        //INTERFACE a 
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabledA)
+        {
+            Debug.Log("AInventario");
+            inventoryEnabledA = !inventoryEnabledA;
+
+            InterfaceCollectibleA.SetActive(false);
+        }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && !inventoryEnabledA)
+        {
+            Debug.Log("AInventario");
+            inventoryEnabledA = !inventoryEnabledA;
+            InterfaceCollectibleA.SetActive(true);
+
+        }
+
+
+
+
+        //INTERFACE b
+        if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabledB)
+        {
+            Debug.Log("BInventario");
+            inventoryEnabledB = !inventoryEnabledB;
+
+            InterfaceCollectibleB.SetActive(false);
+        }
+        else if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && !inventoryEnabledB)
+        {
+            Debug.Log("BInventario");
+            inventoryEnabledB = !inventoryEnabledB;
+            InterfaceCollectibleB.SetActive(true);
+
+        }
+    }
     public void AddItem(string name,string player) {
         Sprite add=null;
         foreach( Dict it in listSprite){

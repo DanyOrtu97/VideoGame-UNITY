@@ -8,7 +8,7 @@ public class OpenDoorMD : MonoBehaviour
 
     public GameObject alertGUI;
     private bool isOpen = false;
-   
+    public GameObject doorController;
 
   
 
@@ -21,7 +21,7 @@ public class OpenDoorMD : MonoBehaviour
             if (isOpen == false)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per aprire";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aprire";
             }
                 
 
@@ -34,10 +34,11 @@ public class OpenDoorMD : MonoBehaviour
         {
             if (isOpen == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
 
-                    this.gameObject.transform.eulerAngles += new Vector3(0, 90, 0);
+                    //this.gameObject.transform.eulerAngles += new Vector3(0, 90, 0);
+                    doorController.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
                     isOpen = true;
                     alertGUI.SetActive(false);
 

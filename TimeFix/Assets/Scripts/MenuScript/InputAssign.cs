@@ -17,6 +17,8 @@ public class InputAssign : MonoBehaviour
         { "PlayerBInteract",KeyCode.Return},
         { "PlayerAJump",KeyCode.Space},
         { "PlayerBJump",KeyCode.RightControl},
+        { "PlayerAInventario",KeyCode.Tab},
+        { "PlayerBInventario",KeyCode.RightShift},
     };
     public static Dictionary<string, string> keyDictInteractString = new Dictionary<string, string>() {
         { "PlayerAInteract","E"},

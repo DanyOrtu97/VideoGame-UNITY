@@ -24,7 +24,7 @@ public class RaiseFlag : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             text.gameObject.SetActive(true);
-            text.gameObject.GetComponent<Text>().text = "Premi E per alzare la bandiera";
+            text.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per alzare la bandiera";
         }
     }
 
@@ -33,7 +33,7 @@ public class RaiseFlag : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             text.gameObject.SetActive(true);
-            text.gameObject.GetComponent<Text>().text = "Premi E per alzare la bandiera";
+            text.gameObject.GetComponent<Text>().text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per alzare la bandiera";
         }
 
 
@@ -41,7 +41,7 @@ public class RaiseFlag : MonoBehaviour
         {
             if (gameObject.CompareTag("flag3"))
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
                     tr.transform.position += new Vector3(0, 19.765f, 0);
                     isRaised = true;
@@ -49,7 +49,7 @@ public class RaiseFlag : MonoBehaviour
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
                     tr.transform.position += new Vector3(0, 2.75f, 0);
                     isRaised = true;
