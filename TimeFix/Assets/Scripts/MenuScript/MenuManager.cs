@@ -47,4 +47,7 @@ public class MenuManager : MonoBehaviour
         leggendaB.SetActive(false);
         credits.SetActive(true);
     }
+    public void nuovaPartita() {
+        SceneManager.LoadScene("Introduzione");
+    }
 }

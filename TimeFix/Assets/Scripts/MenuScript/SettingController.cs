@@ -21,7 +21,7 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerAHorizontal", "Horizontal");
             InputAssign.UpdateDictionaryMovement("PlayerAVertical", "Vertical");
             InputAssign.UpdateDictionaryMovement("PlayerBHorizontal", "HorizontalB");
-            InputAssign.UpdateDictionaryMovement("PlayerBVertical", "HorizontalB");
+            InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalB");
 
 
             //Interazione
@@ -30,7 +30,7 @@ public class SettingController : MonoBehaviour
 
             //salto
             InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Space);
-            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightCommand);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightControl);
 
             //Inventario
             InputAssign.UpdateDictionaryInteract("PlayerAInventario", KeyCode.Tab);
@@ -107,7 +107,7 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
             
             descrizioneControlliA.text= "Movimento: Analogico\nSalto: O\nInterazione: Triangolo\nInventario: X";
-            descrizioneControlliB.text= "Movimento: Frecce\nSalto: Ctrl destro\nInterazione: Invio\nInventario: Shift Dx";
+            descrizioneControlliB.text= "Movimento: Frecce\nSalto: Ctrl Dx\nInterazione: Invio\nInventario: Shift Dx";
         }
     }
 }

@@ -34,7 +34,7 @@ public class AggiustaNavicella : MonoBehaviour
             }
             else
             {
-                textA.text = "Tu o Remy non avete tutti i pezzi, trovateli!!";
+                textA.text = "Tu o Remy non avete tutti i pezzi necessari per aggiustare la navicella, trovateli!!";
 
             }
         }
