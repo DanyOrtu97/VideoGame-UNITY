@@ -13,6 +13,7 @@ public class Slot : MonoBehaviour
     public bool empty;
     public Sprite icon;
     public Transform slotIconGO;
+    public Sprite emptyIcon;
 
     public void Start()
     {
@@ -31,7 +32,7 @@ public class Slot : MonoBehaviour
         type = "";
         description = "";
         empty = true;
-        icon = null;
+        icon = emptyIcon;
         slotIconGO.GetComponent<Image>().sprite = icon;
 
     }

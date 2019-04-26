@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
 
             if(slot[i].GetComponent<Slot>().item == null)
             {
+          
                 slot[i].GetComponent<Slot>().empty = true;
             }
         }
@@ -40,19 +41,41 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (this.gameObject.CompareTag("PlayerA"))
         {
-            inventoryEnabled = !inventoryEnabled;
-        }
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]))
+            {
+                inventoryEnabled = !inventoryEnabled;
+            }
 
-        if(inventoryEnabled == true)
-        {
-            inventory.SetActive(true);
+            if (inventoryEnabled == true)
+            {
+                inventory.SetActive(true);
+            }
+            else
+            {
+                inventory.SetActive(false);
+            }
         }
-        else
-        {
-            inventory.SetActive(false);
+        else {
+            if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]))
+            {
+                inventoryEnabled = !inventoryEnabled;
+            }
+
+            if (inventoryEnabled == true)
+            {
+                inventory.SetActive(true);
+            }
+            else
+            {
+                inventory.SetActive(false);
+            }
         }
+           
+
+
+
     }
 
     /*
@@ -68,70 +91,122 @@ public class Inventory : MonoBehaviour
     }
     */
 
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        if (this.gameObject.CompareTag("PlayerA"))
         {
-            alertGUI.gameObject.SetActive(true);
-            alertGUI.gameObject.GetComponent<Text>().text = "Premi E per raccogliere";
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (other.CompareTag("Item"))
             {
-                GameObject itemPickedUp = collision.gameObject;
-                Item item = itemPickedUp.GetComponent<Item>();
-
-                AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
-
-                if (item.type.Equals("barca"))
-                {
-                    gameController.gameObject.GetComponent<GameController>().setCounterBarca();
-                }
-
-                if (item.type.Equals("food"))
-                {
-                    gameController.gameObject.GetComponent<GameController>().setCounterFood();
-                }
-
-                if (item.type.Equals("iron"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterIron();
-                }
-
-                if (item.type.Equals("tool"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterTool();
-                }
-
-                if (item.type.Equals("hammer"))
-                {
-                    gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
-                }
-
-                alertGUI.gameObject.SetActive(false);
+                alertGUI.gameObject.SetActive(true);
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi  " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per raccogliere";
             }
         }
+        else {
+            if (other.CompareTag("Item"))
+            {
+                alertGUI.gameObject.SetActive(true);
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per raccogliere";
+            }
+        }
+            
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        if (other.CompareTag("Item"))
+        {
+            if (this.gameObject.CompareTag("PlayerA"))
+            {
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
+                {
+                    GameObject itemPickedUp = other.gameObject;
+                    Item item = itemPickedUp.GetComponent<Item>();
+
+                    AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+
+                    if (item.type.Equals("barca"))
+                    {
+                        gameController.gameObject.GetComponent<GameController>().setCounterBarca();
+                    }
+
+                    if (item.type.Equals("food"))
+                    {
+                        gameController.gameObject.GetComponent<GameController>().setCounterFood();
+                    }
+
+                    if (item.type.Equals("iron"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterIron();
+                    }
+
+                    if (item.type.Equals("tool"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterTool();
+                    }
+
+                    if (item.type.Equals("hammer"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
+                    }
+
+                    alertGUI.gameObject.SetActive(false);
+                }
+            }
+            else {
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
+                {
+                    GameObject itemPickedUp = other.gameObject;
+                    Item item = itemPickedUp.GetComponent<Item>();
+
+                    AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+
+                    if (item.type.Equals("barca"))
+                    {
+                        gameController.gameObject.GetComponent<GameController>().setCounterBarca();
+                    }
+
+                    if (item.type.Equals("food"))
+                    {
+                        gameController.gameObject.GetComponent<GameController>().setCounterFood();
+                    }
+
+                    if (item.type.Equals("iron"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterIron();
+                    }
+
+                    if (item.type.Equals("tool"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterTool();
+                    }
+
+                    if (item.type.Equals("hammer"))
+                    {
+                        gameController.gameObject.GetComponent<GameController2>().setCounterHammer();
+                    }
+
+                    alertGUI.gameObject.SetActive(false);
+                }
+            }
+           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Item"))
         {
             alertGUI.gameObject.SetActive(false);
         }
     }
 
 
-
-     void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
+    void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
-        for (j = j; j < allSlots; j++)
+        for (j = 0; j < allSlots; j++)
         {
+        
             if (slot[j].GetComponent<Slot>().empty)
             {
              
@@ -150,9 +225,15 @@ public class Inventory : MonoBehaviour
 
                 slot[j].GetComponent<Slot>().UpdateSlot();
                 slot[j].GetComponent<Slot>().empty = false;
-                j++;
+
+                return;
             }
-            return;
+            else
+            {
+                Debug.Log(j);
+                Debug.Log("non ho trovato una slot vuota");
+            }
+            
         }
     }
 
@@ -171,11 +252,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        for(int i = 0; i< countDeletedItems; i++)
-        {
-            j--;
-        }
-        
+       
     }
 
     public bool checkItem(string tipo)

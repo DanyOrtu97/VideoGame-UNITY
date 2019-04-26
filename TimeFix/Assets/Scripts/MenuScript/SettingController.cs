@@ -20,21 +20,28 @@ public class SettingController : MonoBehaviour
             //Movimento e interazione
             InputAssign.UpdateDictionaryMovement("PlayerAHorizontal", "Horizontal");
             InputAssign.UpdateDictionaryMovement("PlayerAVertical", "Vertical");
-            InputAssign.UpdateDictionaryInteract("PlayerAInteract", KeyCode.E);
             InputAssign.UpdateDictionaryMovement("PlayerBHorizontal", "HorizontalB");
-            InputAssign.UpdateDictionaryMovement("PlayerBVertical", "HorizontalB");
+            InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalB");
+
+
+            //Interazione
+            InputAssign.UpdateDictionaryInteract("PlayerAInteract", KeyCode.E);
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Return);
 
             //salto
             InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Space);
-            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightCommand);
+            InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightControl);
 
-            //Stringeh per i tasti
+            //Inventario
+            InputAssign.UpdateDictionaryInteract("PlayerAInventario", KeyCode.Tab);
+            InputAssign.UpdateDictionaryInteract("PlayerBInventario", KeyCode.RightShift);
+
+            //Stringhe per i tasti
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
 
-            descrizioneControlliA.text="Movimento: WASD\n Interazione: E";
-            descrizioneControlliB.text="Movimento: Frecce \nInterazione: Invio";
+            descrizioneControlliA.text= "Movimento: WASD\nSalto: Spazio\nInterazione: E\nInventario: Tab";
+            descrizioneControlliB.text= "Movimento: Frecce\nSalto: Ctrl Dx\nInterazione: Invio\nInventario: Shift Dx";
         }
         else if (playerA.value == 1 && playerB.value == 1) {
             InputAssign.UpdateDictionaryMovement("PlayerAHorizontal", "HorizontalJoystick");
@@ -48,11 +55,15 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Joystick1Button1);
             InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.Joystick2Button1);
 
+            //Inventario
+            InputAssign.UpdateDictionaryInteract("PlayerAInventario", KeyCode.Joystick1Button2);
+            InputAssign.UpdateDictionaryInteract("PlayerBInventario", KeyCode.Joystick2Button2);
+
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
 
-            descrizioneControlliA.text="Movimento: Analogico\n"+"Interazione: O";
-            descrizioneControlliB.text="Movimento: Analogico\n"+"Interazione: O";
+            descrizioneControlliA.text= "Movimento: Analogico\nSalto: O\nInterazione: Triangolo\nInventario: X";
+            descrizioneControlliB.text= "Movimento: Analogico\nSalto: O\nInterazione: Triangolo\nInventario: X";
         }
         else if (playerA.value == 0 && playerB.value == 1)
         {
@@ -67,11 +78,14 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Space);
             InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.Joystick1Button1);
 
+            InputAssign.UpdateDictionaryInteract("PlayerAInventario", KeyCode.Tab);
+            InputAssign.UpdateDictionaryInteract("PlayerBInventario", KeyCode.Joystick1Button2);
+
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "E");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Triangolo");
 
-            descrizioneControlliA.text="Movimento: WASD\n"+"Interazione: E";
-            descrizioneControlliB.text="Movimento: Analogico\n"+"Interazione: O";
+            descrizioneControlliA.text= "Movimento: WASD\nSalto: Spazio\nInterazione: E\nInventario: Tab";
+            descrizioneControlliB.text = "Movimento: Analogico\nSalto: O\nInterazione: Triangolo\nInventario: X";
         }
         else if (playerA.value == 1 && playerB.value == 0)
         {
@@ -82,15 +96,18 @@ public class SettingController : MonoBehaviour
             InputAssign.UpdateDictionaryMovement("PlayerBVertical", "VerticalB");
             InputAssign.UpdateDictionaryInteract("PlayerBInteract", KeyCode.Return);
 
+            InputAssign.UpdateDictionaryInteract("PlayerAInventario", KeyCode.Joystick1Button2);
+            InputAssign.UpdateDictionaryInteract("PlayerBInventario", KeyCode.RightShift);
+
             //salto
             InputAssign.UpdateDictionaryInteract("PlayerAJump", KeyCode.Joystick1Button1);
             InputAssign.UpdateDictionaryInteract("PlayerBJump", KeyCode.RightControl);
 
             InputAssign.UpdateDictionaryInteractString("PlayerAInteract", "Triangolo");
             InputAssign.UpdateDictionaryInteractString("PlayerBInteract", "Invio");
-            //⭙⭘
-            descrizioneControlliA.text="Movimento: Analogico\n"+"Interazione: O";
-            descrizioneControlliB.text="Movimento: Frecce\n"+"Interazione: Invio";
+            
+            descrizioneControlliA.text= "Movimento: Analogico\nSalto: O\nInterazione: Triangolo\nInventario: X";
+            descrizioneControlliB.text= "Movimento: Frecce\nSalto: Ctrl Dx\nInterazione: Invio\nInventario: Shift Dx";
         }
     }
 }

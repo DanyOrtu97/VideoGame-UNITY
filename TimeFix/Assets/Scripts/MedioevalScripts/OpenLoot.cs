@@ -9,108 +9,75 @@ public class OpenLoot : MonoBehaviour
     public InputField password;
     private bool openUp = false;
     public GameObject content;
+   
 
+    
 
-	// Start is called before the first frame update
-	void Start()
+    
+
+    public bool isOpenUp()
     {
-      
-        
-
+        return openUp;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void OnTriggerEnter(Collider collision)
     {
-      
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (openUp == false)
         {
-            alertGUI.gameObject.SetActive(true);
-            alertGUI.text = "Pronuncia la magia per aprire la cassa";
-            password.gameObject.SetActive(true);
-
-            if (password.text.Equals("opvium"))
+            if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
             {
-                //Apricassa
-                openUp = true;
-                password.text = "";
+                alertGUI.gameObject.SetActive(true);
+                alertGUI.text = "Pronuncia la magia per aprire la cassa";
+                password.gameObject.SetActive(true);
+
+                if (password.text.Equals("opvium"))
+                {
+                    //Apricassa
+                    openUp = true;
+                    alertGUI.gameObject.SetActive(false);
+                    password.gameObject.SetActive(false);
+                    password.text = "";
+                }
             }
         }
-
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (openUp == false)
         {
-            alertGUI.gameObject.SetActive(true);
-            alertGUI.text = "Pronuncia la magia per aprire la cassa";
-            password.gameObject.SetActive(true);
-
-            if (password.text.Equals("opvium"))
+            if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
             {
-                content.SetActive(true);
-                this.transform.eulerAngles += new Vector3(90, 0, 0);
+                alertGUI.gameObject.SetActive(true);
+                alertGUI.text = "Pronuncia la magia per aprire la cassa";
+                password.gameObject.SetActive(true);
 
-                openUp = true;
-                password.text = "";
+                if (password.text.Equals("opvium"))
+                {
+                    content.SetActive(true);
+                    this.transform.eulerAngles += new Vector3(90, 0, 0);
+
+                    openUp = true;
+
+                    password.text = "";
+                    alertGUI.gameObject.SetActive(false);
+                    password.gameObject.SetActive(false);
+
+                }
+
             }
-
         }
-
-       
     }
 
-
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-       
-
-        if (collision.gameObject.CompareTag("PlayerB"))
+        if (collision.gameObject.CompareTag("PlayerB") || collision.gameObject.CompareTag("PlayerA"))
         {
             alertGUI.gameObject.SetActive(false);
             password.gameObject.SetActive(false);
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
-
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(true);
-            
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
-
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(true);
-            
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        
-
-        if (other.CompareTag("PlayerB"))
-        {
-            alertGUI.gameObject.SetActive(false);
-            
-        }
-    }
 
 }
 

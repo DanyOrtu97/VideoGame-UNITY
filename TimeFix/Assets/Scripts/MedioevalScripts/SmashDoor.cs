@@ -18,7 +18,7 @@ public class SmashDoor : MonoBehaviour
             if (isOpen == false)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per aprire";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aprire";
             }
 
         }
@@ -30,7 +30,7 @@ public class SmashDoor : MonoBehaviour
         {
             if (isOpen == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
 
                     if (player.gameObject.GetComponent<Inventory>().checkItem("axe"))
@@ -40,7 +40,7 @@ public class SmashDoor : MonoBehaviour
                     }
                     else
                     {
-                        alertGUI.gameObject.GetComponent<Text>().text = "La porta è bloccata, serve qualcosa per romperla";
+                        alertGUI.gameObject.GetComponent<Text>().text = "La porta e' bloccata, serve qualcosa per romperla";
                     }
                 
 

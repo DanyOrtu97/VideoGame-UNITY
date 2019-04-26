@@ -22,28 +22,27 @@ public class MeltIron : MonoBehaviour
 
 
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-           
+
             if (isDoneIron == false)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per fondere il ferro";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per fondere il ferro";
             }
 
-            if (isDoneIron == true)
+            if (isDoneIron == true && shutdown == false)
             {
                 alertGUI.gameObject.SetActive(true);
-                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto E per prendere il ferro lavorato";
+                alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per prendere il ferro riscaldato";
             }
 
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
 
         if (collision.gameObject.CompareTag("PlayerB"))
@@ -54,11 +53,11 @@ public class MeltIron : MonoBehaviour
 
             if (isDoneIron == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     if (gameController.gameObject.GetComponent<GameController2>().getCounterIron() == 2)
                     {
-                        
+
                         isDoneIron = true;
                         //rimuovi item??
                         player.gameObject.GetComponent<Inventory>().removeItemByType("iron");
@@ -74,7 +73,7 @@ public class MeltIron : MonoBehaviour
 
             if (isDoneIron == true && gotIron == false && shutdown == false)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     if (gameController.gameObject.GetComponent<GameController2>().getCounterTool() == 1)
                     {
@@ -98,17 +97,12 @@ public class MeltIron : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             alertGUI.gameObject.SetActive(false);
         }
-    }
-
-    public bool getFinishState()
-    {
-        return shutdown;
     }
 
 }
