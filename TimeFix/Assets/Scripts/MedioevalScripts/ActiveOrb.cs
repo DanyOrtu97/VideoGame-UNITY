@@ -10,6 +10,7 @@ public class ActiveOrb : MonoBehaviour
     public Text alertGUI;
     private bool isOrbActive = false;
     public GameObject gameController;
+    public GameObject finelvlporto;
 
 
     private void OnCollisionEnter(Collision collision)
@@ -33,10 +34,14 @@ public class ActiveOrb : MonoBehaviour
             {
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
-                    if (player.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto")&& player.gameObject.GetComponent<Inventory>().checkItem("redorb") && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") )
+                    if (player.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto")
+                        && player.gameObject.GetComponent<Inventory>().checkItem("redorb") 
+                        && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") 
+                        && finelvlporto.gameObject.GetComponent<EndLevel1>().isOnBoat())
                     {
 
                         isOrbActive = true;
+
                         player.gameObject.GetComponent<Inventory>().removeItemByType("redorb");
                         player.gameObject.GetComponent<Inventory>().removeItemByType("blueorbPorto");
                         player.gameObject.GetComponent<Inventory>().removeItemByType("greenorb");
@@ -48,6 +53,11 @@ public class ActiveOrb : MonoBehaviour
                     else
                     {
                         alertGUI.gameObject.GetComponent<Text>().text = "Ti servono le 3 sfere";
+                        if (finelvlporto.gameObject.GetComponent<EndLevel1>().isOnBoat() == false)
+                        {
+                            alertGUI.gameObject.GetComponent<Text>().text += " \n Attendi che Liam sia in viaggio";
+                        }
+                        
                     }
                 }
             }

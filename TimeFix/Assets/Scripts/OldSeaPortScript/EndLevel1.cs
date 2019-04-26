@@ -70,6 +70,11 @@ public class EndLevel1 : MonoBehaviour
         }
     }
 
+    public bool isOnBoat()
+    {
+        return onBoat;
+    }
+
 
     void Update()
     {
