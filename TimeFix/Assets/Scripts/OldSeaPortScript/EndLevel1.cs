@@ -9,11 +9,12 @@ public class EndLevel1 : MonoBehaviour
     public GameObject alertGUI;
     public GameObject gameController;
     public GameObject player;
+    public GameObject otherPlayer;
     public GameObject cassa;
     private Transform tr;
     private bool onBoat = false;
     private int speed = 1;
-
+    private float navigationTime;
     private void Start()
     {
         tr = player.gameObject.transform;
@@ -41,9 +42,10 @@ public class EndLevel1 : MonoBehaviour
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]) && onBoat == false)
             {
-                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3 && cassa.GetComponent<OpenLoot>().isOpenUp() == true)
+                if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3 && cassa.GetComponent<OpenLoot>().isOpenUp() == true&&otherPlayer.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto"))
                 {
                     onBoat = true;
+                    navigationTime = Time.time;
                     tr.transform.position = new Vector3(24.31f, 2.53f, 46.91f);
                     tr.eulerAngles = new Vector3(0, 120, 0);
                     alertGUI.gameObject.SetActive(false);
@@ -51,8 +53,8 @@ public class EndLevel1 : MonoBehaviour
                 }
                 else
                 {
-                    alertGUI.gameObject.GetComponent<Text>().text = "Ti servono 3 provviste di cibo per salpare";
-                    if (cassa.GetComponent<OpenLoot>().isOpenUp() == false)
+                    alertGUI.gameObject.GetComponent<Text>().text = "Ti servono 3 provviste di cibo per salpare e potrebbe servire ancora il tuo aiuto";
+                    if (cassa.GetComponent<OpenLoot>().isOpenUp() == false||otherPlayer.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto"))
                     {
                         alertGUI.gameObject.GetComponent<Text>().text += " \nServe il tuo aiuto a Remy";
                     }
@@ -80,10 +82,19 @@ public class EndLevel1 : MonoBehaviour
     {
         if (onBoat)
         {
-            player.gameObject.SetActive(false);
-            this.transform.Translate(Vector3.back * Time.deltaTime * speed); //muove in avanti la barca anche se c'è back
-            tr.transform.position = this.transform.position; //fa muovere insieme barca e player 
-            player.gameObject.SetActive(true);
+            if (Time.time - navigationTime < 40)
+            {
+                player.gameObject.SetActive(false);
+                this.transform.Translate(Vector3.back * Time.deltaTime * speed); //muove in avanti la barca anche se c'è back
+                tr.transform.position = this.transform.position; //fa muovere insieme barca e player 
+                player.gameObject.SetActive(true);
+            }
+            else {
+                player.gameObject.SetActive(false);
+                tr.transform.position = this.transform.position;
+                player.gameObject.SetActive(true);
+            }
+            
         }
 
     }

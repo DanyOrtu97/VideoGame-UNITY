@@ -27,12 +27,13 @@ public class IntroSunTemple : MonoBehaviour
     {
         if ((Time.time - timeStart > delay && lockStart < 2)|| skip )
         {
-            skip = false;
+            
             skipButton.gameObject.SetActive(false);
             lockStart = 1;
             introCanvas.SetActive(true);
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
             {
+                skip = false;
                 lockStart = 2;
                 introCanvas.SetActive(false);
                 cameraIntro.SetActive(false);
