@@ -57,7 +57,7 @@ public class ControllerFlooded : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Time.time - timeIntro > 60 && contaInizio == 0) || skip)
+        if ((Time.time - timeIntro > 64 && contaInizio == 0) || skip)
         {
             skip = false;
             skipButton.gameObject.SetActive(false);

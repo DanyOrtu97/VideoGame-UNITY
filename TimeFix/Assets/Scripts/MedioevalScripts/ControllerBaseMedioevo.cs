@@ -46,7 +46,7 @@ public class ControllerBaseMedioevo : MonoBehaviour
             contaActive++;
         }
 
-        if (((Time.time - timeToIntro > 88 && contaActive == 1)||skip)&&oneDescriprion==false)
+        if (((Time.time - timeToIntro > 91 && contaActive == 1)||skip)&&oneDescriprion==false)
         {
             skip = false;
             oneDescriprion = true;
