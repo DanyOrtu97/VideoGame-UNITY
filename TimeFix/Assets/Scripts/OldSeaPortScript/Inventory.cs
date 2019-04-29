@@ -228,11 +228,7 @@ public class Inventory : MonoBehaviour
 
                 return;
             }
-            else
-            {
-                Debug.Log(j);
-                Debug.Log("non ho trovato una slot vuota");
-            }
+            
             
         }
     }
