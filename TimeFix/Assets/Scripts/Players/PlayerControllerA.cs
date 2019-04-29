@@ -10,7 +10,7 @@ public class PlayerControllerA : MonoBehaviour
 	private CharacterController controller;
 	public float speed = 2f;
 	private float jumpForce = 10f;
-	private float gravity = 40f;
+	public float gravity = 40f;
 	private float rotation = 0f;
 	private float timeToGathering = 0f;
 	public float turnSpeed = 2f;

@@ -23,7 +23,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
             textB.text = "Porta chiusa! Trova la password!";
             passwordB.gameObject.SetActive(true);
 
-            if (passwordB.text.Equals("azibo"))
+            if (passwordB.text.Equals("ghiaccio"))
             {
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 passwordB.gameObject.SetActive(false);
@@ -42,7 +42,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
             textA.text = "Porta chiusa! Trova la password!";
             passwordA.gameObject.SetActive(true);
 
-            if (passwordA.text.Equals("azibo"))
+            if (passwordA.text.Equals("fuoco"))
             {
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 passwordA.gameObject.SetActive(false);
@@ -67,7 +67,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
             textB.text = "Porta chiusa! Trova la password!";
             passwordB.gameObject.SetActive(true);
 
-            if (passwordB.text.Equals("azibo"))
+            if (passwordB.text.Equals("ghiaccio"))
             {
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 passwordB.gameObject.SetActive(false);
@@ -86,7 +86,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
             textA.text = "Porta chiusa! Trova la password!";
             passwordA.gameObject.SetActive(true);
 
-            if (passwordA.text.Equals("azibo"))
+            if (passwordA.text.Equals("fuoco"))
             {
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 passwordA.gameObject.SetActive(false);
