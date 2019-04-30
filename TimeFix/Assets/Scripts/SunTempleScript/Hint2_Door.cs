@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Hint 2 per sblocco porta
 public class Hint2_Door : MonoBehaviour
 {
     public GameObject allertGuiA;

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Controller apertura porta, con rotazione 
 public class DoorController : MonoBehaviour
 {
     public bool isOpen=false;

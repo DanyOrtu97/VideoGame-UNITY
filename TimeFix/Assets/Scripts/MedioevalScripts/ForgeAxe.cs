@@ -11,8 +11,6 @@ public class ForgeAxe : MonoBehaviour
     private bool isForged;
     public GameObject axe;
     public GameObject player;
-    
-
 
 
     private void OnCollisionEnter(Collision collision)
@@ -24,8 +22,6 @@ public class ForgeAxe : MonoBehaviour
                 alertGUI.gameObject.SetActive(true);
                 alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per forgiare un'ascia";
             }
-
-            
 
         }
     }
@@ -49,9 +45,6 @@ public class ForgeAxe : MonoBehaviour
                         alertGUI.gameObject.GetComponent<Text>().text = "Ascia ottenuta";
                         axe.SetActive(true);
                         isForged = true;
-
-                        
-
                     }
                     else
                     {
@@ -72,8 +65,5 @@ public class ForgeAxe : MonoBehaviour
             alertGUI.gameObject.SetActive(false);
         }
     }
-
-
-
 
 }

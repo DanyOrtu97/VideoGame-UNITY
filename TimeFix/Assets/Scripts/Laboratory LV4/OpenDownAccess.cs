@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Apertura passaggio inferiore, solo un giocatore può passarci*/
 public class OpenDownAccess : MonoBehaviour
 {
     public Text textA, textB;
@@ -17,25 +18,25 @@ public class OpenDownAccess : MonoBehaviour
     void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider>();
-	}
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-		if (PlatrformA.GetComponent<PlatformControllerAA>().on && PlatrformB.GetComponent<PlatformControllerB>().on)
-		{
+        if (PlatrformA.GetComponent<PlatformControllerAA>().on && PlatrformB.GetComponent<PlatformControllerB>().on)
+        {
             LiamAccess = true;
             boxCollider.isTrigger = true;
             textA.text = "Passaggio inferiore aperto per Liam";
             textB.text = "Passaggio inferiore aperto per Liam";
         }
 
-	}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("PlayerA") && LiamAccess && RemyCollision)
+        if (collision.gameObject.CompareTag("PlayerA") && LiamAccess && RemyCollision)
         {
             LiamCollision = true;
             LiamAccess = true;
@@ -63,7 +64,7 @@ public class OpenDownAccess : MonoBehaviour
             RemyCollision = true;
         }
 
-        if(RemyCollision && LiamCollision && LiamAccess)
+        if (RemyCollision && LiamCollision && LiamAccess)
         {
             infoA.gameObject.SetActive(true);
             textA.text = "Puo' accedere solo Liam, Remy spostati altrimenti il campo di forza impedira' il passaggio ad entrambi!";
@@ -161,7 +162,7 @@ public class OpenDownAccess : MonoBehaviour
             if (other.GetComponent<Transform>().position.y <= 46)
             {
                 LiamAccess = false;
-                boxCollider.isTrigger = false;           
+                boxCollider.isTrigger = false;
             }
 
             infoA.gameObject.SetActive(false);

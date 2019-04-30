@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Solleva le bandiere 
+
 public class RaiseFlag : MonoBehaviour
 {
-
     public GameObject text;
     private Transform tr;
     public bool isRaised = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         tr = gameObject.GetComponent<Transform>();
     }
-
-    // Update is called once per frame
 
 
     private void OnCollisionEnter(Collision collision)

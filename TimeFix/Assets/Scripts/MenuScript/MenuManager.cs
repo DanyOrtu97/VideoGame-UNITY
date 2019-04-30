@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/*Gestione menu*/
 public class MenuManager : MonoBehaviour
 {
 
@@ -14,11 +15,11 @@ public class MenuManager : MonoBehaviour
 
     public void Quit()
     {
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+    #else
 		Application.Quit();
-#endif
+    #endif
     }
 
     public void GoImpostazioni()
@@ -47,7 +48,8 @@ public class MenuManager : MonoBehaviour
         leggendaB.SetActive(false);
         credits.SetActive(true);
     }
-    public void nuovaPartita() {
+    public void nuovaPartita()
+    {
         SceneManager.LoadScene("Introduzione");
     }
 }

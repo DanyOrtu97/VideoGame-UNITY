@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Controller Per la raccolta dei vari pezzi della navicella finale*/
 public class CollectibleFlooded : MonoBehaviour
 {
     public GameObject controller;
     public string nome;
     public float speed = 1f;
-    public Vector3 rotationVector= new Vector3(0, 30, 0);
+    public Vector3 rotationVector = new Vector3(0, 30, 0);
     private int contaA = 0, contaB = 0;
     public Text textB, textA;
     public GameObject infoB, infoA;
@@ -49,7 +50,7 @@ public class CollectibleFlooded : MonoBehaviour
                     textA.text = "";
                 }
             }
-               
+
         }
 
         if (other.CompareTag("PlayerB"))
@@ -63,7 +64,7 @@ public class CollectibleFlooded : MonoBehaviour
                 controller.gameObject.GetComponent<InventarioFlooded>().AddItem(nome, "B");
                 controller.gameObject.GetComponent<ControllerFlooded>().collectibleB();
                 this.gameObject.SetActive(false);
-                
+
                 if (controller.gameObject.GetComponent<InventarioFlooded>().isValidB())
                 {
                     textB.text = "Ora che hai tutti i pezzi puoi aggiustare la navicella. Trovala!";
@@ -124,13 +125,13 @@ public class CollectibleFlooded : MonoBehaviour
                     textB.text = "";
                 }
             }
-           
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("PlayerA"))
+        if (other.gameObject.CompareTag("PlayerA"))
         {
             textA.text = "";
         }

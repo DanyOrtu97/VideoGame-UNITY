@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Hint 1 book casa*/
 public class Hint1_Book : MonoBehaviour
 {
     public GameObject allertGuiA;
@@ -11,8 +11,6 @@ public class Hint1_Book : MonoBehaviour
     public GameObject panelGuiB;
     public GameObject allertGuiPanelA;
     public GameObject allertGuiPanelB;
-
-
 
     private void OnTriggerEnter(Collider other)
     {

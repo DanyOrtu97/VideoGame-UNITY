@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Fusione del ferro per ottenere l'ascia*/
 public class MeltIron : MonoBehaviour
 {
     public GameObject alertGUI;
@@ -19,8 +20,6 @@ public class MeltIron : MonoBehaviour
     {
         box = gameObject.GetComponent<BoxCollider>();
     }
-
-
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -47,9 +46,6 @@ public class MeltIron : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-
-
-
 
             if (isDoneIron == false)
             {

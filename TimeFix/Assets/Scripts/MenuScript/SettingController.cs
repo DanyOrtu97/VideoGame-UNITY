@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/*Gestione possibili impostazioni di input scelti dall'utente*/
+//0 tastiera 1 joystick
 public class SettingController : MonoBehaviour
 {
     public Dropdown playerA;

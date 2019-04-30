@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
+/*Script per l'accensione di una sequenza di luci, se la sequenza è corretta la chiave appare*/
 public class DrawAndOpen : MonoBehaviour
 {
     public GameObject[] Ligths;
@@ -12,11 +13,7 @@ public class DrawAndOpen : MonoBehaviour
     public GameObject infoB;
     public InputField passwordB;
     public GameObject activeKey;
-    private bool isValidPassword=false;
-
-    // Start is called before the first frame update
-
-
+    private bool isValidPassword = false;
 
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +37,7 @@ public class DrawAndOpen : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerB"))
-        {    
+        {
 
             infoB.gameObject.SetActive(true);
             textB.text = "Lancia una moneta, una faccia e' quella giusta, se la chiave vuoi trovare " +
@@ -51,8 +48,8 @@ public class DrawAndOpen : MonoBehaviour
             inputLights = passwordB.text;
 
 
-            if(!passwordB.text.Contains("1") && passwordB.text.Contains("2") && !passwordB.text.Contains("3") && 
-                passwordB.text.Contains("4") && passwordB.text.Contains("5") && passwordB.text.Contains("6") && 
+            if (!passwordB.text.Contains("1") && passwordB.text.Contains("2") && !passwordB.text.Contains("3") &&
+                passwordB.text.Contains("4") && passwordB.text.Contains("5") && passwordB.text.Contains("6") &&
                 !passwordB.text.Contains("7") && passwordB.text.Contains("8") && !passwordB.text.Contains("9") &&
                 !passwordB.text.Contains("0"))
             {
@@ -84,15 +81,15 @@ public class DrawAndOpen : MonoBehaviour
     {
         if (other.CompareTag("PlayerB"))
         {
-            if(isValidPassword)
+            if (isValidPassword)
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
 
             infoB.gameObject.SetActive(false);
             passwordB.gameObject.SetActive(false);
-         
+
         }
     }
 
 
-   
+
 }

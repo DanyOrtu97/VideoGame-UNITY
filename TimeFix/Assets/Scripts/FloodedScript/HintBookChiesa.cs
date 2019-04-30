@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Hint diverso in base ai 2 giocatori*/
 public class HintBookChiesa : MonoBehaviour
 {
 
@@ -39,7 +40,7 @@ public class HintBookChiesa : MonoBehaviour
             {
                 allertGuiA.gameObject.SetActive(false);
                 panelGuiA.gameObject.SetActive(true);
-                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Sopra le cime delle montgne mi puoi trovare, in discoteca, sul drink, in riva al mare. Se la porta vuoi sbloccare, la trasformazione di uno dei 4 elementi dovrai indovinare.";
+                allertGuiPanelA.gameObject.GetComponent<Text>().text = "Sopra le cime delle montagne mi puoi trovare, in discoteca, sul drink, in riva al mare. Se la porta vuoi sbloccare, la trasformazione di uno dei 4 elementi dovrai indovinare.";
             }
         }
         if (other.gameObject.CompareTag("PlayerB"))

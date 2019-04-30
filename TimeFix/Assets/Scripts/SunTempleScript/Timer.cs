@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+//Timer inizo livello
 public class Timer : MonoBehaviour
 {
     public GameObject door;
@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
         }
 
     }
-    private void ChangeSceneGameOver() {
+    private void ChangeSceneGameOver() {//Se il timer scade si va al gameover
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

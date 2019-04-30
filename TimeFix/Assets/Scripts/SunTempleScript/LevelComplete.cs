@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+/*gestione completamento livello*/
 public class LevelComplete : MonoBehaviour
 {
     private Dictionary<string, string> dictPosizioni = new Dictionary<string, string>();
     private bool lockL = false;
+
     public void RemovePlayer(string tag,string punto)
     {
         dictPosizioni.Remove(tag);
@@ -19,13 +21,12 @@ public class LevelComplete : MonoBehaviour
             dictPosizioni.Add(tag, punto);
             if (this.IsValid() && lockL == false)
             {
-                lockL = true;
+                lockL = true;//evita il richiamo continuo della scena
                 this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello3Flooded");
 
             }
         }
        
-
     }
     private bool IsValid() {
         if (dictPosizioni["PlayerA"] != dictPosizioni["PlayerB"]) {

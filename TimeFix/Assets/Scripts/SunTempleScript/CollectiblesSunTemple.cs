@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Rotazione Collectibles
 public class CollectiblesSunTemple : MonoBehaviour
 {
     public GameObject controller;

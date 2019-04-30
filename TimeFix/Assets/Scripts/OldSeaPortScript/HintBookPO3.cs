@@ -8,11 +8,8 @@ public class HintBookPO3 : MonoBehaviour
 {
 
     public GameObject alertGuiA;
-
     public GameObject panelGuiA;
     public GameObject alertGuiPanelA;
-
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,8 +34,6 @@ public class HintBookPO3 : MonoBehaviour
                 alertGuiPanelA.gameObject.GetComponent<Text>().text = "\t\t Lezione di magia avanzata 5 \n L’incantesimo “opvium” viene utilizzato dai " +
                     "maghi come sostituto alle chiavi, alcuni" +
                     " ritengono che sia stato inventato per i maghi sbadati che perdevano continuamente le chiavi di casa per strada";
-
-
             }
         }
 

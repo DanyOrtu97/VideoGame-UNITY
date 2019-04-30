@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Hint console inferiore*/
 public class HintsConsole : MonoBehaviour
 {
     public Text textA;
@@ -10,12 +11,6 @@ public class HintsConsole : MonoBehaviour
     public GameObject hintA;
     private bool isOpenA = false;
 
-	// Start is called before the first frame update
-	void Start()
-    {
-
-       
-	}
 
     // Update is called once per frame
     void Update()
@@ -27,11 +22,11 @@ public class HintsConsole : MonoBehaviour
         }
     }
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if(collision.gameObject.CompareTag("PlayerA"))
-		{
-            textA.text  = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere";
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+            textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per leggere";
             infoA.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
@@ -41,7 +36,7 @@ public class HintsConsole : MonoBehaviour
 
         }
 
-	}
+    }
 
     private void OnCollisionStay(Collision collision)
     {

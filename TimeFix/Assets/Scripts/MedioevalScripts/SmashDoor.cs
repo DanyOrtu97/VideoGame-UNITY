@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Apertura porta con ascia*/
 public class SmashDoor : MonoBehaviour
 {
     public GameObject alertGUI;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Controller per la camera
 public class CameraController : MonoBehaviour
 {
     [SerializeField] public Transform target = null;

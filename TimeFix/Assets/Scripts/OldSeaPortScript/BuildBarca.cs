@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Costruisce la barca solo se si hanno i pezzi necessari
 public class BuildBarca : MonoBehaviour
 {
 
@@ -25,9 +26,6 @@ public class BuildBarca : MonoBehaviour
             alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per costruire la barca";
   
         }
-
-
-
     }
 
     private void OnCollisionStay(Collision collision)

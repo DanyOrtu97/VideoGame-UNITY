@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*Indizio libro*/
 public class HintBookMD3 : MonoBehaviour
 {
 
     public GameObject alertGuiB;
-
     public GameObject panelGuiB;
     public GameObject alertGuiPanelB;
-
-
 
     private void OnTriggerEnter(Collider other)
     {

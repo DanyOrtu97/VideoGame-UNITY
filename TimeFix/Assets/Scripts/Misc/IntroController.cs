@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Controller Introduzione iniziale
 public class IntroController : MonoBehaviour
 {
     private float startTime;
     public float targetTime;
     private bool lockCambioscena = false;
-    // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;

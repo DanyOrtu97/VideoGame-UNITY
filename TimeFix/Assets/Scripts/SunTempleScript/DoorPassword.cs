@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+/*Sblocco password*/
 public class DoorPassword : MonoBehaviour
 {
     public GameObject allertGuiB;

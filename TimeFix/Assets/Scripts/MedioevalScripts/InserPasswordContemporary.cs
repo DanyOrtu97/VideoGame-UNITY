@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Inserimento password contemporane 2 player*/
 public class InserPasswordContemporary : MonoBehaviour
 {
     public InputField passwordA,passwordB;

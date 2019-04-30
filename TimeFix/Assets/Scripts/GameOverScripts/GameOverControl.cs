@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*Controller Game Over*/
 public class GameOverControl : MonoBehaviour
 {
     public void Ritenta() {

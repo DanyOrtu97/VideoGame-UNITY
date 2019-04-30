@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Controllo finale collectible*/
 public class FineLivelloFlooded : MonoBehaviour
 {
     public GameObject controller;

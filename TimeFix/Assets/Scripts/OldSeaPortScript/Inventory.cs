@@ -78,18 +78,6 @@ public class Inventory : MonoBehaviour
 
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Item")
-        {
-            GameObject itemPickedUp = other.gameObject;
-            Item item = itemPickedUp.GetComponent<Item>();
-
-            AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
-        }
-    }
-    */
 
     
     private void OnTriggerEnter(Collider other)

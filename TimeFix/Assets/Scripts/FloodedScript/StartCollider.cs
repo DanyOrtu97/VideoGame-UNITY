@@ -3,22 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Collider iniziale per indicare l'obiettivo del livello*/
 public class StartCollider : MonoBehaviour
 {
     public Text textA, textB;
     public GameObject infoA, infoB;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {

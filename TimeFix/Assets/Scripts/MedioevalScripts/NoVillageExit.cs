@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class NoVillageExit : MonoBehaviour
 {
     public Text alertGUI;

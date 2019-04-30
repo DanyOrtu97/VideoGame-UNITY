@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+//Rotazione delle statue 
 public class RotateStatue : MonoBehaviour
 {
 
@@ -23,7 +24,7 @@ public class RotateStatue : MonoBehaviour
         if (incrementa == true) {
             degree = (degree + 90) % 360;
             
-            if (degree == 90)
+            if (degree == 90)//solo se le statue sono a 90 gradi si possono marcare come corrette
             {
                 gameController.GetComponent<OpenTempleDoor>().AddStatue(this.gameObject.tag);
             }

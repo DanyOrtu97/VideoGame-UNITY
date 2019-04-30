@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*Libro indizio*/
 public class HintBookMD2 : MonoBehaviour
 {
 
     public GameObject alertGuiB;
-
     public GameObject panelGuiB;
     public GameObject alertGuiPanelB;
-
 
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +24,6 @@ public class HintBookMD2 : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-
         if (other.gameObject.CompareTag("PlayerB"))
         {
 

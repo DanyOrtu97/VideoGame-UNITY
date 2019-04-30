@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Controllo fine livello 1
 public class EndLevel1 : MonoBehaviour
 {
 
@@ -27,12 +28,7 @@ public class EndLevel1 : MonoBehaviour
             alertGUI.gameObject.SetActive(true);
             alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per Salpare";
 
-
-
         }
-
-
-
     }
 
     private void OnCollisionStay(Collision collision)
@@ -42,6 +38,7 @@ public class EndLevel1 : MonoBehaviour
 
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]) && onBoat == false)
             {
+                //solo se ha eseguito le operazioni necessari finisce il livello
                 if (gameController.gameObject.GetComponent<GameController>().getCounterFood() == 3 && cassa.GetComponent<OpenLoot>().isOpenUp() == true&&otherPlayer.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto"))
                 {
                     onBoat = true;
@@ -53,10 +50,10 @@ public class EndLevel1 : MonoBehaviour
                 }
                 else
                 {
-                    alertGUI.gameObject.GetComponent<Text>().text = "Ti servono 3 provviste di cibo per salpare e potrebbe servire ancora il tuo aiuto";
+                    alertGUI.gameObject.GetComponent<Text>().text = "Ti servono 3 provviste di cibo per salpare";
                     if (cassa.GetComponent<OpenLoot>().isOpenUp() == false||otherPlayer.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto"))
                     {
-                        alertGUI.gameObject.GetComponent<Text>().text += " \nServe il tuo aiuto a Remy";
+                        alertGUI.gameObject.GetComponent<Text>().text += " e potrebbe servire ancora il tuo aiuto a Remy";
                     }
 
                 }
@@ -82,7 +79,7 @@ public class EndLevel1 : MonoBehaviour
     {
         if (onBoat)
         {
-            if (Time.time - navigationTime < 40)
+            if (Time.time - navigationTime < 40)//Gestione navigazione Barca, dopo 40 secondi si fermas
             {
                 player.gameObject.SetActive(false);
                 this.transform.Translate(Vector3.back * Time.deltaTime * speed); //muove in avanti la barca anche se c'è back

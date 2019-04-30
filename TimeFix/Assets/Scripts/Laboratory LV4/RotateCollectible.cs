@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Rotazione e raccolta dei cubi collectible*/
 public class RotateCollectible : MonoBehaviour
 {
     private float speed = 5f;
@@ -10,13 +11,6 @@ public class RotateCollectible : MonoBehaviour
     public Text textA, textB;
     public GameObject infoA, infoB;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime * speed);

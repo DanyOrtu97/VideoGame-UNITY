@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Apertura porte*/
 public class OpenDoorMD : MonoBehaviour
 {
 
@@ -16,15 +16,11 @@ public class OpenDoorMD : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("PlayerB")){
             
-
-
             if (isOpen == false)
             {
                 alertGUI.gameObject.SetActive(true);
                 alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aprire";
             }
-                
-
         }
     }
 
@@ -36,8 +32,6 @@ public class OpenDoorMD : MonoBehaviour
             {
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
-
-                    //this.gameObject.transform.eulerAngles += new Vector3(0, 90, 0);
                     doorController.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
                     isOpen = true;
                     alertGUI.SetActive(false);

@@ -19,6 +19,7 @@ public class ControllerBaseMedioevo : MonoBehaviour
     private bool skip = false;
     public Button skipButton;
     private bool oneDescriprion = false;
+
     private void Awake()
     {
         videoIntroCamera1.SetActive(true);
@@ -29,16 +30,16 @@ public class ControllerBaseMedioevo : MonoBehaviour
         timeToIntro = Time.time;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         this.gameObject.GetComponent<SaveLoad>().Save();
         InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
+        //Tempo intro
         if (Time.time - timeToIntro > 35 && contaActive == 0)
         {
             videoIntroCamera1.SetActive(false);

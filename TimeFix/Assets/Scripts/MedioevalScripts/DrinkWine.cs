@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*Attivazione frammento verde*/
 public class DrinkWine : MonoBehaviour
 {
 
     public GameObject alertGUI;
     private bool oneDrink = false;
- 
     public GameObject fragment;
- 
-    
 
-   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,9 +22,6 @@ public class DrinkWine : MonoBehaviour
                 alertGUI.gameObject.SetActive(true);
                 alertGUI.gameObject.GetComponent<Text>().text = "Premi il tasto  " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per bere vino";
             }
-
-
-
         }
     }
 
@@ -45,15 +38,8 @@ public class DrinkWine : MonoBehaviour
                     fragment.SetActive(true);
                     alertGUI.gameObject.SetActive(false);
                     oneDrink = true;
-
-
-
-
                 }
             }
-
-
-
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Apertura passaggio*/
 public class LV4_OpenUpAccess : MonoBehaviour
 {
     public Text textA, textB;
@@ -13,15 +14,13 @@ public class LV4_OpenUpAccess : MonoBehaviour
     private bool openUp = false;
 
 
-	// Start is called before the first frame update
-	void Start()
+    void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider>();
-        
+
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (openUp)

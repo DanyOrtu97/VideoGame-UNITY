@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//Slot per l'inventario
 public class Slot : MonoBehaviour
 {
     public GameObject item;

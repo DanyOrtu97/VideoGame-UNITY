@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*CXontrollo fine livello*/
 public class ActiveOrb : MonoBehaviour
 {
     public GameObject player;
@@ -29,11 +29,11 @@ public class ActiveOrb : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         { 
 
-
             if (isOrbActive == false)
             {
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
+                    //elementi da possedere
                     if (player.gameObject.GetComponent<Inventory>().checkItem("blueorbPorto")
                         && player.gameObject.GetComponent<Inventory>().checkItem("redorb") 
                         && player.gameObject.GetComponent<Inventory>().checkItem("greenorb") 
@@ -48,12 +48,12 @@ public class ActiveOrb : MonoBehaviour
 
                         alertGUI.gameObject.SetActive(false);
 
-                        gameController.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello2SunTemple");
+                        gameController.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello2SunTemple");//Cambio Livello
                     }
                     else
                     {
                         alertGUI.gameObject.GetComponent<Text>().text = "Ti servono le 3 sfere";
-                        if (finelvlporto.gameObject.GetComponent<EndLevel1>().isOnBoat() == false)
+                        if (finelvlporto.gameObject.GetComponent<EndLevel1>().isOnBoat() == false)//aspetta che anche l'altro giocatore abbia terminato
                         {
                             alertGUI.gameObject.GetComponent<Text>().text += " \n Attendi che Liam sia in viaggio";
                         }
@@ -61,10 +61,6 @@ public class ActiveOrb : MonoBehaviour
                     }
                 }
             }
-
-
-
-
         }
     }
 

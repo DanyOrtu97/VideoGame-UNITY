@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Hint finale*/
 public class FinalHint : MonoBehaviour
 {
 
@@ -10,17 +11,6 @@ public class FinalHint : MonoBehaviour
     public GameObject infoA, infoB;
     public GameObject SecretAccess;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -39,7 +29,7 @@ public class FinalHint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("PlayerA") )
+        if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(false);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Gestione apertura porta finale tramite password*/
 public class OpenHomeUltimateDoor : MonoBehaviour
 {
     public GameObject gameController;
@@ -29,7 +30,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
                 passwordB.gameObject.SetActive(false);
                 infoB.gameObject.SetActive(false);
                 textB.text = "Porta aperta!";
-                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen=true;
+                porta1.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
                 porta2.gameObject.GetComponent<DoorController>().isOpen = true;
             }
 
@@ -59,7 +60,7 @@ public class OpenHomeUltimateDoor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-      
+
 
         if (other.CompareTag("PlayerB"))
         {

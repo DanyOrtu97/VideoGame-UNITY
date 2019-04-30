@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+/*Controller Laboratory*/
 public class Controller_Laboratory : MonoBehaviour
 {
-    public Image sprite1A, sprite2A, sprite3A, sprite4A, sprite5A;
+    public Image sprite1A, sprite2A, sprite3A, sprite4A, sprite5A;//sprite inventario
     public Image sprite1B, sprite2B, sprite3B, sprite4B, sprite5B;
-    public GameObject fire1, fire2;
-    public int[] CollectibleA;
+    public GameObject fire1, fire2;//incendio finale
+    public int[] CollectibleA;//array presente collectibles con indice per scorrere
     private int indiceA = 0;
     public int[] CollectibleB;
     private int indiceB = 0;
     public GameObject PlayerA;
     public GameObject PlayerB;
-    public GameObject PlayerAOld;
+    public GameObject PlayerAOld;//liam e remy statici (per il finale)
     public GameObject PlayerBOld;
     public GameObject intro;
     public Text InteractionClose;
@@ -23,7 +23,7 @@ public class Controller_Laboratory : MonoBehaviour
     public GameObject Interface;
     private float timeToIntro = 0f;
     private int contaActive = 0;
-    private bool inventoryEnabledA = true, inventoryEnabledB = true;
+    private bool inventoryEnabledA = true, inventoryEnabledB = true;//variabili per gestione inventario
     public GameObject InterfaceCollectibleA, InterfaceCollectibleB;
     private bool skip = false;
     public GameObject skipButton;
@@ -45,14 +45,15 @@ public class Controller_Laboratory : MonoBehaviour
         CollectibleA = new int[] { 4, 4, 4, 4, 4 };
         indiceB = 0;
         CollectibleB = new int[] { 4, 4, 4, 4, 4 };
-        this.gameObject.GetComponent<SaveLoad>().Save();
+        this.gameObject.GetComponent<SaveLoad>().Save();//Salvataggio livello
         InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((Time.time - timeToIntro > 50 && contaActive == 0)||skip)
+        //Gestione Intro
+        if ((Time.time - timeToIntro > 50 && contaActive == 0) || skip)
         {
 
             skip = false;
@@ -69,12 +70,12 @@ public class Controller_Laboratory : MonoBehaviour
 
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
         {
-            intro.SetActive(false); 
+            intro.SetActive(false);
             PlayerA.SetActive(true);
             PlayerB.SetActive(true);
         }
 
-        //INTERFACE a 
+        //Gestione inventari A
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabledA)
         {
 
@@ -91,9 +92,7 @@ public class Controller_Laboratory : MonoBehaviour
         }
 
 
-
-
-        //INTERFACE b
+        //Gestione inventari A
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabledB)
         {
             inventoryEnabledB = !inventoryEnabledB;
@@ -166,7 +165,7 @@ public class Controller_Laboratory : MonoBehaviour
         }
     }
 
-    public void Explosion()
+    public void Explosion()//Controllo fine livello
     {
         int conta = 0;
 
@@ -203,10 +202,10 @@ public class Controller_Laboratory : MonoBehaviour
             Invoke("changeSceneGameOver", 4);
 
         }
-        
+
     }
 
-    public bool ExplosionTrue()
+    public bool ExplosionTrue()//Booleano condizioni di fine livello
     {
         int conta = 0;
 
@@ -248,7 +247,7 @@ public class Controller_Laboratory : MonoBehaviour
     }
 
     public void changeSceneGameOver()
-    { 
+    {
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Controllo piattaforma Liam*/
 public class PlatformControllerAA : MonoBehaviour
 {
     public GameObject PlatrformB;
@@ -17,11 +18,7 @@ public class PlatformControllerAA : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -50,7 +47,8 @@ public class PlatformControllerAA : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             on = true;
-            if (PlatrformB.GetComponent<PlatformControllerB>().on){
+            if (PlatrformB.GetComponent<PlatformControllerB>().on)
+            {
                 infoA.gameObject.SetActive(true);
                 textA.text = "Passaggio inferiore aperto per Liam";
                 audio.enabled = false;

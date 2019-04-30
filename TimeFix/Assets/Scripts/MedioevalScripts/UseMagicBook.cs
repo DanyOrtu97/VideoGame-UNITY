@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Controllo utilizzo libro magico per il trasferimento della sfera blukd*/
 public class UseMagicBook : MonoBehaviour
 {
 

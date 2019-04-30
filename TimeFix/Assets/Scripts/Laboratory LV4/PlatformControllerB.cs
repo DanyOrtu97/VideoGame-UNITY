@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Suono e controllo apertura passaggio inferiore tramite collisione nelle piattaforme*/
 public class PlatformControllerB : MonoBehaviour
 {
     public bool on = false;
@@ -35,12 +36,13 @@ public class PlatformControllerB : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             on = true;
 
-            if (PlatrformA.GetComponent<PlatformControllerAA>().on){
+            if (PlatrformA.GetComponent<PlatformControllerAA>().on)
+            {
                 infoB.gameObject.SetActive(true);
                 textB.text = "Passaggio inferiore aperto per Liam";
                 audio.enabled = false;
@@ -53,7 +55,8 @@ public class PlatformControllerB : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerB"))
         {
             on = true;
-            if (PlatrformA.GetComponent<PlatformControllerAA>().on){
+            if (PlatrformA.GetComponent<PlatformControllerAA>().on)
+            {
                 infoB.gameObject.SetActive(true);
                 textB.text = "Passaggio inferiore aperto per Liam";
                 audio.enabled = false;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Controller Medioeval Porto
 public class GameController : MonoBehaviour
 {
     private int counterElemBarca = 0;

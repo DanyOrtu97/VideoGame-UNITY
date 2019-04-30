@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Hint3
 public class Hint3_Book : MonoBehaviour
 {
     public GameObject allertGuiA;

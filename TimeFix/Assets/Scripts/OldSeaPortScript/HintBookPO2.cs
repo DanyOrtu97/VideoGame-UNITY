@@ -8,11 +8,8 @@ public class HintBookPO2 : MonoBehaviour
 {
 
     public GameObject alertGuiA;
-
     public GameObject panelGuiA;
     public GameObject alertGuiPanelA;
-
-
 
     private void OnTriggerEnter(Collider other)
     {

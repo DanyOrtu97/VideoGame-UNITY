@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Gestione leve per l'uscita del labirinto*/
 public class AttivaLeveLabirinto : MonoBehaviour
 {
     public GameObject luce1;
@@ -11,7 +11,7 @@ public class AttivaLeveLabirinto : MonoBehaviour
     public GameObject infoA;
     private bool flagOneMove = false;
     private int conta = 0;
-    // Update is called once per frame
+
     void Update()
     {
         if (flagOneMove && conta<1)

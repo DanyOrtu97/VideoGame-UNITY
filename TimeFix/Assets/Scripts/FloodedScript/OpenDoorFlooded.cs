@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Apertura generica porte*/
 public class OpenDoorFlooded : MonoBehaviour
 {
     public Text textA, textB;

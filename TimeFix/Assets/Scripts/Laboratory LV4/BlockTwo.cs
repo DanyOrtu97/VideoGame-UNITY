@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Hint piattaforme*/
 public class BlockTwo : MonoBehaviour
 {
 
@@ -11,17 +12,7 @@ public class BlockTwo : MonoBehaviour
     private bool controlRemy = false;
     private bool controlLiam = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {

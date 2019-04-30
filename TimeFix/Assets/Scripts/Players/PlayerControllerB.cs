@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Controllo movimento giocatore B
 public class PlayerControllerB : MonoBehaviour
 {
 
@@ -10,7 +10,7 @@ public class PlayerControllerB : MonoBehaviour
 	private CharacterController controller;
 	public float speed = 2f;
 	private float jumpForce = 10f;
-	private float gravity = 40f;
+	public float gravity = 40f;
 	private float rotation = 0f;
 	private float timeToGathering = 0f;
 	public float turnSpeed = 2f;
@@ -35,10 +35,8 @@ public class PlayerControllerB : MonoBehaviour
 		 * movimenti
 		 */
 
-
         float z = Input.GetAxis(InputAssign.keyDictMovement["PlayerBVertical"]);
         float x = Input.GetAxis(InputAssign.keyDictMovement["PlayerBHorizontal"]);
-
 
 
         if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) && !died)
@@ -72,14 +70,6 @@ public class PlayerControllerB : MonoBehaviour
 		{
 			animator.SetBool("Jump", false);
 		}
-
-        /*
-		if (Input.GetKeyDown(KeyCode.F) && tmp == false)
-		{
-			animator.SetBool("Take", true);
-			timeToGathering = Time.time;
-		}
-        */
 
 		moveDir.x = 0;
 		moveDir.z = 0;

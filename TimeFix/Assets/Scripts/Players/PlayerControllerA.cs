@@ -18,8 +18,6 @@ public class PlayerControllerA : MonoBehaviour
 	public bool tmp = false;
     private bool died = false;
 
-
-
      
 	// Start is called before the first frame update
 	void Start()
@@ -39,8 +37,6 @@ public class PlayerControllerA : MonoBehaviour
 		 */
         float z = Input.GetAxis(InputAssign.keyDictMovement["PlayerAVertical"]); 
         float x = Input.GetAxis(InputAssign.keyDictMovement["PlayerAHorizontal"]);
-
-
 
         if (z != 0 && (((Time.time - timeToGathering) > 4.8) || timeToGathering == 0) && !died)
 		{
@@ -74,22 +70,12 @@ public class PlayerControllerA : MonoBehaviour
 			animator.SetBool("Jump", false);
 		}
 
-        /*
-		if (Input.GetKeyDown(KeyCode.P) && tmp == false)
-		{
-			animator.SetBool("Take", true);
-			timeToGathering = Time.time;
-		}
-        */
 
 		moveDir.x = 0;
 		moveDir.z = 0;
 		moveDir.y -= gravity * Time.deltaTime;
 		controller.Move(moveDir * Time.deltaTime);
 
-
-
-		
 
 	}
 

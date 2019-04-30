@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Hint pietra e spostamento se inventario è corretto
 public class HintExtra_Stone : MonoBehaviour
 {
     public GameObject controller;
@@ -87,7 +88,7 @@ public class HintExtra_Stone : MonoBehaviour
 
    
 
-    IEnumerator MoveFunction()
+    IEnumerator MoveFunction()//Traslazione pietra
     {
         float timeSinceStarted = 0f;
         while (true)
@@ -96,13 +97,11 @@ public class HintExtra_Stone : MonoBehaviour
             
             this.gameObject.transform.localPosition = Vector3.Lerp(this.gameObject.transform.localPosition, newPosition, timeSinceStarted);
 
-            // If the object has arrived, stop the coroutine
             if (this.gameObject.transform.localPosition == newPosition)
             {
                 yield break;
             }
 
-            // Otherwise, continue next frame
             yield return null;
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Rotazione cabine*/
 public class RotateToOpen : MonoBehaviour
 {
     public Text textA, textB;
@@ -12,16 +13,14 @@ public class RotateToOpen : MonoBehaviour
     private float degree;
     public float speed;
 
-    // Start is called before the first frame update
     void Start()
-	{
+    {
         degree = 0f;
         speed = 4f;
-	}
+    }
 
-	// Update is called once per frame
-	void Update()
-	{
+    void Update()
+    {
         if (incrementa == true)
         {
             degree = (degree + 90) % 360;
@@ -36,7 +35,7 @@ public class RotateToOpen : MonoBehaviour
                 SecretAccess.gameObject.GetComponent<VerifyRotation>().insertDegree(degree, 1);
             }
 
-            else if(this.gameObject.GetComponent<RotateToOpen>().CompareTag("battery3"))
+            else if (this.gameObject.GetComponent<RotateToOpen>().CompareTag("battery3"))
             {
                 SecretAccess.gameObject.GetComponent<VerifyRotation>().insertDegree(degree, 2);
             }
@@ -47,8 +46,8 @@ public class RotateToOpen : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, degree, 0), Time.deltaTime * speed);
     }
 
-	private void OnCollisionEnter(Collision collision)
-	{
+    private void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);
@@ -60,9 +59,9 @@ public class RotateToOpen : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("PlayerB") )
+        if (collision.gameObject.CompareTag("PlayerB"))
         {
-            
+
             infoB.gameObject.SetActive(true);
             textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare";
             if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
@@ -72,11 +71,11 @@ public class RotateToOpen : MonoBehaviour
         }
     }
 
-	private void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.CompareTag("PlayerA") )
-		{
-            
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerA"))
+        {
+
             infoA.gameObject.SetActive(true);
 
             textA.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per ruotare";
@@ -89,7 +88,7 @@ public class RotateToOpen : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerB"))
         {
-            
+
             infoB.gameObject.SetActive(true);
             textB.text = "Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per ruotare";
 
@@ -101,8 +100,8 @@ public class RotateToOpen : MonoBehaviour
         }
     }
 
-	private void OnCollisionExit(Collision collision)
-	{
+    private void OnCollisionExit(Collision collision)
+    {
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(false);

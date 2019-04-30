@@ -2,17 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Testo che scorre a ogni inizio livello
 public class DialedText : MonoBehaviour
 {
 
     public float letterPause ;
-    //public AudioClip typeSound1;
-    //public AudioClip typeSound2;
-
     string message;
     Text textComp;
 
-    // Use this for initialization
     void Start()
     {
         textComp = GetComponent<Text>();
@@ -26,8 +23,6 @@ public class DialedText : MonoBehaviour
         foreach (char letter in message.ToCharArray())
         {
             textComp.text += letter;
-            //if (typeSound1 && typeSound2)
-              //  SoundManager.instance.RandomizeSfx(typeSound1, typeSound2);
             yield return 0;
             yield return new WaitForSeconds(letterPause);
         }

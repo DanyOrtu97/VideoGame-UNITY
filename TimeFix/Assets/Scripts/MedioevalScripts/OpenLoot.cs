@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Apertura casse*/
 public class OpenLoot : MonoBehaviour
 {
     public Text alertGUI;
     public InputField password;
     private bool openUp = false;
     public GameObject content;
-   
 
-    
-
-    
 
     public bool isOpenUp()
     {

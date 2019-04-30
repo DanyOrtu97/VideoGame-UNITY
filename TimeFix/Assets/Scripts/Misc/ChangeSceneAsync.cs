@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Cambiamento async delle scene
 public class ChangeSceneAsync : MonoBehaviour
 {
 
@@ -12,7 +13,6 @@ public class ChangeSceneAsync : MonoBehaviour
     public Slider loadingProgbar;
     public Text loadingText;
 
-    // the actual percentage while scene is fully loaded
     private const float LOAD_READY_PERCENTAGE = 0.90f;
 
     public void ChangeScene(string sceneName)

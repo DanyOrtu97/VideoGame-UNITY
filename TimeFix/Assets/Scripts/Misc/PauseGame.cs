@@ -5,23 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
-
     public GameObject pausa;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pausa.SetActive(true);
         }
-
 
     }
 

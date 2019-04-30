@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Interazione fine livello*/
 public class FinalStage : MonoBehaviour
 {
 
@@ -11,16 +11,6 @@ public class FinalStage : MonoBehaviour
     public GameObject PlayerA, PlayerB;
     public GameObject gameController;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -51,7 +41,7 @@ public class FinalStage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        
+
         if (other.CompareTag("PlayerA"))
         {
             infoA.gameObject.SetActive(true);

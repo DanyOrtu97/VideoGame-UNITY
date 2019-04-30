@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Gestione dell'inventario per il 3 livello.*/
 public class InventarioFlooded : MonoBehaviour
 {
     private List<string> inventarioA = new List<string>();
@@ -19,10 +20,9 @@ public class InventarioFlooded : MonoBehaviour
 
     }
 
-
+    /*isValid verifica la completezza dell'inventario di entrambi i giocatori*/
     public bool isValidA()
     {
- 
 
         if (inventarioA.Contains("Nebulizzatore") && inventarioA.Contains("TurboSpazzola") && inventarioA.Contains("Carburante"))
         {
@@ -33,7 +33,6 @@ public class InventarioFlooded : MonoBehaviour
 
     public bool isValidB()
     {
-
 
         if (inventarioB.Contains("Nebulizzatore") && inventarioB.Contains("TurboSpazzola") && inventarioB.Contains("Carburante"))
         {

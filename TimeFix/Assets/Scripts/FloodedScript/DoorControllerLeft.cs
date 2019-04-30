@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Controllo apertura animazione porte*/
 public class DoorControllerLeft : MonoBehaviour
 {
     public bool isOpen = false;
@@ -9,7 +10,6 @@ public class DoorControllerLeft : MonoBehaviour
     public float speed = 3;
 
 
-    // Update is called once per frame
     void Update()
     {
         if (isOpen)

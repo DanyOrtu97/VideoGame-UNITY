@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+/*Script utilizzo video*/
 public class StreamVideo : MonoBehaviour
 {
 	public RawImage rawImage;
 	public VideoPlayer videoPlayer;
 	public AudioSource audioSource;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		StartCoroutine(PlayVideo());

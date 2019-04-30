@@ -3,21 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Hint iniziale liams*/
 public class HintOne : MonoBehaviour
 {
     public Text textA;
     public GameObject infoA;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,6 +36,6 @@ public class HintOne : MonoBehaviour
             infoA.gameObject.SetActive(false);
         }
 
-     }
+    }
 
 }

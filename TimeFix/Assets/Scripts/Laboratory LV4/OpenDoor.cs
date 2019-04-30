@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Apertura porte generico, derivante da asset esternis*/
 public class OpenDoor : MonoBehaviour
 {
 	public bool colliderr = false;

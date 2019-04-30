@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Controler livello 3 Flooded*/
 public class ControllerFlooded : MonoBehaviour
 {
     public GameObject luceCentrale;
@@ -46,17 +47,19 @@ public class ControllerFlooded : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //inizializzazione collectibles
         indiceA = 0;
         CollectibleA = new int[] { 4, 4, 4 };
         indiceB = 0;
         CollectibleB = new int[] { 4, 4, 4 };
-        this.gameObject.GetComponent<SaveLoad>().Save();
+        this.gameObject.GetComponent<SaveLoad>().Save();//salvataggio del livello
         InteractionClose.text = "Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per continuare!";
     }
 
     // Update is called once per frame
     void Update()
     {
+        //gestione video intro
         if ((Time.time - timeIntro > 64 && contaInizio == 0) || skip)
         {
             skip = false;
@@ -73,7 +76,7 @@ public class ControllerFlooded : MonoBehaviour
             intro.SetActive(false);
         }
 
-        //INTERFACE a 
+        //Gestione inventario player A
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInventario"]) && inventoryEnabledA)
         {
             inventoryEnabledA = !inventoryEnabledA;
@@ -90,7 +93,7 @@ public class ControllerFlooded : MonoBehaviour
 
 
 
-        //INTERFACE b
+        //Gestione inventario player b
         if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInventario"]) && inventoryEnabledB)
         {
             inventoryEnabledB = !inventoryEnabledB;
@@ -107,7 +110,7 @@ public class ControllerFlooded : MonoBehaviour
 
     }
 
-    public void AddLight()
+    public void AddLight()//Controllo luci per sblocco labirinto
     {
 
         contaLuci++;
@@ -130,7 +133,7 @@ public class ControllerFlooded : MonoBehaviour
     }
 
 
-    public void collectibleA()
+    public void collectibleA()//gestione collectibles
     {
         if (indiceA < 3)
         {
@@ -152,7 +155,7 @@ public class ControllerFlooded : MonoBehaviour
         }
     }
 
-    public void collectibleB()
+    public void collectibleB()//gestione collectibles
     {
         if (indiceB < 3)
         {
@@ -173,17 +176,17 @@ public class ControllerFlooded : MonoBehaviour
             indiceB++;
         }
     }
-    public void AddNavicella(string player)
+    public void AddNavicella(string player)//controllo cambipo livello
     {
         listplayerNavicella.Add(player);
         if (listplayerNavicella.Contains("PlayerA") && listplayerNavicella.Contains("PlayerB") && lockR == false)
         {
-            lockR = true;
+            lockR = true;//LockR necessario per non richiamare inutilmente ChangeScene più volte
             this.gameObject.GetComponent<ChangeSceneAsync>().ChangeScene("Livello4Laboratory");
 
         }
     }
-    public void pressSkip()
+    public void pressSkip()//Gestione tasto skip intro
     {
         skip = true;
     }

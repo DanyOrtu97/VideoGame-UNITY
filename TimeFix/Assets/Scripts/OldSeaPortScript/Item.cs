@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Identità per ogni oggetto raccoglibile
 public class Item : MonoBehaviour
 {
     

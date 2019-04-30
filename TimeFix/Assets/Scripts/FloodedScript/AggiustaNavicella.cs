@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Controllo pezzi per la navicella finale*/
 public class AggiustaNavicella : MonoBehaviour
 {
 
@@ -22,7 +23,7 @@ public class AggiustaNavicella : MonoBehaviour
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidA())
             {
                 textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
-                
+
 
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
@@ -53,10 +54,10 @@ public class AggiustaNavicella : MonoBehaviour
                     navicellaAggiustata.SetActive(true);
                     infoB.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
-                    
-                   
+
+
                 }
-                
+
             }
             else
             {
@@ -78,8 +79,8 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidA())
             {
-                 textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
-                
+                textA.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerAInteract"] + " per aggiustarla!";
+
 
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerAInteract"]))
                 {
@@ -102,15 +103,15 @@ public class AggiustaNavicella : MonoBehaviour
 
             if (gameController.gameObject.GetComponent<InventarioFlooded>().isValidB())
             {
-               textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
+                textB.text = "Navicella rotta, Premi " + InputAssign.keyDictInteractString["PlayerBInteract"] + " per aggiustarla!";
 
                 if (Input.GetKeyDown(InputAssign.keyDictInteract["PlayerBInteract"]))
                 {
                     navicellaAggiustata.SetActive(true);
                     infoB.gameObject.SetActive(false);
                     this.gameObject.SetActive(false);
-                    
-                   
+
+
                 }
 
             }

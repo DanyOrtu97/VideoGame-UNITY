@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Game Controller Villaggio, per la gestione dei collectibles*/
 public class GameController2 : MonoBehaviour
 {
 
@@ -10,7 +10,7 @@ public class GameController2 : MonoBehaviour
     private int hammerCounter = 0;
 
 
-    
+
     public int getCounterIron()
     {
         return ironCounter;

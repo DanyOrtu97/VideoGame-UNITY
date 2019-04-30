@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script secondo scermo prisma
 public class EnablePrism : MonoBehaviour
 {
 
-
-    // Use this for initialization
     void Start()
     {
         Debug.Log("displays connected: " + Display.displays.Length);

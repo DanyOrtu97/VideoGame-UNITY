@@ -3,29 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*Barriera casa finale*/
 public class RemoveMageBarrior : MonoBehaviour
 {
-   
+
     public InputField password;
     public Text alertGUI;
+    BoxCollider box;
 
-
-
-    BoxCollider box; 
-
-    // Start is called before the first frame update
     void Start()
     {
         box = gameObject.GetComponent<BoxCollider>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -47,7 +37,7 @@ public class RemoveMageBarrior : MonoBehaviour
             if (password.text.Equals("debarrier"))
             {
                 alertGUI.gameObject.SetActive(false);
-                
+
                 box.isTrigger = true;
 
                 password.gameObject.SetActive(false);

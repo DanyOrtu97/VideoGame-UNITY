@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+
 public class OpenTempleDoor : MonoBehaviour
 {
 
@@ -16,9 +17,9 @@ public class OpenTempleDoor : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rightStatue.Count == 3)
+        if (rightStatue.Count == 3)//statue corrette da dover girare a 90°
         {
-            if (Time.time-startTime > 5)
+            if (Time.time-startTime > 5&&Time.time - startTime < 6)
             {
                 allerGUIA.gameObject.SetActive(false);
                 allerGUIB.gameObject.SetActive(false);
@@ -26,7 +27,7 @@ public class OpenTempleDoor : MonoBehaviour
             }
         }
     }
-    public void AddStatue(string tag)
+    public void AddStatue(string tag)//aggiunta statua posizione corretta
     {
         rightStatue.Add(tag);
         if (rightStatue.Count == 3)
@@ -39,7 +40,7 @@ public class OpenTempleDoor : MonoBehaviour
             allerGUIB.gameObject.GetComponent<Text>().text = "Porta Aperta";
         }
     }
-    public void RemoveStatue(string tag)
+    public void RemoveStatue(string tag)//rimozione statua dall'elenco delle statue corrette
     {
         rightStatue.Remove(tag);
         if (rightStatue.Count == 2)

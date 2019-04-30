@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Gestione assegnamento dinamico tasti*/
 public class InputAssign : MonoBehaviour
 {
-    public static Dictionary<string, string> keyDictMovement = new Dictionary<string, string>() {
+    public static Dictionary<string, string> keyDictMovement = new Dictionary<string, string>() {//movimenti
         { "PlayerAHorizontal","Horizontal"},
         { "PlayerAVertical","Vertical"},
         { "PlayerBHorizontal","HorizontalB"},
         { "PlayerBVertical","VerticalB"},
 
     };
-    public static Dictionary<string, KeyCode> keyDictInteract = new Dictionary<string, KeyCode>() {
+    public static Dictionary<string, KeyCode> keyDictInteract = new Dictionary<string, KeyCode>() {//interazione
         { "PlayerAInteract",KeyCode.E},
         { "PlayerBInteract",KeyCode.Return},
         { "PlayerAJump",KeyCode.Space},
@@ -20,7 +21,7 @@ public class InputAssign : MonoBehaviour
         { "PlayerAInventario",KeyCode.Tab},
         { "PlayerBInventario",KeyCode.RightShift},
     };
-    public static Dictionary<string, string> keyDictInteractString = new Dictionary<string, string>() {
+    public static Dictionary<string, string> keyDictInteractString = new Dictionary<string, string>() {//stringhe per la stampa negli allert per l'utente
         { "PlayerAInteract","E"},
         { "PlayerBInteract","Invio"},
     };

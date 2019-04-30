@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Apertura portone se le luci sono accese
 public class GateOpener1 : MonoBehaviour
 {
     public GameObject light1;
@@ -12,24 +13,13 @@ public class GateOpener1 : MonoBehaviour
     public GameObject glass2;
     public GameObject otherGate;
     public GameObject doorControl;
-    //private Transform tr;
     private bool controlClosure = false;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //tr = gameObject.GetComponent<Transform>();
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
 
         if (light1.gameObject.active && light2.gameObject.active && controlClosure == false)
         {
-            //tr.eulerAngles += new Vector3(0, 90, 0);
             doorControl.gameObject.GetComponent<DoorControllerLeft>().isOpen = true;
             controlClosure = true;
             light3.gameObject.SetActive(false);
